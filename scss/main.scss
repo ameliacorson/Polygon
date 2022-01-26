@@ -1,0 +1,65 @@
+@import 'config';
+@import 'nav';
+
+body {
+    font-family: $font-family-body;
+}
+
+header {
+    font-family: $font-family-logo;
+    background: $background-color;
+    background-image: url(../img/bw-restaurant.jpeg);
+    background-position: center;
+    background-blend-mode: multiply;
+    height: 100vh;
+    @include flex(column);
+
+    &.scrolled {
+        position: fixed;
+        top:0;
+        width: 100%;
+        height: 10vh;
+        @include flex(row);
+        justify-content: space-between;
+        padding: 0 1em;
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 4rem;
+
+        span {
+            color: $accent-color;
+        }
+    }
+}
+
+section {
+    min-height: 100vh;
+    @include flex(column);
+
+    &.inverse {
+        background: $background-color;
+        color: #fff;
+    }
+}
+
+.carosel {
+    margin-top: 1em;
+    padding: 0;
+    img.carosel-item {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+        display: none;
+
+        &__visible{
+            display: block;
+        }
+    }
+}
+

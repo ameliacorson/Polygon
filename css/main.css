@@ -1,0 +1,113 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  font-family: "Bebas Neue", cursive;
+  background: #404040;
+  background-image: url(../img/bw-restaurant.jpeg);
+  background-position: center;
+  background-blend-mode: multiply;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header.scrolled {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1em;
+}
+
+header.scrolled h1 {
+  font-size: 2rem;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 4rem;
+}
+
+header h1 span {
+  color: #ccad59;
+}
+
+section {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.inverse {
+  background: #404040;
+  color: #fff;
+}
+
+.carosel {
+  margin-top: 1em;
+  padding: 0;
+}
+
+.carosel img.carosel-item {
+  width: 100%;
+  height: 50vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: none;
+}
+
+.carosel img.carosel-item__visible {
+  display: block;
+}
+/*# sourceMappingURL=main.css.map */
