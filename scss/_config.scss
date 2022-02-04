@@ -5,8 +5,9 @@
 }
 
 $background-color: #404040;
+$menu-color:#2c2c2c;
 $accent-color: #ccad59;
-$font-color: #fff;
+$font-color: rgb(240, 238, 238);
 
 $font-family-logo: 'Bebas Neue', cursive;
 $font-family-body: 'Roboto', sans-serif;
@@ -16,4 +17,8 @@ $font-family-body: 'Roboto', sans-serif;
     justify-content: center;
     align-items: center;
     flex-direction: $direction
+}
+
+@mixin transition-ease {
+    transition: all 500ms ease;
 }
