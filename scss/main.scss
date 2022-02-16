@@ -3,6 +3,10 @@
 @import "banner";
 @import "carousel";
 
+* {
+  border: 1px solid red;
+}
+
 body {
   font-family: $font-family-body;
   background: $background-color;
@@ -24,27 +28,12 @@ header {
   height: 100vh;
   @include flex(column);
 
-  svg {
-    width: 80px;
-    fill: none;
-    position: absolute;
-    top: 39%;
-    left: 11%;
-    stroke: $accent-color;
-    opacity: 75%;
-    z-index: 0;
-
+  .scrolled {
+    background-image: none;
   }
 
-  h1 {
-    color: #fff;
-    font-size: 4rem;
-    z-index: 1;
-    margin-left: 1em;
-
-    span {
-      color: $accent-color;
-    }
+  img.logo-img {
+    border: 1px solid red;
   }
 }
 
