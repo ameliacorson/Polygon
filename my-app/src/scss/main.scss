@@ -2,10 +2,7 @@
 @import "nav";
 @import "banner";
 @import "carousel";
-
-* {
-  border: 1px solid red;
-}
+@import "header";
 
 body {
   font-family: $font-family-body;
@@ -19,23 +16,7 @@ body {
   margin: 0 auto;
 }
 
-header {
-  font-family: $font-family-logo;
-  background: $background-color;
-  background-image: url(../img/bw-restaurant.jpeg);
-  background-position: center;
-  background-blend-mode: multiply;
-  height: 100vh;
-  @include flex(column);
 
-  .scrolled {
-    background-image: none;
-  }
-
-  img.logo-img {
-    border: 1px solid red;
-  }
-}
 
 section {
   min-height: 100vh;
