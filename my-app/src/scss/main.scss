@@ -1,8 +1,8 @@
 @import "config";
 @import "nav";
-@import "banner";
 @import "carousel";
 @import "header";
+@import "about";
 
 body {
   font-family: $font-family-body;
@@ -19,7 +19,6 @@ body {
 
 
 section {
-  min-height: 100vh;
   @include flex(column);
 
   &.inverse {

@@ -170,46 +170,6 @@ nav.open {
   transition: all 500ms ease;
 }
 
-.banner {
-  background: #ccad59;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.banner a {
-  width: 100%;
-  height: 100%;
-  background: #ccad59;
-  text-align: center;
-  padding: 1.5em;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #404040;
-  letter-spacing: 2px;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
-
-.banner a:hover {
-  background: #d4ba74;
-  letter-spacing: 2.5px;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
-
 .carousel {
   height: 50vh;
   width: 100%;
@@ -235,7 +195,8 @@ header {
   background-image: url(../img/bw-restaurant.jpeg);
   background-position: center;
   background-blend-mode: multiply;
-  height: 100vh;
+  background-repeat: none;
+  height: 45vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -278,14 +239,15 @@ header img {
 header .CTA-btn {
   background-color: #ccad59;
   color: #404040;
-  font-size: 1em;
+  font-size: 1.2em;
   border: none;
   padding: .7em 1.5em;
-  margin-top: -3em;
-  margin-right: 1.5em;
+  margin-top: -2.5em;
+  margin-right: 1.2em;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
+  font-family: "Bebas Neue", cursive;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -298,6 +260,40 @@ header .CTA-btn:hover {
 
 header .scrolled {
   background-image: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+}
+
+.about h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2em;
+  margin-bottom: .5em;
+}
+
+.about h2 span {
+  color: #ccad59;
 }
 
 body {
@@ -313,7 +309,6 @@ body {
 }
 
 section {
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

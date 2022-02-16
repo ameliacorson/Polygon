@@ -7,7 +7,7 @@ header {
     background-position: center;
     background-blend-mode: multiply;
     background-repeat: none;
-    height: 50vh;
+    height: 45vh;
     @include flex(column);
 
     .header-container {
@@ -24,14 +24,15 @@ header {
     .CTA-btn {
         background-color: $accent-color;
         color: $background-color;
-        font-size: 1em;
+        font-size: 1.2em;
         border: none;
         padding: .7em 1.5em;
         margin-top: -2.5em;
-        margin-right: 1.5em;
+        margin-right: 1.2em;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 2px;
+        font-family: $font-family-logo;
         @include transition-ease;
 
         &:hover {
