@@ -1,24 +1,35 @@
-import React from "react";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import React from "react"
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 
-export default function Map() {({
-        center,
-        zoom,
-      }: {
-        center: google.maps.LatLngLiteral;
-        zoom: number;
-      }) {
-        const ref = useRef();
-      
-        useEffect(() => {
-          new window.google.maps.Map(ref.current, {
-            center,
-            zoom,
-          });
-        });
-      
-        return <div ref={ref} id="map" />;
-      }
+
+export default function Map() {
+    const { isLoaded, loadError } = useLoadScript({
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
+      });
     
-}
+      if (loadError) return 'Error loading maps';
+      if (!isLoaded) return 'Loading maps';
+    
+      const center = {
+        lat: 41.97684424816879,
+        lng: -87.66850589629361
+      };
+
+      const containerStyle = {
+        width: '200px',
+        height: '200px',
+      };
+
+
+return (
+    <div className="Map">
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={15}
+      ></GoogleMap>
+    </div>
+    
+)}

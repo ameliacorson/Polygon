@@ -1,6 +1,5 @@
 import React from "react";
 import Map from "../components/Map";
-import { Wrapper } from "@googlemaps/react-wrapper";
 
 export default function About() {
   return (
@@ -10,7 +9,7 @@ export default function About() {
       </h2>
       <div className="about-details">
         <h4>Map</h4>
-        
+         <Map />
         <p></p>
       </div>
       <p>
