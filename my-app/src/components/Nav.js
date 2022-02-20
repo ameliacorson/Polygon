@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
-  // navToggle.classList.toggle("open")
-  // nav.classList.toggle("open")
-  // menu.classList.toggle("open")
 
   const [navState, setNavState] = React.useState("closed");
 
@@ -28,18 +25,19 @@ export default function Nav() {
       <nav id="nav" className={navState}>
         <ul className="nav-list">
           <li className="nav-item">
-            <link to="/"> Home </link>
+            <Link onClick={toggle} to="/"> Home </Link>
           </li>
           <li className="nav-item">
-            <link to="/about">About</link>
+            <Link onClick={toggle} to="/about">About</Link>
           </li>
           <li className="nav-item">
-          <link to="/menu">Menu</link>
+            {/* <Link to="/menu">Menu</Link> */}
           </li>
           <li className="nav-item">
-          <link to="/order">Order Online</link>
+            {/* <Link to="/order">Order Online</Link> */}
           </li>
         </ul>
+        
       </nav>
     </div>
   );

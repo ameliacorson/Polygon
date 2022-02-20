@@ -1,8 +1,13 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import {
+  Route,
+  Routes,
+} from "react-router-dom";
 
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+
+import Home from "./Pages/Home";
 import About from "./Pages/About";
 
 export default function App() {
@@ -10,7 +15,10 @@ export default function App() {
     <div>
       <Nav />
       <Header />
-
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
     </div>
   );
 }
