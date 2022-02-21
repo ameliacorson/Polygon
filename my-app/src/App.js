@@ -7,8 +7,10 @@ import {
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 
+
 import Home from "./Pages/Home";
 import About from "./Pages/About";
+import Order from "./Pages/Order"
 
 export default function App() {
   return (
@@ -18,6 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/Order" element={<Order />} />
         </Routes>
     </div>
   );

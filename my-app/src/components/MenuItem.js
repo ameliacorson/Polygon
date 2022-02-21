@@ -1,0 +1,10 @@
+import React from "react";
+
+export default function menuItem(props) {
+  return (
+    <div className="menu-item">
+      <h4>{props.name}</h4>
+      <p> {props.description}</p>
+    </div>
+  );
+}

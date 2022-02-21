@@ -296,6 +296,20 @@ header .scrolled {
   color: #ccad59;
 }
 
+.menu-section {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: .5em;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.menu-item {
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: .5em;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: #404040;

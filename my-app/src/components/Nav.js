@@ -34,7 +34,7 @@ export default function Nav() {
             {/* <Link to="/menu">Menu</Link> */}
           </li>
           <li className="nav-item">
-            {/* <Link to="/order">Order Online</Link> */}
+            <Link onClick={toggle} to="/order">Order Online</Link>
           </li>
         </ul>
         

@@ -1,0 +1,14 @@
+
+
+.menu-section {
+    display: grid;
+    grid-gap: .5em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    
+}
+
+.menu-item {
+    border: 1px solid white;
+    border-radius: 7px;
+    padding: .5em;
+}

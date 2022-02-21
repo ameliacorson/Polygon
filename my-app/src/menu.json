@@ -1,6 +1,5 @@
 {
-  "menu": {
-    "appetizers": [
+  "appetizers": [
       {
         "id": "1",
         "name": "Edamame",
@@ -330,5 +329,4 @@
             "price": 3.50
           }
     ]
-  }
 }
