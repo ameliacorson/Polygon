@@ -46,6 +46,18 @@ export default function Order() {
     )
   }
 
+  function closePopup() {
+    console.log("click")
+    setPopupOn(false)
+    setAppetizers((prevApps) =>
+    prevApps.map((app) => {
+      return {
+        ...app,
+        popup: false
+      }
+    })
+    )}
+
   function createElements(section) {
     return section.map((element) => {
       return (
@@ -73,7 +85,9 @@ export default function Order() {
       <h3> Appetizers </h3>
       <div className="menu-section">
         <AppetizersElements />
-        <Popup />
+        {popupOn && <Popup 
+        closePopup={() => closePopup()}
+        />}
       </div>
       <h3>Mains</h3>
       <div className="menu-section">
