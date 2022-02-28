@@ -35,10 +35,11 @@ export default function Order() {
   }, []);
 
   //this function below will launch the pop-up window
-  function launchPopupAppetizer(appId) {
-    setAppetizers((prevApps) =>
+  function launchPopup(category, id) {
+    if (category === appetizers){
+      setAppetizers((prevApps) =>
       prevApps.map((app) => {
-        if (app.id === appId) {
+        if (app.id === id) {
           return {
             ...app,
             popup: true,
@@ -46,28 +47,52 @@ export default function Order() {
         } else {
           return app;
         }
-      })
-    );
-  }
-
-  // function launchPopupMains(mainsId) {
-  //   setMains((prevMains) =>
-  //   prevMains.map((main) => {
-  //     if (main.id === mainsId) {
-  //       return {
-  //         ...main,
-  //         popup: true,
-  //       };
-  //     } else {
-  //       return main;
-  //     }
-  //   })
-  //   )
-  // }
+      }))
+    
+    } else if (category === mains) {
+      setMains((prevMains) =>
+      prevMains.map((main) => {
+        if (main.id === id) {
+          return {
+            ...main,
+            popup: true,
+          };
+        } else {
+          return main;
+        }
+      }))
+    } else if (category === sides) {
+      setSides((prevSides) =>
+      prevSides.map((side) => {
+        if (side.id === id) {
+          return {
+            ...side,
+            popup: true,
+          };
+        } else {
+          return side;
+        }
+      }))
+    } else if (category === drinks) {
+      setDrinks((prevDrinks) =>
+      prevDrinks.map((drink) => {
+        if (drink.id === id) {
+          return {
+            ...drink,
+            popup: true,
+          };
+        } else {
+          return drink;
+        }
+      }))
+    }
+    }
+  
 
   React.useEffect(() => {
-    setPopupItem(appetizers.find((app) => app.popup === true));
-  }, [appetizers]);
+    const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks]
+    setPopupItem(allMenuOptions.find(item => item.popup === true))
+  }, [appetizers, mains, sides, drinks]);
 
   React.useEffect(() => {
     console.log(popupItem)
@@ -83,6 +108,30 @@ export default function Order() {
         };
       })
     );
+    setMains((prevMains) =>
+      prevMains.map((main) => {
+        return {
+          ...main,
+          popup: false,
+        };
+      })
+    );
+    setSides((prevSides) =>
+    prevSides.map((side) => {
+      return {
+        ...side,
+        popup: false,
+      };
+    })
+  );
+  setDrinks((prevDrinks) =>
+    prevDrinks.map((drink) => {
+      return {
+        ...drink,
+        popup: false,
+      };
+    })
+  );
   }
 
   function createElements(section) {
@@ -93,7 +142,7 @@ export default function Order() {
           description={element.description}
           key={element.id}
           price={element.price}
-          onclick={() => launchPopupAppetizer(element.id)}
+          onclick={() => launchPopup(section, element.id)}
         />
       );
     });
