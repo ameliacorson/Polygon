@@ -9,8 +9,7 @@ export default function Order() {
   const [mains, setMains] = React.useState([]);
   const [sides, setSides] = React.useState([]);
   const [drinks, setDrinks] = React.useState([]);
-  const [popupOn, setPopupOn] = React.useState(false)
-  const [popupItem, setPopupItem] = React.useState()
+  const [popupItem, setPopupItem] = React.useState();
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
@@ -20,6 +19,9 @@ export default function Order() {
           description: element.description,
           id: element.id,
           price: element.price,
+          choice: element.choice,
+          spicy: element.spicy,
+          rice: element.rice,
           popup: false,
           inCart: false,
           inCartQuantity: 0,
@@ -32,52 +34,56 @@ export default function Order() {
     setDrinks(createMenuObjects(Menu.drinks));
   }, []);
 
-
   //this function below will launch the pop-up window
   function launchPopupAppetizer(appId) {
-    setPopupOn(true)
     setAppetizers((prevApps) =>
-    prevApps.map((app) => {
-      if (app.id === appId) {
-        console.log("match", 1)
-        console.log(app, 2)
-        return {
-          ...app,
-          popup: true,
-        };
-      } else {
-          return app
+      prevApps.map((app) => {
+        if (app.id === appId) {
+          return {
+            ...app,
+            popup: true,
+          };
+        } else {
+          return app;
         }
-    })
-    )
+      })
+    );
   }
 
-  console.log(appetizers, 3)
+  // function launchPopupMains(mainsId) {
+  //   setMains((prevMains) =>
+  //   prevMains.map((main) => {
+  //     if (main.id === mainsId) {
+  //       return {
+  //         ...main,
+  //         popup: true,
+  //       };
+  //     } else {
+  //       return main;
+  //     }
+  //   })
+  //   )
+  // }
+
+  React.useEffect(() => {
+    setPopupItem(appetizers.find((app) => app.popup === true));
+  }, [appetizers]);
+
+  React.useEffect(() => {
+    console.log(popupItem)
+  }, [popupItem]);
 
   function closePopup() {
-    setPopupOn(false)
-    setPopupItem(undefined)
+    setPopupItem(undefined);
     setAppetizers((prevApps) =>
-    prevApps.map((app) => {
-      return {
-        ...app,
-        popup: false
-      }
-    })
-    )
-  console.log(appetizers)
+      prevApps.map((app) => {
+        return {
+          ...app,
+          popup: false,
+        };
+      })
+    );
   }
-
-//   <Popup 
-//   name={clicked.name}
-//   description={clicked.description}
-//   id={clicked.id}
-//   price={clicked.price}
-//   popup={clicked.popup}
-//   inCart={clicked.inCart}
-//   inCartQuantity={clicked.inCartQuantity}
-//   closePopup={() => closePopup()}
-// />
 
   function createElements(section) {
     return section.map((element) => {
@@ -98,15 +104,13 @@ export default function Order() {
   const SidesElements = () => createElements(sides);
   const DrinksElements = () => createElements(drinks);
 
-
   return (
     <div className="order-container container">
-
       <h2> Menu </h2>
       <h3> Appetizers </h3>
       <div className="menu-section">
         <AppetizersElements />
-        {popupOn && <Popup closePopup={() => closePopup()} />}
+        {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       </div>
       <h3>Mains</h3>
       <div className="menu-section">

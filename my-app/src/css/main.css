@@ -351,6 +351,7 @@ header .scrolled {
   width: 100%;
   max-width: 500px;
   background: white;
+  color: black;
 }
 
 body {
