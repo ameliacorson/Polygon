@@ -5,7 +5,7 @@ function Popup(props) {
     <div className='popup'>
         <div className='popup-container'>
         <button onClick={props.closePopup}> x </button>
-        <h1>hey</h1>
+        <h1>{props.name}</h1>
         </div>
        
     </div>

@@ -10,6 +10,7 @@ export default function Order() {
   const [sides, setSides] = React.useState([]);
   const [drinks, setDrinks] = React.useState([]);
   const [popupOn, setPopupOn] = React.useState(false)
+  const [popupItem, setPopupItem] = React.useState()
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
@@ -31,24 +32,31 @@ export default function Order() {
     setDrinks(createMenuObjects(Menu.drinks));
   }, []);
 
-  function setPopupApp(appId) {
+
+  //this function below will launch the pop-up window
+  function launchPopupAppetizer(appId) {
     setPopupOn(true)
     setAppetizers((prevApps) =>
     prevApps.map((app) => {
       if (app.id === appId) {
+        console.log("match", 1)
+        console.log(app, 2)
         return {
           ...app,
           popup: true,
-        }} else {
+        };
+      } else {
           return app
         }
     })
     )
   }
 
+  console.log(appetizers, 3)
+
   function closePopup() {
-    console.log("click")
     setPopupOn(false)
+    setPopupItem(undefined)
     setAppetizers((prevApps) =>
     prevApps.map((app) => {
       return {
@@ -56,7 +64,20 @@ export default function Order() {
         popup: false
       }
     })
-    )}
+    )
+  console.log(appetizers)
+  }
+
+//   <Popup 
+//   name={clicked.name}
+//   description={clicked.description}
+//   id={clicked.id}
+//   price={clicked.price}
+//   popup={clicked.popup}
+//   inCart={clicked.inCart}
+//   inCartQuantity={clicked.inCartQuantity}
+//   closePopup={() => closePopup()}
+// />
 
   function createElements(section) {
     return section.map((element) => {
@@ -66,7 +87,7 @@ export default function Order() {
           description={element.description}
           key={element.id}
           price={element.price}
-          onclick={() => setPopupApp(element.id)}
+          onclick={() => launchPopupAppetizer(element.id)}
         />
       );
     });
@@ -85,9 +106,7 @@ export default function Order() {
       <h3> Appetizers </h3>
       <div className="menu-section">
         <AppetizersElements />
-        {popupOn && <Popup 
-        closePopup={() => closePopup()}
-        />}
+        {popupOn && <Popup closePopup={() => closePopup()} />}
       </div>
       <h3>Mains</h3>
       <div className="menu-section">
