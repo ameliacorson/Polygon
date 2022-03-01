@@ -11,6 +11,10 @@ export default function Order() {
   const [drinks, setDrinks] = React.useState([]);
   const [popupItem, setPopupItem] = React.useState();
 
+  
+
+
+  //a function that sets state for each menu section
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
       return menuSection.map((element) => {
@@ -88,16 +92,13 @@ export default function Order() {
     }
     }
   
-
+//cycles through all menu options and finds the one that has been selected
   React.useEffect(() => {
     const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks]
     setPopupItem(allMenuOptions.find(item => item.popup === true))
   }, [appetizers, mains, sides, drinks]);
 
-  React.useEffect(() => {
-    console.log(popupItem)
-  }, [popupItem]);
-
+//closes the popup window and clears all menu items from being selected
   function closePopup() {
     setPopupItem(undefined);
     setAppetizers((prevApps) =>
@@ -133,6 +134,8 @@ export default function Order() {
     })
   );
   }
+
+  
 
   function createElements(section) {
     return section.map((element) => {
