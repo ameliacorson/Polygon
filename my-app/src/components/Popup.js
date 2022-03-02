@@ -1,6 +1,13 @@
 import React from "react";
+import { CartState } from "../Context/Context";
 
 function Popup(props) {
+
+   const {
+       state: { CartItems },
+       dispatch
+    } = CartState()
+ 
   const [formData, setFormData] = React.useState({
       id: props.item.id,
       name: props.item.name,
@@ -12,8 +19,6 @@ function Popup(props) {
       quantity: 1,
 
   });
-
-  console.log(formData)
 
   function addOne() {
     setFormData(prevFormData => {
@@ -34,7 +39,6 @@ function Popup(props) {
   }
 
   function handleChange(event) {
-    console.log(event.target);
     const {name, value, type, checked} = event.target
     setFormData(prevFormData => {
         return {
@@ -47,7 +51,14 @@ function Popup(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
+    props.closePopup()
+    dispatch({
+        type:'ADD_TO_CART',
+        payload: formData
+    })
   }
+
+  
 
   return (
     <div className="popup">
