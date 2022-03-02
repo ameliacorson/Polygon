@@ -323,6 +323,10 @@ header .scrolled {
   background: #404040;
 }
 
+.cart-amount {
+  color: green;
+}
+
 .popup {
   position: fixed;
   top: 0;

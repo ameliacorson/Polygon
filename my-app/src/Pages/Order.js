@@ -1,15 +1,21 @@
 import React from "react";
-
 import Menu from "../menu.json";
 import MenuItem from "../components/MenuItem";
 import Popup from "../components/Popup";
+import { BsFillCartFill } from 'react-icons/bs'
+
+import { CartState } from "../Context/Context";
 
 export default function Order() {
+
   const [appetizers, setAppetizers] = React.useState([]);
   const [mains, setMains] = React.useState([]);
   const [sides, setSides] = React.useState([]);
   const [drinks, setDrinks] = React.useState([]);
   const [popupItem, setPopupItem] = React.useState();
+  const { state: { cartItems } } = CartState()
+
+  console.log(cartItems)
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
@@ -32,8 +38,9 @@ export default function Order() {
     setMains(createMenuObjects(Menu.mains));
     setSides(createMenuObjects(Menu.sides));
     setDrinks(createMenuObjects(Menu.drinks));
-  }, []);
 
+  }, []);
+  
   //this function below will launch the pop-up window
   function launchPopup(category, id) {
     if (category === appetizers){
@@ -87,17 +94,17 @@ export default function Order() {
       }))
     }
     }
-  
 
+
+
+  
+//cycles through all menu options and finds the one that has been selected
   React.useEffect(() => {
     const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks]
     setPopupItem(allMenuOptions.find(item => item.popup === true))
   }, [appetizers, mains, sides, drinks]);
 
-  React.useEffect(() => {
-    console.log(popupItem)
-  }, [popupItem]);
-
+//closes the popup window and clears all menu items from being selected
   function closePopup() {
     setPopupItem(undefined);
     setAppetizers((prevApps) =>
@@ -134,6 +141,8 @@ export default function Order() {
   );
   }
 
+  
+
   function createElements(section) {
     return section.map((element) => {
       return (
@@ -155,6 +164,7 @@ export default function Order() {
 
   return (
     <div className="order-container container">
+      <BsFillCartFill/> <h1 className="cart-amount"> current cart: {cartItems.length} items</h1>
       <h2> Menu </h2>
       <h3> Appetizers </h3>
       <div className="menu-section">
