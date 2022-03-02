@@ -4,6 +4,9 @@ import { CartState } from "../Context/Context";
 function Popup(props) {
 
    const { dispatch } = CartState()
+
+   const [buttonDisabled, setButtonDisabled] = React.useState(false)
+   
  
   const [formData, setFormData] = React.useState({
       id: props.item.id,
@@ -26,10 +29,20 @@ function Popup(props) {
     });
 }, [formData])
 
-
-console.log(formData)
-console.log(selectedItems)
+React.useEffect(() => {
+    if(props.item.choice){
+        if (formData.spice === "" | formData.rice === "" | formData.choice === "") {
+            setButtonDisabled(true)
+        } else if (formData.spice && formData.rice && formData.choice){
+            setButtonDisabled(false)
+        }
+    } else {
+        return
+    }
+    
+}, [formData, props])
   
+console.log(buttonDisabled)
 
   function addOne() {
     setFormData(prevFormData => {
@@ -214,7 +227,8 @@ console.log(selectedItems)
           <button type="button" onClick={addOne}>
             +
           </button>
-          <button onClick={handleSubmit}>Add to Cart</button>
+          <button onClick={handleSubmit} disabled={buttonDisabled}>Add to Cart</button>
+          {buttonDisabled && <span>please fill out above options</span>}
         </form>
       </div>
     </div>

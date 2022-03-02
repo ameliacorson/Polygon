@@ -6,6 +6,7 @@ import {
 
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 
 import Home from "./Pages/Home";
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/Order" element={<Order />} />
           <Route path="/checkout" element={<Checkout/>}/>
         </Routes>
+        <Footer />
     </div>
   );
 }
