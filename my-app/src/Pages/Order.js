@@ -5,6 +5,7 @@ import Popup from "../components/Popup";
 import { BsFillCartFill } from 'react-icons/bs'
 
 import { CartState } from "../Context/Context";
+import Cart from "../components/Cart";
 
 export default function Order() {
 
@@ -13,9 +14,8 @@ export default function Order() {
   const [sides, setSides] = React.useState([]);
   const [drinks, setDrinks] = React.useState([]);
   const [popupItem, setPopupItem] = React.useState();
+  const [cartOpen, setCartOpen] = React.useState(false)
   const { state: { cartItems } } = CartState()
-
-  console.log(cartItems)
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
@@ -141,8 +141,6 @@ export default function Order() {
   );
   }
 
-  
-
   function createElements(section) {
     return section.map((element) => {
       return (
@@ -164,12 +162,13 @@ export default function Order() {
 
   return (
     <div className="order-container container">
-      <BsFillCartFill/> <h1 className="cart-amount"> current cart: {cartItems.length} items</h1>
+      <BsFillCartFill onClick={() => setCartOpen(true)}/> <h1 className="cart-amount"> current cart: {cartItems.length} items</h1>
       <h2> Menu </h2>
       <h3> Appetizers </h3>
+      {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
+      {cartOpen && <Cart closeMenu={() => setCartOpen(false)}/>}
       <div className="menu-section">
         <AppetizersElements />
-        {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       </div>
       <h3>Mains</h3>
       <div className="menu-section">

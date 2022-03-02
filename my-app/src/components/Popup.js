@@ -3,10 +3,7 @@ import { CartState } from "../Context/Context";
 
 function Popup(props) {
 
-   const {
-       state: { CartItems },
-       dispatch
-    } = CartState()
+   const { dispatch } = CartState()
  
   const [formData, setFormData] = React.useState({
       id: props.item.id,
@@ -19,6 +16,20 @@ function Popup(props) {
       quantity: 1,
 
   });
+
+  const [selectedItems, setSelectedItems] = React.useState({})
+
+  React.useEffect(() => {
+    setSelectedItems({
+        ...formData,
+        price: formData.price + (formData.choice === "beef" ? 2 : 0) + (formData.rice === "steam rice" ? 1.5 : 0) +(formData.rice === "brown rice" ? 2 : 0)
+    });
+}, [formData])
+
+
+console.log(formData)
+console.log(selectedItems)
+  
 
   function addOne() {
     setFormData(prevFormData => {
@@ -54,7 +65,7 @@ function Popup(props) {
     props.closePopup()
     dispatch({
         type:'ADD_TO_CART',
-        payload: formData
+        payload: selectedItems
     })
   }
 
