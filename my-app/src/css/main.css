@@ -288,8 +288,8 @@ header .scrolled {
   display: -ms-grid;
   display: grid;
   grid-gap: .5em;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   border: 1px solid white;
   background: #ccad59;
   border-radius: 7px;
@@ -303,6 +303,7 @@ header .scrolled {
   border-radius: 7px;
   padding: .5em;
   background: #404040;
+  max-width: 100%;
 }
 
 .cart-amount {
@@ -334,10 +335,12 @@ header .scrolled {
 .popup-container {
   position: relative;
   padding: 32px;
-  width: 100%;
+  margin-bottom: 2em;
+  width: 85%;
   max-width: 500px;
   background: white;
   color: black;
+  overflow: scroll;
 }
 
 .cart {
@@ -369,11 +372,35 @@ header .scrolled {
   max-width: 500px;
   background: white;
   color: black;
+  overflow: scroll;
 }
 
 .cart-item {
   border: 1px solid black;
   padding-bottom: 1em;
+}
+
+.cart-button {
+  position: fixed;
+  right: 15px;
+  bottom: 75px;
+  width: 70px;
+  height: 70px;
+  background: green;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .footer {

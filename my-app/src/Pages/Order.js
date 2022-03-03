@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "../menu.json";
 import MenuItem from "../components/MenuItem";
 import Popup from "../components/Popup";
+import CartButton from "../components/CartButton";
 import { BsFillCartFill } from 'react-icons/bs'
 
 import { CartState } from "../Context/Context";
@@ -17,6 +18,11 @@ export default function Order() {
   const [cartOpen, setCartOpen] = React.useState(false)
   const { state: { cartItems } } = CartState()
 
+  const dollarUS = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+});
+
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
       return menuSection.map((element) => {
@@ -24,7 +30,7 @@ export default function Order() {
           name: element.name,
           description: element.description,
           id: element.id,
-          price: element.price,
+          price: dollarUS.format(element.price),
           choice: element.choice,
           spicy: element.spicy,
           rice: element.rice,
@@ -40,9 +46,18 @@ export default function Order() {
     setDrinks(createMenuObjects(Menu.drinks));
 
   }, []);
-  
+
+  React.useEffect(() => {
+    if (popupItem || cartOpen) {
+      document.body.style.overflow = 'hidden'
+    } else if (!popupItem && !cartOpen) {
+      document.body.style.overflow = 'scroll'
+    }
+  }, [popupItem, cartOpen])
+
   //this function below will launch the pop-up window
   function launchPopup(category, id) {
+    console.log(document.body.style.overflow)
     if (category === appetizers){
       setAppetizers((prevApps) =>
       prevApps.map((app) => {
@@ -162,7 +177,7 @@ export default function Order() {
 
   return (
     <div className="order-container container">
-      <BsFillCartFill onClick={() => setCartOpen(true)}/> <h1 className="cart-amount"> current cart: {cartItems.length} items</h1>
+      <CartButton onClick={() => setCartOpen(true)}/>
       <h2> Menu </h2>
       <h3> Appetizers </h3>
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}

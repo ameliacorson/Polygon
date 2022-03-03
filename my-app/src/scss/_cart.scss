@@ -16,6 +16,7 @@
         max-width: 500px;
         background: white;
         color: black;
+        overflow: scroll;
 
     }
 }
@@ -24,4 +25,17 @@
     border: 1px solid black;
     padding-bottom: 1em;
     
+}
+
+.cart-button {
+    position: fixed;
+    right: 15px;
+    bottom: 75px;
+    width: 70px;
+    height: 70px;
+    background: green;
+    border-radius: 50%;
+
+    @include flex(row)
+
 }

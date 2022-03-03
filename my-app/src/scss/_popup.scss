@@ -11,10 +11,12 @@
     &-container {
         position: relative;
         padding: 32px;
-        width: 100%;
+        margin-bottom: 2em;
+        width: 85%;
         max-width: 500px;
         background: white;
         color: black;
+        overflow: scroll;
 
     }
 }
