@@ -1,9 +1,9 @@
 @import "config";
 
 .about {
-    @include flex(column);
 
     padding: 1em;
+    text-align: left;
       
     h2 {
         font-family: $font-family-logo;

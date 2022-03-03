@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='footer'>
+    <div className='footer container'>
         <div>
             <h3>Location</h3>
             <p>5204 N Clark St</p>

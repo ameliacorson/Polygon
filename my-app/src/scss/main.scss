@@ -6,6 +6,7 @@
 @import "order-online";
 @import "popup";
 @import "cart";
+@import "footer";
 
 body {
   font-family: $font-family-body;
@@ -20,13 +21,3 @@ body {
   margin: 0 auto;
 }
 
-
-
-section {
-  @include flex(column);
-
-  &.inverse {
-    background: $background-color;
-    color: #fff;
-  }
-}

@@ -182,13 +182,6 @@ nav.open {
      object-fit: cover;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 header {
   font-family: "Bebas Neue", cursive;
   background: #404040;
@@ -270,20 +263,8 @@ header .scrolled {
 }
 
 .about {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   padding: 1em;
+  text-align: left;
 }
 
 .about h2 {
@@ -314,6 +295,7 @@ header .scrolled {
   border-radius: 7px;
   padding: 1em;
   margin-bottom: 2em;
+  max-width: 100%;
 }
 
 .menu-item {
@@ -394,6 +376,16 @@ header .scrolled {
   padding-bottom: 1em;
 }
 
+.footer {
+  min-height: 40vh;
+  color: white;
+  background: #404040;
+  background-image: url(../img/bw-restaurant.jpeg);
+  background-position: center;
+  background-blend-mode: multiply;
+  background-repeat: none;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: #404040;
@@ -405,26 +397,5 @@ body {
   max-width: 800px;
   padding: 2em;
   margin: 0 auto;
-}
-
-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-section.inverse {
-  background: #404040;
-  color: #fff;
 }
 /*# sourceMappingURL=main.css.map */
