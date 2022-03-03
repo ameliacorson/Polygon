@@ -18,10 +18,6 @@ export default function Order() {
   const [cartOpen, setCartOpen] = React.useState(false)
   const { state: { cartItems } } = CartState()
 
-  const dollarUS = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-});
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
@@ -30,7 +26,7 @@ export default function Order() {
           name: element.name,
           description: element.description,
           id: element.id,
-          price: dollarUS.format(element.price),
+          price: element.price,
           choice: element.choice,
           spicy: element.spicy,
           rice: element.rice,
@@ -177,7 +173,7 @@ export default function Order() {
 
   return (
     <div className="order-container container">
-      <CartButton onClick={() => setCartOpen(true)}/>
+      <CartButton  onClick={() => setCartOpen(true)}/>
       <h2> Menu </h2>
       <h3> Appetizers </h3>
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}

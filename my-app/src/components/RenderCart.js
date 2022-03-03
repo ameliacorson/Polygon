@@ -32,7 +32,7 @@ export default function RenderCart() {
 
   useEffect(() => {
     const cartTotal = cartItems.reduce((acc, curr) => acc + curr.price, 0);
-    setPrice(dollarUS.format(Math.ceil(cartTotal * 100) / 100));
+    setPrice(dollarUS.format(cartTotal));
   }, [cartItems, dollarUS]);
 
   return (

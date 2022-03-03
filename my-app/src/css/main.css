@@ -413,6 +413,10 @@ header .scrolled {
   background-repeat: none;
 }
 
+.checkout {
+  overflow: scroll;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: #404040;

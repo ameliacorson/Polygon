@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import RenderCart from '../components/RenderCart'
+import RenderCart from "../components/RenderCart";
 
 export default function Checkout() {
   return (
-    <div>
-        <RenderCart />
+    <div className="checkout">
+      <div className="container">
+        <div className="checkout-cart">
+          <RenderCart />
+        </div>
+        <div className="subtotal-sidebar">
+          
+        </div>
+      </div>
     </div>
-  )
+  );
 }
