@@ -62,7 +62,7 @@ function MenuItemFormPopup({ item, closePopup }) {
             showPrices
           />
           <RadioOptions
-            options={item.spicy.map(option => ({ name: option, addprice: 0 }))}
+            options={item.spicy?.map(option => ({ name: option, addprice: 0 }))}
             fieldName={"spicy"}
             setFormData={setFormData}
             label={"Spice"}
