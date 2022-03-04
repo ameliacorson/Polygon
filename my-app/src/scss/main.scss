@@ -14,11 +14,24 @@ body {
   background: $background-color;
   color: $font-color;
   line-height: 1.5;
+  overflow:auto;
+
+
 }
 
 .container {
   max-width: 800px;
   padding: 2em;
   margin: 0 auto;
+  overflow:auto;
 }
 
+h2 {
+  font-family: $font-family-logo;
+  font-size: 3em;
+
+  span {
+      color: $accent-color
+  }
+
+}

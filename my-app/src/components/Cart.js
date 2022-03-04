@@ -9,7 +9,7 @@ export default function Cart(props) {
       <div className="cart-container">
         <button onClick={props.closeMenu}>x</button>
         <RenderCart />
-        <Link onClick={props.closeMenu} to="/checkout"><button>Go to checkout</button></Link>
+        <Link onClick={props.closeMenu} to="/checkout"><button className="modal-button">Go to checkout</button></Link>
       </div>
     </div>
   );

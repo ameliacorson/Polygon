@@ -1,41 +1,39 @@
+.cart {
+  @include modal-background;
+  @include flex(column);
+  
 
-.cart{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.2);
-    
-    @include flex(column);
-
-    &-container {
-        position: relative;
-        padding: 32px;
-        width: 100%;
-        max-width: 500px;
-        background: white;
-        color: black;
-        overflow: scroll;
-
-    }
+  &-container {
+    @include modal-container;
+    padding: 32px;
+    max-width: 500px;
+    max-height: 80vh;
+    background: white;
+    color: black;
+    overflow-y: auto;
+  }
 }
 
 .cart-item {
-    border: 1px solid black;
-    padding-bottom: 1em;
-    
+  border: 1px solid black;
+  padding: 1em;
+  margin-bottom: 1em;
+
+    &-header {
+        @include unit-header
+    }
+
 }
 
 .cart-button {
-    position: fixed;
-    right: 15px;
-    bottom: 75px;
-    width: 70px;
-    height: 70px;
-    background: green;
-    border-radius: 50%;
+  position: fixed;
+  right: 15px;
+  bottom: 75px;
+  width: 70px;
+  height: 70px;
+  background: green;
+  border-radius: 50%;
+  z-index: 100;
 
-    @include flex(row)
-
+  @include flex(row);
 }

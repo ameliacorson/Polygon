@@ -3,6 +3,9 @@ import React from "react";
 import RenderCart from "../components/RenderCart";
 
 export default function Checkout() {
+
+  document.body.style.overflow = 'auto'
+  
   return (
     <div className="checkout">
       <div className="container">

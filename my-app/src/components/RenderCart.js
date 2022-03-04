@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { CartState } from "../Context/Context";
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function RenderCart() {
   const {
@@ -23,9 +24,19 @@ export default function RenderCart() {
 
     return (
       <div className="cart-item">
-        <h3>{item.name}</h3>
+        <div className="cart-item-header">
+          <h4>{item.name}</h4>
+          <FaTrashAlt onClick={() => handleRemove()} />
+        </div>
+        <p>{dollarUS.format(item.price)}</p>
         <p>{item.description}</p>
-        <button onClick={() => handleRemove()}>Remove</button>
+        {item.choice && (
+          <ul>
+            <li>{item.choice} </li>
+            <li>{item.spice}</li>
+            <li>{item.rice}</li>
+          </ul>
+        )}
       </div>
     );
   });
@@ -38,7 +49,7 @@ export default function RenderCart() {
   return (
     <div>
       {cartItems.length > 0 ? cartElements : <h3>nothing in cart</h3>}
-      {cartItems.length > 0 && price}
+      {cartItems.length > 0 && <p>Subtotal: {price}</p>}
     </div>
   );
 }

@@ -3,21 +3,21 @@ import Menu from "../menu.json";
 import MenuItem from "../components/MenuItem";
 import Popup from "../components/Popup";
 import CartButton from "../components/CartButton";
-import { BsFillCartFill } from 'react-icons/bs'
+import { Accordion } from "react-bootstrap";
 
 import { CartState } from "../Context/Context";
 import Cart from "../components/Cart";
 
 export default function Order() {
-
   const [appetizers, setAppetizers] = React.useState([]);
   const [mains, setMains] = React.useState([]);
   const [sides, setSides] = React.useState([]);
   const [drinks, setDrinks] = React.useState([]);
   const [popupItem, setPopupItem] = React.useState();
-  const [cartOpen, setCartOpen] = React.useState(false)
-  const { state: { cartItems } } = CartState()
-
+  const [cartOpen, setCartOpen] = React.useState(false);
+  const {
+    state: { cartItems },
+  } = CartState();
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {
@@ -40,82 +40,81 @@ export default function Order() {
     setMains(createMenuObjects(Menu.mains));
     setSides(createMenuObjects(Menu.sides));
     setDrinks(createMenuObjects(Menu.drinks));
-
   }, []);
 
   React.useEffect(() => {
     if (popupItem || cartOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflowY = "hidden";
     } else if (!popupItem && !cartOpen) {
-      document.body.style.overflow = 'scroll'
+      document.body.style.overflowY = "auto";
     }
-  }, [popupItem, cartOpen])
+  }, [popupItem, cartOpen]);
 
   //this function below will launch the pop-up window
   function launchPopup(category, id) {
-    console.log(document.body.style.overflow)
-    if (category === appetizers){
+    console.log(document.body.style.overflow);
+    if (category === appetizers) {
       setAppetizers((prevApps) =>
-      prevApps.map((app) => {
-        if (app.id === id) {
-          return {
-            ...app,
-            popup: true,
-          };
-        } else {
-          return app;
-        }
-      }))
-    
+        prevApps.map((app) => {
+          if (app.id === id) {
+            return {
+              ...app,
+              popup: true,
+            };
+          } else {
+            return app;
+          }
+        })
+      );
     } else if (category === mains) {
       setMains((prevMains) =>
-      prevMains.map((main) => {
-        if (main.id === id) {
-          return {
-            ...main,
-            popup: true,
-          };
-        } else {
-          return main;
-        }
-      }))
+        prevMains.map((main) => {
+          if (main.id === id) {
+            return {
+              ...main,
+              popup: true,
+            };
+          } else {
+            return main;
+          }
+        })
+      );
     } else if (category === sides) {
       setSides((prevSides) =>
-      prevSides.map((side) => {
-        if (side.id === id) {
-          return {
-            ...side,
-            popup: true,
-          };
-        } else {
-          return side;
-        }
-      }))
+        prevSides.map((side) => {
+          if (side.id === id) {
+            return {
+              ...side,
+              popup: true,
+            };
+          } else {
+            return side;
+          }
+        })
+      );
     } else if (category === drinks) {
       setDrinks((prevDrinks) =>
-      prevDrinks.map((drink) => {
-        if (drink.id === id) {
-          return {
-            ...drink,
-            popup: true,
-          };
-        } else {
-          return drink;
-        }
-      }))
+        prevDrinks.map((drink) => {
+          if (drink.id === id) {
+            return {
+              ...drink,
+              popup: true,
+            };
+          } else {
+            return drink;
+          }
+        })
+      );
     }
-    }
+  }
 
-
-
-  
-//cycles through all menu options and finds the one that has been selected
+  //cycles through all menu options and finds the one that has been selected
   React.useEffect(() => {
-    const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks]
-    setPopupItem(allMenuOptions.find(item => item.popup === true))
+    const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks];
+    setPopupItem(allMenuOptions.find((item) => item.popup === true));
   }, [appetizers, mains, sides, drinks]);
 
-//closes the popup window and clears all menu items from being selected
+  //closes the popup window and clears all menu items from being selected
   function closePopup() {
     setPopupItem(undefined);
     setAppetizers((prevApps) =>
@@ -135,21 +134,21 @@ export default function Order() {
       })
     );
     setSides((prevSides) =>
-    prevSides.map((side) => {
-      return {
-        ...side,
-        popup: false,
-      };
-    })
-  );
-  setDrinks((prevDrinks) =>
-    prevDrinks.map((drink) => {
-      return {
-        ...drink,
-        popup: false,
-      };
-    })
-  );
+      prevSides.map((side) => {
+        return {
+          ...side,
+          popup: false,
+        };
+      })
+    );
+    setDrinks((prevDrinks) =>
+      prevDrinks.map((drink) => {
+        return {
+          ...drink,
+          popup: false,
+        };
+      })
+    );
   }
 
   function createElements(section) {
@@ -173,26 +172,57 @@ export default function Order() {
 
   return (
     <div className="order-container container">
-      <CartButton  onClick={() => setCartOpen(true)}/>
-      <h2> Menu </h2>
-      <h3> Appetizers </h3>
+      <CartButton onClick={() => setCartOpen(true)} />
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
-      {cartOpen && <Cart closeMenu={() => setCartOpen(false)}/>}
-      <div className="menu-section">
-        <AppetizersElements />
-      </div>
-      <h3>Mains</h3>
-      <div className="menu-section">
-        <MainsElements />
-      </div>
-      <h3>Sides</h3>
-      <div className="menu-section">
-        <SidesElements />
-      </div>
-      <h3>Drinks</h3>
-      <div className="menu-section">
-        <DrinksElements />
-      </div>
+      {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
+      <h2> Menu </h2>
+      <Accordion>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>
+            <h3> Appetizers </h3>
+          </Accordion.Header>
+          <Accordion.Body>
+            <div className="menu-section">
+              <AppetizersElements />
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="1">
+          <Accordion.Header>
+            <h3> Mains </h3>
+          </Accordion.Header>
+          <Accordion.Body>
+            <div className="menu-section">
+              <MainsElements />
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+
+
+        <Accordion.Item eventKey="2">
+          <Accordion.Header>
+            <h3> Sides </h3>
+          </Accordion.Header>
+          <Accordion.Body>
+            <div className="menu-section">
+              <SidesElements />
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+
+
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>
+            <h3> Drinks </h3>
+          </Accordion.Header>
+          <Accordion.Body>
+            <div className="menu-section">
+              <DrinksElements />
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </div>
   );
 }
