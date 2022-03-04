@@ -1,20 +1,17 @@
 import React from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import Badge from "react-bootstrap/Badge";
-
-import { CartState } from "../Context/Context";
+import { useCart } from "../helpers/cartProvider";
 
 function CartButton(props) {
-  const {
-    state: { cartItems },
-  } = CartState();
+  const {cartItems} = useCart();
 
   return (
     <div className="cart-button" onClick={props.onClick}>
       <BsFillCartFill size="30px" />
       {cartItems.length > 0 && (
         <Badge pill bg="light" text="dark">
-          {cartItems.length}
+          {cartItems.length.length}
         </Badge>
       )}
     </div>

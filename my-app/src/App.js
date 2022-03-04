@@ -19,13 +19,13 @@ export default function App() {
     <div>
       <Nav />
       <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/Order" element={<Order />} />
-          <Route path="/checkout" element={<Checkout/>}/>
-        </Routes>
-        <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/Order" element={<Order />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

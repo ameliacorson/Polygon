@@ -1,236 +1,82 @@
 import React from "react";
-import { CartState } from "../Context/Context";
+import { useCart } from "../helpers/cartProvider";
+import { formatUSD } from "../helpers/format";
 
-function Popup(props) {
-  const { dispatch } = CartState();
-
+function MenuItemFormPopup({ item, closePopup }) {
+  const { addItemToCart } = useCart();
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
-
+  const [totalPrice, setTotalPrice] = React.useState(item.price);
   const [formData, setFormData] = React.useState({
-    id: props.item.id,
-    name: props.item.name,
-    price: props.item.price,
-    description: props.item.description,
-    choice: "",
-    spice: "",
-    rice: "",
+    ...item,
+    choice: undefined,
+    spicy: undefined,
+    rice: undefined,
     quantity: 1,
   });
-  const [selectedItems, setSelectedItems] = React.useState({});
 
-  const dollarUS = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-
-  React.useEffect(() => {
-    setSelectedItems({
-      ...formData,
-      price:
-        formData.price +
-        (formData.choice === "beef" ? 2 : 0) +
-        (formData.rice === "steam rice" ? 1.5 : 0) +
-        (formData.rice === "brown rice" ? 2 : 0),
-    });
-  }, [formData]);
+  const calculatePrice = React.useCallback(() => {
+    const { choice, spicy, rice, quantity } = formData;
+    const basePrice = item.price;
+    const extras = (choice?.addprice || 0) + (spicy?.addprice || 0) + (rice?.addprice || 0);
+    return (basePrice + extras) * quantity;
+  }, [formData, item])
 
   React.useEffect(() => {
-    if (props.item.choice) {
-      if (
-        (formData.spice === "") |
-        (formData.rice === "") |
-        (formData.choice === "")
-      ) {
-        setButtonDisabled(true);
-      } else if (formData.spice && formData.rice && formData.choice) {
-        setButtonDisabled(false);
-      }
-    } else {
-      return;
-    }
-  }, [formData, props]);
+    const { choice, spicy, rice } = formData;
+    const price = calculatePrice();
+    const isDisabled = (!choice && item.choice) || (!spicy && item.spice) || (!rice && item.rice);
+    setTotalPrice(price);
+    setButtonDisabled(isDisabled);
+  }, [formData, item, calculatePrice])
 
-  console.log(buttonDisabled);
 
-  function addOne() {
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        quantity: prevFormData.quantity + 1,
-      };
-    });
-  }
-
-  function subOne() {
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        quantity: prevFormData.quantity - 1,
-      };
-    });
-  }
-
-  function handleChange(event) {
-    const { name, value, type, checked } = event.target;
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: type === "checkbox" ? checked : value,
-      };
-    });
-  }
+  const addOne = () => setFormData(state => ({ ...state, quantity: state.quantity + 1 }))
+  const subtractOne = () => setFormData(state => ({ ...state, quantity: Math.max(state.quantity - 1, 1) }))
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.closePopup();
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: selectedItems,
-    });
+    addItemToCart({
+      ...formData,
+      totalPrice
+    })
+    closePopup();
   }
 
   return (
     <div className="popup">
       <div className="popup-container">
         <div className="popup-container-header">
-          <h2> {props.item.name} </h2>
-          <button onClick={props.closePopup}> X </button>
+          <h2> {item.name} </h2>
+          <button onClick={closePopup}> X </button>
         </div>
 
-        <p>{dollarUS.format(props.item.price)}</p>
-        <p>{props.item.description}</p>
+        <p>{formatUSD(totalPrice)}</p>
+        <p>{item.description}</p>
 
         <form>
-          {props.item.choice && (
-            <fieldset>
-              <legend>Choose Protein</legend>
-              <input
-                name="choice"
-                type="radio"
-                value="chicken"
-                id="chicken"
-                onChange={handleChange}
-                checked={formData.choice === "chicken"}
-              />
-              <label htmlFor="chicken">Chicken</label>
-              <br></br>
-              <input
-                name="choice"
-                type="radio"
-                value="beef"
-                id="beef"
-                onChange={handleChange}
-                checked={formData.choice === "beef"}
-              />
-              <label htmlFor="beef">Beef (+$2.00)</label>
-              <br></br>
-              <input
-                name="choice"
-                type="radio"
-                value="tofu"
-                id="tofu"
-                onChange={handleChange}
-                checked={formData.choice === "tofu"}
-              />
-              <label htmlFor="tofu">Tofu</label>
-              <br></br>
-              <input
-                name="choice"
-                type="radio"
-                value="veggie"
-                id="veggie"
-                onChange={handleChange}
-                checked={formData.choice === "veggie"}
-              />
-              <label htmlFor="veggie">Veggie</label>
-              <br></br>
-            </fieldset>
-          )}
-          <br></br>
-          {props.item.spicy && (
-            <fieldset>
-              <legend>Choose Spiciness Level</legend>
-              <input
-                name="spice"
-                type="radio"
-                value="mild"
-                id="mild"
-                onChange={handleChange}
-                checked={formData.spice === "mild"}
-              />
-              <label htmlFor="mild">Mild</label>
-              <br></br>
-              <input
-                name="spice"
-                type="radio"
-                value="medium"
-                id="medium"
-                onChange={handleChange}
-                checked={formData.spice === "medium"}
-              />
-              <label htmlFor="medium">Medium</label>
-              <br></br>
-              <input
-                name="spice"
-                type="radio"
-                value="hot"
-                id="hot"
-                onChange={handleChange}
-                checked={formData.spice === "hot"}
-              />
-              <label htmlFor="hot">Hot</label>
-              <br></br>
-              <input
-                name="spice"
-                type="radio"
-                value="extra hot"
-                id="extra hot"
-                onChange={handleChange}
-                checked={formData.spice === "extra hot"}
-              />
-              <label htmlFor="extra-hot">Extra Hot</label>
-              <br></br>
-            </fieldset>
-          )}
-          <br></br>
-          {props.item.rice && (
-            <fieldset>
-              <legend>Choose Rice</legend>
-              <input
-                name="rice"
-                type="radio"
-                value="steam rice"
-                id="steam rice"
-                onChange={handleChange}
-                checked={formData.rice === "steam rice"}
-              />
-              <label htmlFor="steam-rice">Steamed Rice (+$1.50)</label>
-              <br></br>
-              <input
-                name="rice"
-                type="radio"
-                value="brown rice"
-                id="brown rice"
-                onChange={handleChange}
-                checked={formData.rice === "brown rice"}
-              />
-              <label htmlFor="brown-rice">Brown Rice (+$2.00)</label>
-              <br></br>
-              <input
-                name="rice"
-                type="radio"
-                value="none"
-                id="none"
-                onChange={handleChange}
-                checked={formData.rice === "none"}
-              />
-              <label htmlFor="none">None</label>
-              <br></br>
-            </fieldset>
-          )}
+          <RadioOptions
+            options={item.choice}
+            fieldName={"choice"}
+            setFormData={setFormData}
+            label={"Protein"}
+            showPrices
+          />
+          <RadioOptions
+            options={item.spicy.map(option => ({ name: option, addprice: 0 }))}
+            fieldName={"spicy"}
+            setFormData={setFormData}
+            label={"Spice"}
+          />
+          <RadioOptions
+            options={item.rice}
+            fieldName={"rice"}
+            setFormData={setFormData}
+            label={"Rice"}
+            showPrices
+          />
           <div className="modal-footer">
             <div className="quantity-container">
-              <button className="quantity-btn" type="button" onClick={subOne}>
+              <button className="quantity-btn" type="button" onClick={subtractOne}>
                 -
               </button>
               <span>{formData.quantity}</span>
@@ -253,4 +99,35 @@ function Popup(props) {
   );
 }
 
-export default Popup;
+export default MenuItemFormPopup;
+
+
+function RadioOptions({ options, fieldName, setFormData, label, showPrices }) {
+  if (!options) return null;
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    const option = options.find(option => option.name === value);
+    setFormData(currentFormValues => ({
+      ...currentFormValues,
+      [name]: option
+    }))
+  }
+
+  return (
+    <fieldset onChange={handleChange}>
+      <legend>Choose {label}</legend>
+      {
+        options.map(option => (
+          <div key={`option-${option.name}`}>
+            <label htmlFor={option.name}>
+              {`${option.name} ${showPrices ? formatUSD(option.addprice) : ""}`}
+            </label>
+            <input type="radio" value={option.name} name={fieldName} />
+          </div>
+        ))
+      }
+    </fieldset>
+  )
+}
+
