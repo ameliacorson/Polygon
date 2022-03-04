@@ -30,7 +30,7 @@ export default function RenderCart() {
 
 
 function CartItem({ item, handleRemove }) {
-  const itemOptions = [item.choice.name, item.spicy.name, item.rice.name]
+  const itemOptions = [item.choice?.name, item.spicy?.name, item.rice?.name]
     .filter(option => !!option && option !== "None");
 
   return (
@@ -41,7 +41,7 @@ function CartItem({ item, handleRemove }) {
       </div>
       <p>{formatUSD(item.totalPrice)}</p>
       <p>{item.description}</p>
-      {itemOptions.length && (
+      {!!itemOptions.length && (
         <ul>
           {itemOptions.map((option, index) => (
             <li key={index}>{option}</li>
