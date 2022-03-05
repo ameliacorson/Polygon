@@ -1,9 +1,12 @@
 import React from "react";
+import sushiImg from "../img/sushi platter.jpeg"
 
 export default function Home() {
   return (
-    <div>
-      <h1>hELLO BITCH</h1>
+    <div className="container">
+      <div className="carousel">
+        <img className="carousel-item" src={sushiImg} alt="sushi"/>
+      </div>
     </div>
   );
 }
