@@ -23,9 +23,14 @@ export default function CartContextProvider({ children }) {
       items.splice(itemIndex, 1);
       setCartAndLocalState(items)
     }
+
+    function clearCart() {
+      setCartAndLocalState([])
+    }
+
     
 
-  return <CartContext.Provider value={{ cartItems, addItemToCart, removeItemInCart }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ cartItems, addItemToCart, removeItemInCart, clearCart }}>{children}</CartContext.Provider>;
 }
 
 export const useCart = () => {

@@ -3,7 +3,7 @@ import { useCart } from "../Context/cartProvider";
 import { FaTrashAlt } from "react-icons/fa";
 
 export default function RenderCart() {
-  const { removeItemInCart, cartItems } = useCart()
+  const { removeItemInCart, cartItems, clearCart } = useCart()
   const [price, setPrice] = React.useState(0);
 
   const dollarUS = Intl.NumberFormat("en-US", {
@@ -12,7 +12,9 @@ export default function RenderCart() {
   });
 
   const cartElements = cartItems.map((item) => {
-    function handleRemove() {
+    
+    
+    function handleRemove(item) {
       removeItemInCart(item.id)
     }
 
@@ -20,7 +22,7 @@ export default function RenderCart() {
       <div className="cart-item">
         <div className="cart-item-header">
           <h4>{item.name}</h4>
-          <FaTrashAlt onClick={() => handleRemove()} />
+          <FaTrashAlt onClick={() => handleRemove(item.id)} />
         </div>
         <p>{dollarUS.format(item.price)}</p>
         <p>{item.description}</p>
@@ -42,6 +44,7 @@ export default function RenderCart() {
 
   return (
     <div>
+      <button onClick={clearCart}>clear cart</button>
       {cartItems.length > 0 ? cartElements : <h3>nothing in cart</h3>}
       {cartItems.length > 0 && <p>Subtotal: {price}</p>}
     </div>
