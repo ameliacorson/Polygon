@@ -18,6 +18,7 @@ nav {
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   overflow: hidden;
+  z-index: 1000;
 }
 
 nav ul {
@@ -65,6 +66,7 @@ nav.open {
           flex-direction: column;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  z-index: 99;
 }
 
 .menu.open {
