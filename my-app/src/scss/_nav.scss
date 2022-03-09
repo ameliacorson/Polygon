@@ -10,7 +10,7 @@ nav {
   opacity: 98%;
   @include transition-ease;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 3;
   
 
   & ul {
@@ -60,6 +60,7 @@ nav {
     border-radius: 50%;
     bottom: 20px;
     border: none;
+    z-index: 200;
     @include flex(column);
     @include transition-ease;
 
@@ -76,6 +77,7 @@ nav {
         background: rgba($font-color, .8);
         transform: translateY(-50px);
         @include transition-ease;
+        z-index: 1000;
 
         .hamburger{
             background: transparent;
