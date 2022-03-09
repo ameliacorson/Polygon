@@ -5,7 +5,7 @@ import Popup from "../components/Popup";
 import CartButton from "../components/CartButton";
 import { Accordion } from "react-bootstrap";
 
-import { CartState } from "../Context/Context";
+// import { useCart } from "../Context/cartProvider";
 import Cart from "../components/Cart";
 
 export default function Order() {
@@ -15,9 +15,7 @@ export default function Order() {
   const [drinks, setDrinks] = React.useState([]);
   const [popupItem, setPopupItem] = React.useState();
   const [cartOpen, setCartOpen] = React.useState(false);
-  const {
-    state: { cartItems },
-  } = CartState();
+  // const { cartState } = useCart()
 
   React.useEffect(() => {
     function createMenuObjects(menuSection) {

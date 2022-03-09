@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
-import { CartState } from "../Context/Context";
+import { useCart } from "../Context/cartProvider";
 import { FaTrashAlt } from "react-icons/fa";
 
 export default function RenderCart() {
-  const {
-    dispatch,
-    state: { cartItems },
-  } = CartState();
+  const { removeItemInCart, cartItems } = useCart()
   const [price, setPrice] = React.useState(0);
 
   const dollarUS = Intl.NumberFormat("en-US", {
@@ -16,10 +13,7 @@ export default function RenderCart() {
 
   const cartElements = cartItems.map((item) => {
     function handleRemove() {
-      dispatch({
-        type: "REMOVE_FROM_CART",
-        payload: item,
-      });
+      removeItemInCart(item.id)
     }
 
     return (

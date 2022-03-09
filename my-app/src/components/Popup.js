@@ -1,8 +1,8 @@
 import React from "react";
-import { CartState } from "../Context/Context";
+import { useCart } from "../Context/cartProvider";
 
 function Popup(props) {
-  const { dispatch } = CartState();
+  const { addItemToCart } = useCart();
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
@@ -83,10 +83,7 @@ function Popup(props) {
   function handleSubmit(event) {
     event.preventDefault();
     props.closePopup();
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: selectedItems,
-    });
+    addItemToCart(selectedItems)
   }
 
   return (

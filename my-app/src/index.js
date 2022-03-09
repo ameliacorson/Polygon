@@ -4,15 +4,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/main.css";
 
-import Context from "./Context/Context";
+import CartContextProvider from "./Context/cartProvider";
 
 import App from "./App";
 
 ReactDOM.render(
   <Router>
-    <Context>
+    <CartContextProvider>
       <App />
-    </Context>
+    </CartContextProvider>
   </Router>,
   document.getElementById("root")
 );

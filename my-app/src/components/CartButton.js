@@ -2,12 +2,10 @@ import React from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import Badge from "react-bootstrap/Badge";
 
-import { CartState } from "../Context/Context";
+import { useCart } from "../Context/cartProvider";
 
 function CartButton(props) {
-  const {
-    state: { cartItems },
-  } = CartState();
+  const { cartItems } = useCart()
 
   return (
     <div className="cart-button" onClick={props.onClick}>
