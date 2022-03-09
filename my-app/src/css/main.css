@@ -459,7 +459,7 @@ header .scrolled {
   bottom: 75px;
   width: 70px;
   height: 70px;
-  background: green;
+  background: #ccad59;
   border-radius: 50%;
   z-index: 1;
   display: -webkit-box;

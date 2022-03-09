@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../Context/cartProvider";
 
 function Popup(props) {
-  const { addItemToCart } = useCart();
+  const { addItemToCart, cartItems,  } = useCart();
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
@@ -16,23 +16,13 @@ function Popup(props) {
     rice: "",
     quantity: 1,
   });
-  const [selectedItems, setSelectedItems] = React.useState({});
+
 
   const dollarUS = Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  React.useEffect(() => {
-    setSelectedItems({
-      ...formData,
-      price:
-        formData.price +
-        (formData.choice === "beef" ? 2 : 0) +
-        (formData.rice === "steam rice" ? 1.5 : 0) +
-        (formData.rice === "brown rice" ? 2 : 0),
-    });
-  }, [formData]);
 
   React.useEffect(() => {
     if (props.item.choice) {
@@ -70,6 +60,7 @@ function Popup(props) {
     });
   }
 
+
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
     setFormData((prevFormData) => {
@@ -84,7 +75,14 @@ function Popup(props) {
     event.preventDefault();
     props.closePopup();
     
-    addItemToCart(selectedItems)
+    addItemToCart({
+      ...formData,
+      price:
+        formData.price +
+        (formData.choice === "beef" ? 2 : 0) +
+        (formData.rice === "steam rice" ? 1.5 : 0) +
+        (formData.rice === "brown rice" ? 2 : 0),
+    })
   }
 
   return (

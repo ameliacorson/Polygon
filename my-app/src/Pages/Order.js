@@ -5,14 +5,14 @@ import Popup from "../components/Popup";
 import CartButton from "../components/CartButton";
 import { Accordion } from "react-bootstrap";
 
-// import { useCart } from "../Context/cartProvider";
+import { useCart } from "../Context/cartProvider";
 import Cart from "../components/Cart";
 
 export default function Order() {
   const {appetizers, mains, sides, drinks } = Menu
   const [popupItem, setPopupItem] = React.useState();
   const [cartOpen, setCartOpen] = React.useState(false);
-  // const { cartState } = useCart()
+  const { cartItems } = useCart()
 
   React.useEffect(() => {
     if (popupItem || cartOpen) {
@@ -41,7 +41,7 @@ export default function Order() {
 
   return (
     <div className="order-container container">
-      <CartButton onClick={() => setCartOpen(true)} />
+      {cartItems.length > 0 && <CartButton onClick={() => setCartOpen(true)} />}
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
       <h2> Menu </h2>

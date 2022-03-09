@@ -11,7 +11,12 @@ export default function MenuSection({ section, title, index, onClick }) {
       <Accordion.Header>
         <h3>{title}</h3>
       </Accordion.Header>
-      <Accordion.Body>{menuElements}</Accordion.Body>
+      <Accordion.Body>
+          <div className="menu-section">
+          {menuElements}
+          </div>
+          
+        </Accordion.Body>
     </Accordion.Item>
   );
 }

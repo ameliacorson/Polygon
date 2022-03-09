@@ -3,6 +3,8 @@ import { FaTrashAlt } from "react-icons/fa";
 
 
 export default function CartItem({ item, handleRemove }) {
+
+    console.log(item)
     
     const dollarUS = Intl.NumberFormat("en-US", {
         style: "currency",
