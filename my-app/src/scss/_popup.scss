@@ -9,7 +9,7 @@
         
         background: white;
         color: black;
-        border-radius: 7px;
+       
 
 
 
@@ -29,14 +29,7 @@
             @include unit-header;
             align-items: flex-start;
 
-            button {
-                border: none;
-                background: none;
-                font-size: 1.3rem;
-                margin: -10px -5px 0 0;
-                color: grey;
-
-            }
+           
         }
 
     }

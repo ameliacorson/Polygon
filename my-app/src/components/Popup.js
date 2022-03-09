@@ -88,7 +88,7 @@ function Popup(props) {
       <div className="popup-container">
         <div className="popup-container-header">
           <h2> {props.item.name} </h2>
-          <button onClick={props.closePopup}> X </button>
+          <button className="close-button" onClick={props.closePopup}> X </button>
         </div>
 
         <p>{formatUSD(props.item.price)}</p>
@@ -232,6 +232,7 @@ function Popup(props) {
                 +
               </button>
             </div>
+            {buttonDisabled && <p>please fill out above options</p>}
             <button
               className="modal-button"
               onClick={handleSubmit}
@@ -239,8 +240,8 @@ function Popup(props) {
             >
               Add to Cart
             </button>
-            {buttonDisabled && <span>please fill out above options</span>}
           </div>
+          
         </form>
       </div>
     </div>

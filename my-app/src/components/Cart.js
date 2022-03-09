@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 export default function Cart(props) {
   return (
-    <div className="cart">
+    <div className="cart popup">
       <div className="cart-container">
-        <button onClick={props.closeMenu}>x</button>
+        <button className="close-button" onClick={props.closeMenu}>x</button>
         <RenderCart />
-        <Link onClick={props.closeMenu} to="/checkout"><button className="modal-button">Go to checkout</button></Link>
+        <Link onClick={props.closeMenu} to="/checkout"><button className="checkout-btn modal-button">Go to checkout</button></Link>
       </div>
     </div>
   );

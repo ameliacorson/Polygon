@@ -40,6 +40,8 @@ $font-family-body: "Roboto", sans-serif;
   width: 85%;
   max-width: 500px;
   overflow: auto;
+  border-radius: 7px;
+  margin-top: 1em;
 }
 
 @mixin unit-header {

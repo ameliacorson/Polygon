@@ -23,9 +23,9 @@ export default function RenderCart() {
 
   return (
     <div>
-      <button onClick={clearCart}>clear cart</button>
       {cartItems.length > 0 ? cartElements : <h3>nothing in cart</h3>}
       {cartItems.length > 0 && <p>Subtotal: {price}</p>}
+      <button onClick={clearCart}>clear cart</button>
     </div>
   );
 }

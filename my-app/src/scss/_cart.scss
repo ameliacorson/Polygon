@@ -11,6 +11,10 @@
     background: white;
     color: black;
     overflow-y: auto;
+
+    .close-button {
+      float: right;
+    }
   }
 }
 
@@ -36,4 +40,8 @@
   z-index: 1;
 
   @include flex(row);
+}
+
+.checkout-btn {
+  float: right;
 }

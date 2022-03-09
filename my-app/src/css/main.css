@@ -358,9 +358,10 @@ header .scrolled {
   width: 85%;
   max-width: 500px;
   overflow: auto;
+  border-radius: 7px;
+  margin-top: 1em;
   background: white;
   color: black;
-  border-radius: 7px;
 }
 
 .popup-container p {
@@ -387,14 +388,6 @@ header .scrolled {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-}
-
-.popup-container-header button {
-  border: none;
-  background: none;
-  font-size: 1.3rem;
-  margin: -10px -5px 0 0;
-  color: grey;
 }
 
 .cart {
@@ -427,12 +420,18 @@ header .scrolled {
   width: 85%;
   max-width: 500px;
   overflow: auto;
+  border-radius: 7px;
+  margin-top: 1em;
   padding: 32px;
   max-width: 500px;
   max-height: 80vh;
   background: white;
   color: black;
   overflow-y: auto;
+}
+
+.cart-container .close-button {
+  float: right;
 }
 
 .cart-item {
@@ -477,6 +476,10 @@ header .scrolled {
           flex-direction: row;
 }
 
+.checkout-btn {
+  float: right;
+}
+
 .footer {
   min-height: 40vh;
   color: white;
@@ -513,5 +516,17 @@ h2 {
 
 h2 span {
   color: #ccad59;
+}
+
+.close-button {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  margin: -10px -5px 0 0;
+  color: grey;
+}
+
+.modal-button {
+  padding: 10px 30px;
 }
 /*# sourceMappingURL=main.css.map */
