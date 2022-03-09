@@ -22,19 +22,11 @@ export default function Order() {
     }
   }, [popupItem, cartOpen]);
 
-  //this function below will launch the pop-up window
   function launchPopup(id) {
     const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks];
     setPopupItem(allMenuOptions.find((item) => item.id === id));
   }
-
-  //cycles through all menu options and finds the one that has been selected
-  React.useEffect(() => {
-    const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks];
-    setPopupItem(allMenuOptions.find((item) => item.popup === true));
-  }, [appetizers, mains, sides, drinks]);
-
-  //closes the popup window and clears all menu items from being selected
+ 
   function closePopup() {
     setPopupItem(undefined);
   }

@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
 import { useCart } from "../Context/cartProvider";
 
+import { formatUSD } from '../Context/format';
 
 import CartItem from "./CartItem";
 
 export default function RenderCart() {
   const { removeItemInCart, cartItems, clearCart } = useCart()
   const [price, setPrice] = React.useState(0);
-
-  const dollarUS = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
 
   const cartElements = cartItems.map((item) => {
    
@@ -22,8 +18,8 @@ export default function RenderCart() {
 
   useEffect(() => {
     const cartTotal = cartItems.reduce((acc, curr) => acc + curr.price, 0);
-    setPrice(dollarUS.format(cartTotal));
-  }, [cartItems, dollarUS]);
+    setPrice(formatUSD(cartTotal));
+  }, [cartItems]);
 
   return (
     <div>

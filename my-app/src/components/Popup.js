@@ -1,13 +1,18 @@
 import React from "react";
+import { nanoid } from 'nanoid'
+
 import { useCart } from "../Context/cartProvider";
 
+import { formatUSD } from '../Context/format';
+
+
 function Popup(props) {
-  const { addItemToCart, cartItems,  } = useCart();
+  const { addItemToCart  } = useCart();
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
   const [formData, setFormData] = React.useState({
-    id: props.item.id,
+    id: nanoid(),
     name: props.item.name,
     price: props.item.price,
     description: props.item.description,
@@ -16,13 +21,6 @@ function Popup(props) {
     rice: "",
     quantity: 1,
   });
-
-
-  const dollarUS = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-
 
   React.useEffect(() => {
     if (props.item.choice) {
@@ -93,7 +91,7 @@ function Popup(props) {
           <button onClick={props.closePopup}> X </button>
         </div>
 
-        <p>{dollarUS.format(props.item.price)}</p>
+        <p>{formatUSD(props.item.price)}</p>
         <p>{props.item.description}</p>
 
         <form>
