@@ -5,27 +5,33 @@
 @import "about";
 @import "order-online";
 @import "popup";
+@import "cart";
+@import "footer";
+@import "checkout";
 
 body {
   font-family: $font-family-body;
   background: $background-color;
   color: $font-color;
   line-height: 1.5;
+  overflow:auto;
+
+
 }
 
 .container {
   max-width: 800px;
   padding: 2em;
   margin: 0 auto;
+  overflow:auto;
 }
 
+h2 {
+  font-family: $font-family-logo;
+  font-size: 3em;
 
-
-section {
-  @include flex(column);
-
-  &.inverse {
-    background: $background-color;
-    color: #fff;
+  span {
+      color: $accent-color
   }
+
 }

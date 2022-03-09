@@ -1,19 +1,10 @@
 @import "config";
 
 .about {
-    @include flex(column);
 
     padding: 1em;
+    text-align: left;
       
-    h2 {
-        font-family: $font-family-logo;
-        font-size: 2em;
-        margin-bottom: .5em;
-
-        span {
-            color: $accent-color
-        }
-
-    }
+   
 
 }

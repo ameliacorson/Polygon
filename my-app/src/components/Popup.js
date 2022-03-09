@@ -2,70 +2,102 @@ import React from "react";
 import { CartState } from "../Context/Context";
 
 function Popup(props) {
+  const { dispatch } = CartState();
 
-   const {
-       state: { CartItems },
-       dispatch
-    } = CartState()
- 
+  const [buttonDisabled, setButtonDisabled] = React.useState(false);
+
   const [formData, setFormData] = React.useState({
-      id: props.item.id,
-      name: props.item.name,
-      price: props.item.price,
-      description: props.item.description,
-      choice: "",
-      spice: "",
-      rice: "",
-      quantity: 1,
+    id: props.item.id,
+    name: props.item.name,
+    price: props.item.price,
+    description: props.item.description,
+    choice: "",
+    spice: "",
+    rice: "",
+    quantity: 1,
+  });
+  const [selectedItems, setSelectedItems] = React.useState({});
 
+  const dollarUS = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
 
+  React.useEffect(() => {
+    setSelectedItems({
+      ...formData,
+      price:
+        formData.price +
+        (formData.choice === "beef" ? 2 : 0) +
+        (formData.rice === "steam rice" ? 1.5 : 0) +
+        (formData.rice === "brown rice" ? 2 : 0),
+    });
+  }, [formData]);
+
+  React.useEffect(() => {
+    if (props.item.choice) {
+      if (
+        (formData.spice === "") |
+        (formData.rice === "") |
+        (formData.choice === "")
+      ) {
+        setButtonDisabled(true);
+      } else if (formData.spice && formData.rice && formData.choice) {
+        setButtonDisabled(false);
+      }
+    } else {
+      return;
+    }
+  }, [formData, props]);
+
+  console.log(buttonDisabled);
+
   function addOne() {
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            quantity: prevFormData.quantity + 1
-        }
-    })
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        quantity: prevFormData.quantity + 1,
+      };
+    });
   }
 
   function subOne() {
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            quantity: prevFormData.quantity - 1
-        }
-    })
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        quantity: prevFormData.quantity - 1,
+      };
+    });
   }
 
   function handleChange(event) {
-    const {name, value, type, checked} = event.target
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            [name]: type === "checkbox" ? checked : value
-        }
-    })
-
+    const { name, value, type, checked } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: type === "checkbox" ? checked : value,
+      };
+    });
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
-    props.closePopup()
+    event.preventDefault();
+    props.closePopup();
     dispatch({
-        type:'ADD_TO_CART',
-        payload: formData
-    })
+      type: "ADD_TO_CART",
+      payload: selectedItems,
+    });
   }
-
-  
 
   return (
     <div className="popup">
       <div className="popup-container">
-        <button onClick={props.closePopup}> x </button>
-        <h2> {props.item.name} </h2>
-        <p>{props.item.price}</p>
+        <div className="popup-container-header">
+          <h2> {props.item.name} </h2>
+          <button onClick={props.closePopup}> X </button>
+        </div>
+
+        <p>{dollarUS.format(props.item.price)}</p>
         <p>{props.item.description}</p>
 
         <form>
@@ -196,14 +228,25 @@ function Popup(props) {
               <br></br>
             </fieldset>
           )}
-          <button type="button" onClick={subOne}>
-            -
-          </button>
-          <span>{formData.quantity}</span>
-          <button type="button" onClick={addOne}>
-            +
-          </button>
-          <button onClick={handleSubmit}>Add to Cart</button>
+          <div className="modal-footer">
+            <div className="quantity-container">
+              <button className="quantity-btn" type="button" onClick={subOne}>
+                -
+              </button>
+              <span>{formData.quantity}</span>
+              <button className="quantity-btn" type="button" onClick={addOne}>
+                +
+              </button>
+            </div>
+            <button
+              className="modal-button"
+              onClick={handleSubmit}
+              disabled={buttonDisabled}
+            >
+              Add to Cart
+            </button>
+            {buttonDisabled && <span>please fill out above options</span>}
+          </div>
         </form>
       </div>
     </div>

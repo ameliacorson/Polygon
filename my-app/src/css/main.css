@@ -47,7 +47,6 @@ nav.open {
 .menu {
   position: fixed;
   bottom: 0;
-  z-index: 10;
   width: 100%;
   height: 60px;
   background: #2c2c2c;
@@ -182,13 +181,6 @@ nav.open {
      object-fit: cover;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 header {
   font-family: "Bebas Neue", cursive;
   background: #404040;
@@ -270,30 +262,8 @@ header .scrolled {
 }
 
 .about {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   padding: 1em;
-}
-
-.about h2 {
-  font-family: "Bebas Neue", cursive;
-  font-size: 2em;
-  margin-bottom: .5em;
-}
-
-.about h2 span {
-  color: #ccad59;
+  text-align: left;
 }
 
 .order-container h3 {
@@ -307,24 +277,53 @@ header .scrolled {
   display: -ms-grid;
   display: grid;
   grid-gap: .5em;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  border: 1px solid white;
-  background: #ccad59;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   border-radius: 7px;
-  padding: 1em;
   margin-bottom: 2em;
+  max-width: 100%;
 }
 
 .menu-item {
-  border: 1px solid white;
   border-radius: 7px;
-  padding: .5em;
+  padding: .7em;
   background: #404040;
+  max-width: 100%;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
-.cart-amount {
-  color: green;
+.menu-item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.menu-item-header p {
+  font-weight: 700;
+}
+
+.menu-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.menu-item p {
+  margin: 0;
+  font-size: .75rem;
+}
+
+.menu-item:hover {
+  background: #5a5a5a;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
 }
 
 .popup {
@@ -333,7 +332,8 @@ header .scrolled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -351,27 +351,58 @@ header .scrolled {
 
 .popup-container {
   position: relative;
-  padding: 32px;
-  width: 100%;
+  padding: 1.5em;
+  margin-bottom: 2em;
+  width: 85%;
   max-width: 500px;
+  overflow: auto;
   background: white;
   color: black;
+  border-radius: 7px;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-  background: #404040;
-  color: #f0eeee;
-  line-height: 1.5;
+.popup-container p {
+  margin: 0;
 }
 
-.container {
-  max-width: 800px;
-  padding: 2em;
-  margin: 0 auto;
+.popup-container .quantity-btn {
+  background: #ccad59;
+  width: 20px;
+  border: none;
+  border-radius: 50%;
 }
 
-section {
+.popup-container-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.popup-container-header button {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  margin: -10px -5px 0 0;
+  color: grey;
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -387,8 +418,98 @@ section {
           flex-direction: column;
 }
 
-section.inverse {
+.cart-container {
+  position: relative;
+  padding: 1.5em;
+  margin-bottom: 2em;
+  width: 85%;
+  max-width: 500px;
+  overflow: auto;
+  padding: 32px;
+  max-width: 500px;
+  max-height: 80vh;
+  background: white;
+  color: black;
+  overflow-y: auto;
+}
+
+.cart-item {
+  border: 1px solid black;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.cart-item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cart-button {
+  position: fixed;
+  right: 15px;
+  bottom: 75px;
+  width: 70px;
+  height: 70px;
+  background: green;
+  border-radius: 50%;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.footer {
+  min-height: 40vh;
+  color: white;
   background: #404040;
-  color: #fff;
+  background-image: url(../img/bw-restaurant.jpeg);
+  background-position: center;
+  background-blend-mode: multiply;
+  background-repeat: none;
+}
+
+.checkout {
+  overflow: auto;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #404040;
+  color: #f0eeee;
+  line-height: 1.5;
+  overflow: auto;
+}
+
+.container {
+  max-width: 800px;
+  padding: 2em;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3em;
+}
+
+h2 span {
+  color: #ccad59;
 }
 /*# sourceMappingURL=main.css.map */

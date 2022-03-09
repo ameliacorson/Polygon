@@ -1,0 +1,39 @@
+.cart {
+  @include modal-background;
+  @include flex(column);
+  
+
+  &-container {
+    @include modal-container;
+    padding: 32px;
+    max-width: 500px;
+    max-height: 80vh;
+    background: white;
+    color: black;
+    overflow-y: auto;
+  }
+}
+
+.cart-item {
+  border: 1px solid black;
+  padding: 1em;
+  margin-bottom: 1em;
+
+    &-header {
+        @include unit-header
+    }
+
+}
+
+.cart-button {
+  position: fixed;
+  right: 15px;
+  bottom: 75px;
+  width: 70px;
+  height: 70px;
+  background: green;
+  border-radius: 50%;
+  z-index: 1;
+
+  @include flex(row);
+}
