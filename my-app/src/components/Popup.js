@@ -83,6 +83,7 @@ function Popup(props) {
   function handleSubmit(event) {
     event.preventDefault();
     props.closePopup();
+    
     addItemToCart(selectedItems)
   }
 

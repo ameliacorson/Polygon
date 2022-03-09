@@ -19,16 +19,14 @@ export default function CartContextProvider({ children }) {
     }
 
     function removeItemInCart(itemIndex) {
-      let items = [...cartItems]
-      items.splice(itemIndex, 1);
+      let items = [...cartItems].filter(item => item.id !== itemIndex)
       setCartAndLocalState(items)
+      
     }
 
     function clearCart() {
       setCartAndLocalState([])
     }
-
-    
 
   return <CartContext.Provider value={{ cartItems, addItemToCart, removeItemInCart, clearCart }}>{children}</CartContext.Provider>;
 }
