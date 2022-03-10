@@ -11,8 +11,7 @@ export default function CartItem({ item, handleRemove }) {
               <h4>{item.name}</h4>
               <FaTrashAlt onClick={() => handleRemove(item.id)} />
             </div>
-            <p>{formatUSD(item.price)}</p>
-            <p>{item.description}</p>
+            
             {item.choice && (
               <ul>
                 <li>{item.choice} </li>
@@ -20,6 +19,7 @@ export default function CartItem({ item, handleRemove }) {
                 <li>{item.rice}</li>
               </ul>
             )}
+            <p className="price">{formatUSD(item.price)}</p>
           </div>
         );
 }

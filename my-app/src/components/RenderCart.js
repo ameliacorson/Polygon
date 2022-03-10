@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useCart } from "../Context/cartProvider";
 
+import { BsCartX } from "react-icons/bs"
+
 import { formatUSD } from '../Context/format';
 
 import CartItem from "./CartItem";
@@ -22,10 +24,11 @@ export default function RenderCart() {
   }, [cartItems]);
 
   return (
-    <div>
-      {cartItems.length > 0 ? cartElements : <h3>nothing in cart</h3>}
-      {cartItems.length > 0 && <p>Subtotal: {price}</p>}
-      <button onClick={clearCart}>clear cart</button>
+    <div className="render-cart">
+      {cartItems.length > 0 && <button className="clear-cart-btn" onClick={clearCart}> <BsCartX></BsCartX> clear cart</button>}
+      {cartItems.length > 0 ? cartElements : <h4>nothing in cart</h4>}
+      {cartItems.length > 0 && <p className="subtotal">Subtotal: {price}</p>}
+      
     </div>
   );
 }

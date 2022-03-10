@@ -8,7 +8,7 @@ export default function menuItem({ menuItem, onClick}) {
     <div className="menu-item" onClick={() => onClick()}>
       <div className="menu-item-header">
         <h4>{menuItem.name}</h4>
-        <p>{formatUSD(menuItem.price)}</p>
+        <p className="price">{formatUSD(menuItem.price)}</p>
       </div>
 
       <p> {menuItem.description}</p>

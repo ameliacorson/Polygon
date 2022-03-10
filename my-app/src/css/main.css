@@ -272,8 +272,6 @@ header .scrolled {
 
 .order-container h3 {
   margin: 0;
-  border: solid 1px white;
-  padding: .5em;
   border-radius: 7px;
 }
 
@@ -290,6 +288,7 @@ header .scrolled {
 
 .menu-section button.accordion-button {
   z-index: -5;
+  background: green;
 }
 
 .menu-item {
@@ -428,7 +427,8 @@ header .scrolled {
   overflow: auto;
   border-radius: 7px;
   margin-top: 1em;
-  padding: 32px;
+  padding: 1.5em 2em;
+  padding-bottom: 2em;
   max-width: 500px;
   max-height: 80vh;
   background: white;
@@ -438,12 +438,38 @@ header .scrolled {
 
 .cart-container .close-button {
   float: right;
+  margin-top: -2.5em;
+}
+
+.cart-container h3 {
+  font-family: "Bebas Neue", cursive;
+  padding: none;
+  margin: none;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+}
+
+.cart .render-cart .clear-cart-btn {
+  background-color: transparent;
+  border: none;
+  color: #9b9999;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+
+.cart .render-cart .clear-cart-btn:hover {
+  color: black;
+}
+
+.cart .render-cart p.subtotal {
+  margin: 1.5em 0;
+  font-size: calc(1.2rem + .3vw);
 }
 
 .cart-item {
-  border: 1px solid black;
-  padding: 1em;
-  margin-bottom: 1em;
+  padding: 2em 1em;
+  border-bottom: 1px solid grey;
 }
 
 .cart-item-header {
@@ -456,6 +482,14 @@ header .scrolled {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.cart-item h4 {
+  font-size: calc(1.2rem + .3vw);
+}
+
+.cart-item p.price {
+  margin: 0;
 }
 
 .cart-button {
@@ -483,7 +517,9 @@ header .scrolled {
 }
 
 .checkout-btn {
-  float: right;
+  border: none;
+  background: #ccad59;
+  border-radius: 7px;
 }
 
 .footer {

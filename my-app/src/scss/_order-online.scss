@@ -2,8 +2,6 @@
 .order-container {
     h3 {
         margin: 0;
-        border: solid 1px white;
-        padding: .5em;
         border-radius: 7px;
 
     }
@@ -18,6 +16,7 @@
 
     button.accordion-button {
         z-index: -5;
+        background: green;
     }
     
 }
