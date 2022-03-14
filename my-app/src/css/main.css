@@ -278,7 +278,7 @@ header .scrolled {
 .menu-section {
   display: -ms-grid;
   display: grid;
-  grid-gap: .5em;
+  grid-gap: 0.5em;
   -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   border-radius: 7px;
@@ -286,14 +286,9 @@ header .scrolled {
   max-width: 100%;
 }
 
-.menu-section button.accordion-button {
-  z-index: -5;
-  background: green;
-}
-
 .menu-item {
   border-radius: 7px;
-  padding: .7em;
+  padding: 0.7em;
   background: #404040;
   max-width: 100%;
   -webkit-transition: all 500ms ease;
@@ -323,7 +318,7 @@ header .scrolled {
 
 .menu-item p {
   margin: 0;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 .menu-item:hover {
@@ -418,6 +413,18 @@ header .scrolled {
           flex-direction: column;
 }
 
+.cart-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .cart-container {
   position: relative;
   padding: 1.5em;
@@ -436,12 +443,7 @@ header .scrolled {
   overflow-y: auto;
 }
 
-.cart-container .close-button {
-  float: right;
-  margin-top: -2.5em;
-}
-
-.cart-container h3 {
+.cart h3 {
   font-family: "Bebas Neue", cursive;
   padding: none;
   margin: none;
@@ -449,7 +451,7 @@ header .scrolled {
   letter-spacing: 1px;
 }
 
-.cart .render-cart .clear-cart-btn {
+.render-cart .clear-cart-btn {
   background-color: transparent;
   border: none;
   color: #9b9999;
@@ -458,11 +460,11 @@ header .scrolled {
   text-decoration: underline;
 }
 
-.cart .render-cart .clear-cart-btn:hover {
+.render-cart .clear-cart-btn:hover {
   color: black;
 }
 
-.cart .render-cart p.subtotal {
+.render-cart p.subtotal {
   margin: 1.5em 0;
   font-size: calc(1.2rem + .3vw);
 }
@@ -534,6 +536,50 @@ header .scrolled {
 
 .checkout {
   overflow: auto;
+}
+
+.accordion {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+
+.accordion-item {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.accordion-collapse.collapse.show {
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  border: none;
+  background: #646363;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.accordion-button {
+  background-color: grey;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.accordion-button:focus {
+  border-color: green;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.accordion-body {
+  background: #646363;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 body {

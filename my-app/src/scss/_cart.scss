@@ -1,6 +1,10 @@
 .cart {
   @include modal-background;
   @include flex(column);
+
+  &-header {
+    @include unit-header;
+  }
   
 
   &-container {
@@ -12,10 +16,6 @@
     background: white;
     color: black;
     overflow-y: auto;
-
-    .close-button {
-      float: right;
-      margin-top: -2.5em;
     }
 
     h3 {
@@ -47,7 +47,7 @@
       font-size: calc(1.2rem + .3vw);
     }
   }
-}
+
 
 
 

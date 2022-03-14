@@ -37,7 +37,7 @@ export default function Order() {
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
       <h2> Menu </h2>
-      <Accordion>
+      <Accordion bg="secondary">
           <MenuSection onClick={launchPopup} title={"Appetizers"} section={appetizers} index={0}/>
           <MenuSection onClick={launchPopup} title={"Mains"} section={mains} index={1}/>
           <MenuSection onClick={launchPopup} title={"Sides"} section={sides} index={2}/>

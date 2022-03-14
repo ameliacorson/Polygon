@@ -1,4 +1,5 @@
 import React from "react";
+import CloseButton from 'react-bootstrap/CloseButton'
 import { nanoid } from 'nanoid'
 
 import { useCart } from "../Context/cartProvider";
@@ -86,7 +87,8 @@ function Popup(props) {
       <div className="popup-container">
         <div className="popup-container-header">
           <h2> {props.item.name} </h2>
-          <button className="close-button" onClick={props.closePopup}> X </button>
+          <CloseButton onClick={props.closePopup}></CloseButton>
+          {/* <button className="close-button" > X </button> */}
         </div>
 
         <p>{formatUSD(props.item.price)}</p>

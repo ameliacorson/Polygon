@@ -8,6 +8,7 @@
 @import "cart";
 @import "footer";
 @import "checkout";
+@import "accordion";
 
 body {
   font-family: $font-family-body;
@@ -23,7 +24,7 @@ body {
   max-width: 800px;
   padding: 2em;
   margin: 0 auto;
-  overflow:auto;
+  overflow: auto;
 }
 
 h2 {

@@ -12,6 +12,12 @@ export default function Checkout() {
         <div className="checkout-cart">
           <RenderCart />
         </div>
+        <div className="checkout-payment">
+
+        </div>
+        <div>
+          
+        </div>
         <div className="subtotal-sidebar">
           
         </div>
