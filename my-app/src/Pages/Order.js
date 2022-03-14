@@ -36,7 +36,7 @@ export default function Order() {
       {cartItems.length > 0 && <CartButton onClick={() => setCartOpen(true)} />}
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
-      <h2> Menu </h2>
+      <h2 className="order-header"> Menu </h2>
       <Accordion bg="secondary">
           <MenuSection onClick={launchPopup} title={"Appetizers"} section={appetizers} index={0}/>
           <MenuSection onClick={launchPopup} title={"Mains"} section={mains} index={1}/>

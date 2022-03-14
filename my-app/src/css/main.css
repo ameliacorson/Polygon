@@ -288,7 +288,15 @@ header .scrolled {
   text-align: left;
 }
 
-.order-container h3 {
+.order-container.container {
+  min-height: 50vh;
+}
+
+.order-container.container h2.order-header {
+  margin: .7em 0;
+}
+
+.order-container.container h3 {
   margin: 0;
   border-radius: 7px;
 }

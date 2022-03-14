@@ -1,4 +1,11 @@
-.order-container {
+.order-container.container {
+
+  min-height: 50vh;
+
+  h2.order-header {
+    margin: .7em 0;
+  }
+
   h3 {
     margin: 0;
     border-radius: 7px;
