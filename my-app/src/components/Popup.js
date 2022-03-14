@@ -1,13 +1,19 @@
 import React from "react";
-import { CartState } from "../Context/Context";
+import CloseButton from 'react-bootstrap/CloseButton'
+import { nanoid } from 'nanoid'
+
+import { useCart } from "../Context/cartProvider";
+
+import { formatUSD } from '../Context/format';
+
 
 function Popup(props) {
-  const { dispatch } = CartState();
+  const { addItemToCart  } = useCart();
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
   const [formData, setFormData] = React.useState({
-    id: props.item.id,
+    id: nanoid(),
     name: props.item.name,
     price: props.item.price,
     description: props.item.description,
@@ -16,23 +22,6 @@ function Popup(props) {
     rice: "",
     quantity: 1,
   });
-  const [selectedItems, setSelectedItems] = React.useState({});
-
-  const dollarUS = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-
-  React.useEffect(() => {
-    setSelectedItems({
-      ...formData,
-      price:
-        formData.price +
-        (formData.choice === "beef" ? 2 : 0) +
-        (formData.rice === "steam rice" ? 1.5 : 0) +
-        (formData.rice === "brown rice" ? 2 : 0),
-    });
-  }, [formData]);
 
   React.useEffect(() => {
     if (props.item.choice) {
@@ -49,8 +38,6 @@ function Popup(props) {
       return;
     }
   }, [formData, props]);
-
-  console.log(buttonDisabled);
 
   function addOne() {
     setFormData((prevFormData) => {
@@ -70,6 +57,7 @@ function Popup(props) {
     });
   }
 
+
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
     setFormData((prevFormData) => {
@@ -83,10 +71,15 @@ function Popup(props) {
   function handleSubmit(event) {
     event.preventDefault();
     props.closePopup();
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: selectedItems,
-    });
+    
+    addItemToCart({
+      ...formData,
+      price:
+        formData.price +
+        (formData.choice === "Beef (+$2.00)" ? 2 : 0) +
+        (formData.rice === "Steamed Rice (+$1.50)" ? 1.5 : 0) +
+        (formData.rice === "Brown Rice (+$2.00)" ? 2 : 0),
+    })
   }
 
   return (
@@ -94,10 +87,11 @@ function Popup(props) {
       <div className="popup-container">
         <div className="popup-container-header">
           <h2> {props.item.name} </h2>
-          <button onClick={props.closePopup}> X </button>
+          <CloseButton onClick={props.closePopup}></CloseButton>
+          {/* <button className="close-button" > X </button> */}
         </div>
 
-        <p>{dollarUS.format(props.item.price)}</p>
+        <p>{formatUSD(props.item.price)}</p>
         <p>{props.item.description}</p>
 
         <form>
@@ -107,42 +101,42 @@ function Popup(props) {
               <input
                 name="choice"
                 type="radio"
-                value="chicken"
-                id="chicken"
+                value="Chicken"
+                id="Chicken"
                 onChange={handleChange}
-                checked={formData.choice === "chicken"}
+                checked={formData.choice === "Chicken"}
               />
-              <label htmlFor="chicken">Chicken</label>
+              <label htmlFor="Chicken">Chicken</label>
               <br></br>
               <input
                 name="choice"
                 type="radio"
-                value="beef"
-                id="beef"
+                value="Beef (+$2.00)"
+                id="Beef (+$2.00)"
                 onChange={handleChange}
-                checked={formData.choice === "beef"}
+                checked={formData.choice === "Beef (+$2.00)"}
               />
-              <label htmlFor="beef">Beef (+$2.00)</label>
+              <label htmlFor="Beef (+$2.00)">Beef (+$2.00)</label>
               <br></br>
               <input
                 name="choice"
                 type="radio"
-                value="tofu"
-                id="tofu"
+                value="Tofu"
+                id="Tofu"
                 onChange={handleChange}
-                checked={formData.choice === "tofu"}
+                checked={formData.choice === "Tofu"}
               />
-              <label htmlFor="tofu">Tofu</label>
+              <label htmlFor="Tofu">Tofu</label>
               <br></br>
               <input
                 name="choice"
                 type="radio"
-                value="veggie"
-                id="veggie"
+                value="Veggie"
+                id="Veggie"
                 onChange={handleChange}
-                checked={formData.choice === "veggie"}
+                checked={formData.choice === "Veggie"}
               />
-              <label htmlFor="veggie">Veggie</label>
+              <label htmlFor="Veggie">Veggie</label>
               <br></br>
             </fieldset>
           )}
@@ -153,32 +147,32 @@ function Popup(props) {
               <input
                 name="spice"
                 type="radio"
-                value="mild"
-                id="mild"
+                value="Mild"
+                id="Mild"
                 onChange={handleChange}
-                checked={formData.spice === "mild"}
+                checked={formData.spice === "Mild"}
               />
-              <label htmlFor="mild">Mild</label>
+              <label htmlFor="Mild">Mild</label>
               <br></br>
               <input
                 name="spice"
                 type="radio"
-                value="medium"
-                id="medium"
+                value="Medium"
+                id="Medium"
                 onChange={handleChange}
-                checked={formData.spice === "medium"}
+                checked={formData.spice === "Medium"}
               />
-              <label htmlFor="medium">Medium</label>
+              <label htmlFor="Medium">Medium</label>
               <br></br>
               <input
                 name="spice"
                 type="radio"
-                value="hot"
-                id="hot"
+                value="Hot"
+                id="Hot"
                 onChange={handleChange}
-                checked={formData.spice === "hot"}
+                checked={formData.spice === "Hot"}
               />
-              <label htmlFor="hot">Hot</label>
+              <label htmlFor="Hot">Hot</label>
               <br></br>
               <input
                 name="spice"
@@ -199,22 +193,22 @@ function Popup(props) {
               <input
                 name="rice"
                 type="radio"
-                value="steam rice"
-                id="steam rice"
+                value="Steamed Rice (+$1.50)"
+                id="Steamed Rice (+$1.50)"
                 onChange={handleChange}
-                checked={formData.rice === "steam rice"}
+                checked={formData.rice === "Steamed Rice (+$1.50)"}
               />
-              <label htmlFor="steam-rice">Steamed Rice (+$1.50)</label>
+              <label htmlFor="Steamed Rice (+$1.50)">Steamed Rice (+$1.50)</label>
               <br></br>
               <input
                 name="rice"
                 type="radio"
-                value="brown rice"
-                id="brown rice"
+                value="Brown Rice (+$2.00)"
+                id="Brown Rice (+$2.00)"
                 onChange={handleChange}
-                checked={formData.rice === "brown rice"}
+                checked={formData.rice === "Brown Rice (+$2.00)"}
               />
-              <label htmlFor="brown-rice">Brown Rice (+$2.00)</label>
+              <label htmlFor="Brown Rice (+$2.00)">Brown Rice (+$2.00)</label>
               <br></br>
               <input
                 name="rice"
@@ -238,6 +232,7 @@ function Popup(props) {
                 +
               </button>
             </div>
+            {buttonDisabled && <p>please fill out above options</p>}
             <button
               className="modal-button"
               onClick={handleSubmit}
@@ -245,8 +240,8 @@ function Popup(props) {
             >
               Add to Cart
             </button>
-            {buttonDisabled && <span>please fill out above options</span>}
           </div>
+          
         </form>
       </div>
     </div>

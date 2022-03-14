@@ -8,6 +8,7 @@
 @import "cart";
 @import "footer";
 @import "checkout";
+@import "accordion";
 
 body {
   font-family: $font-family-body;
@@ -23,7 +24,7 @@ body {
   max-width: 800px;
   padding: 2em;
   margin: 0 auto;
-  overflow:auto;
+  overflow: auto;
 }
 
 h2 {
@@ -33,5 +34,21 @@ h2 {
   span {
       color: $accent-color
   }
+
+}
+
+.close-button {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  margin: -10px -5px 0 0;
+  color: grey;
+
+}
+
+
+
+.modal-button{
+  padding: 10px 30px;
 
 }
