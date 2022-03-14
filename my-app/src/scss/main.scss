@@ -40,6 +40,14 @@ h2 {
 
 }
 
+h3.accent-header {
+  font-family: $font-family-logo;
+  padding: none;
+  margin: none;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+}
+
 
 .modal-button{
   width: 100%;
@@ -57,7 +65,10 @@ h2 {
   &:hover {
     background: darken($accent-color, 10%);
     @include transition-ease;
+  }
 
+  &:disabled {
+    background-color: #9B9999;
   }
 
 }

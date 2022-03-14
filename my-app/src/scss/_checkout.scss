@@ -1,3 +1,56 @@
 .checkout {
     overflow: auto;
+
+    &-button {
+        background: $accent-color;
+        padding: 10px 20px;
+        color: $background-color;
+        border: none;
+    }
+}
+
+.progress-dots {
+    
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     
+    &::after {
+        position: absolute;
+        z-index: -1;
+        transform: translate(5px, -17px);
+        content: "";
+        width: 76%;
+        height: 3px;
+        background-color: #9B9999;
+    }
+
+   .dot-and-description {
+       @include flex (column);
+       position: relative;
+
+       p {
+        font-size: .75em;
+        color: #9B9999;
+        letter-spacing: 1px;
+        }
+
+        .progress-dot {
+            width: 20px;
+            height: 20px;
+            background: #9B9999;
+            border-radius: 50%
+        }
+    
+   }
+
+    
+
+    &.chk-cart {
+        .dot-cart {
+            background-color: $accent-color;
+            border:none;
+        }
+    }
 }

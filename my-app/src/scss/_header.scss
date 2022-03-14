@@ -6,7 +6,7 @@ header {
     background-position: center;
     background-blend-mode: multiply;
     background-repeat: none;
-    height: 45vh;
+    height: 35vh;
     @include flex(column);
 
     .header-container {

@@ -13,7 +13,7 @@ nav {
   left: 0;
   height: 100%;
   width: 100%;
-  background: #2c2c2c;
+  background: #555555;
   opacity: 98%;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -62,7 +62,7 @@ nav.open {
   bottom: 0;
   width: 100%;
   height: 60px;
-  background: #2c2c2c;
+  background: #555555;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +91,7 @@ nav.open {
   position: absolute;
   width: 75px;
   height: 75px;
-  background: #2c2c2c;
+  background: #555555;
   border-radius: 50%;
   bottom: 20px;
   border: none;
@@ -210,7 +210,7 @@ header {
   background-position: center;
   background-blend-mode: multiply;
   background-repeat: none;
-  height: 45vh;
+  height: 35vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,7 +305,6 @@ header .scrolled {
 }
 
 .menu-item {
-  border-radius: 7px;
   border: 0.5px solid #404040;
   padding: 0.7em;
   background: #f9f9f9;
@@ -386,15 +385,31 @@ header .scrolled {
   padding: 1.5em;
 }
 
-.popup-container p {
-  margin: 0;
+.popup-container span.required {
+  color: #aa3f3f;
+  font-size: 1rem;
 }
 
-.popup-container .quantity-btn {
-  background: #ccad59;
-  width: 20px;
-  border: none;
-  border-radius: 50%;
+.popup-container span.required.key {
+  font-style: italic;
+  padding-right: 1.5em;
+}
+
+.popup-container p.popup-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.popup-container p.popup-description {
+  font-size: 1rem;
+}
+
+.popup-container label {
+  margin-left: 7px;
+}
+
+.popup-container fieldset.rice-fieldset {
+  margin-bottom: 1.5em;
 }
 
 .popup-container-header {
@@ -410,6 +425,14 @@ header .scrolled {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.popup-container .quantity-btn {
+  background: #ccad59;
+  margin: 0 7px;
+  width: 22px;
+  border: none;
+  border-radius: 50%;
 }
 
 .cart {
@@ -464,14 +487,6 @@ header .scrolled {
 
 .cart-container-content {
   padding: 1.5em;
-}
-
-.cart h3 {
-  font-family: "Bebas Neue", cursive;
-  padding: none;
-  margin: none;
-  font-size: 2.5em;
-  letter-spacing: 1px;
 }
 
 .render-cart .clear-cart-btn {
@@ -542,7 +557,7 @@ header .scrolled {
 }
 
 .footer {
-  min-height: 30vh;
+  min-height: 20vh;
   color: #f9f9f9;
   background: #404040;
   background-image: url(../img/bw-restaurant.jpeg);
@@ -561,7 +576,9 @@ header .scrolled {
 }
 
 .footer-info h4 {
-  font-size: 1.2rem;
+  font-size: 1.7rem;
+  font-family: "Bebas Neue", cursive;
+  color: #ccad59;
 }
 
 .footer-info p {
@@ -573,38 +590,119 @@ header .scrolled {
   overflow: auto;
 }
 
+.checkout-button {
+  background: #ccad59;
+  padding: 10px 20px;
+  color: #f9f9f9;
+  border: none;
+}
+
+.progress-dots {
+  padding: 1.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.progress-dots::after {
+  position: absolute;
+  z-index: -1;
+  -webkit-transform: translate(5px, -17px);
+          transform: translate(5px, -17px);
+  content: "";
+  width: 76%;
+  height: 3px;
+  background-color: #9B9999;
+}
+
+.progress-dots .dot-and-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.progress-dots .dot-and-description p {
+  font-size: .75em;
+  color: #9B9999;
+  letter-spacing: 1px;
+}
+
+.progress-dots .dot-and-description .progress-dot {
+  width: 20px;
+  height: 20px;
+  background: #9B9999;
+  border-radius: 50%;
+}
+
+.progress-dots.chk-cart .dot-cart {
+  background-color: #ccad59;
+  border: none;
+}
+
 .accordion {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .accordion-item {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.accordion-item h3 {
+  letter-spacing: 1px;
 }
 
 .accordion-collapse.collapse.show {
   border: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .accordion-button.collapsed::after {
-  color: white;
+  color: #f9f9f9;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .accordion-button:not(.collapsed) {
-  border: none;
   background: #f9f9f9;
   -webkit-box-shadow: none;
           box-shadow: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .accordion-button {
-  background-color: #f9f9f9;
+  background: #f9f9f9;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .accordion-button:focus {
@@ -650,6 +748,14 @@ h2 span {
   color: #ccad59;
 }
 
+h3.accent-header {
+  font-family: "Bebas Neue", cursive;
+  padding: none;
+  margin: none;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+}
+
 .modal-button {
   width: 100%;
   padding: .5em 0;
@@ -669,6 +775,10 @@ h2 span {
   background: #b99739;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+}
+
+.modal-button:disabled {
+  background-color: #9B9999;
 }
 
 .modal-footer-custom {

@@ -92,13 +92,14 @@ function Popup(props) {
           {/* <button className="close-button" > X </button> */}
         </div>
 
-        <p>{formatUSD(props.item.price)}</p>
-        <p>{props.item.description}</p>
+        <p className="popup-price">{formatUSD(props.item.price)}</p>
+        <p className="popup-description">{props.item.description}</p>
 
         <form>
           {props.item.choice && (
             <fieldset>
-              <legend>Choose Protein</legend>
+              <legend>Choose Protein {buttonDisabled && <span className="required">*</span>}</legend> 
+              <br></br>
               <input
                 name="choice"
                 type="radio"
@@ -144,7 +145,7 @@ function Popup(props) {
           <br></br>
           {props.item.spicy && (
             <fieldset>
-              <legend>Choose Spiciness Level</legend>
+              <legend>Choose Spiciness Level {buttonDisabled && <span className="required">*</span>}</legend>
               <input
                 name="spice"
                 type="radio"
@@ -189,8 +190,8 @@ function Popup(props) {
           )}
           <br></br>
           {props.item.rice && (
-            <fieldset>
-              <legend>Choose Rice</legend>
+            <fieldset className="rice-fieldset">
+              <legend>Choose Rice {buttonDisabled && <span className="required">*</span>}</legend>
               <input
                 name="rice"
                 type="radio"
@@ -233,7 +234,7 @@ function Popup(props) {
                 +
               </button>
             </div>
-            {buttonDisabled && <p>please fill out above options</p>}
+            {buttonDisabled && <span className="required key">*required</span>}
           </div>
          
           

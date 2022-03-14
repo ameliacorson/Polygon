@@ -13,7 +13,7 @@ export default function Cart(props) {
       <div className="cart-container">
         <div className="cart-container-content">
           <div className="cart-header">
-            <h3>Your Cart</h3>
+            <h3 className="accent-header">Your Cart</h3>
             <CloseButton onClick={props.closeMenu}></CloseButton>
           </div>
           <RenderCart />

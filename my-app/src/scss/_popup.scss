@@ -14,16 +14,32 @@
             @include modal-content;
         }
 
+        span.required {
+            color: rgb(170, 63, 63);
+            font-size: 1rem;
 
-        p{
-            margin: 0;
+            &.key {
+                font-style: italic;
+                padding-right: 1.5em;
+            }
+            
         }
 
-        .quantity-btn {
-            background: $accent-color;
-            width: 20px;
-            border: none;
-            border-radius: 50%
+        p.popup-price {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        p.popup-description {
+            font-size: 1rem;
+        }
+
+        label {
+            margin-left: 7px;
+        }
+
+        fieldset.rice-fieldset {
+            margin-bottom: 1.5em;
         }
       
 
@@ -32,6 +48,14 @@
             align-items: flex-start;
 
            
+        }
+
+        .quantity-btn {
+            background: $accent-color;
+            margin: 0 7px;
+            width: 22px;
+            border: none;
+            border-radius: 50%;
         }
 
     }
