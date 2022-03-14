@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="footer-info">
           <h4>Contact Us</h4>
           <p>(773) 555-1234</p>
-          <p>polygoncafe@polygon.com</p>
+          <p>info@polygon.com</p>
         </div>
       </div>
     </div>

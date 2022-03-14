@@ -18,7 +18,7 @@ export default function Map() {
       };
 
       const containerStyle = {
-        width: '200px',
+        width: '100%',
         height: '200px',
       };
 

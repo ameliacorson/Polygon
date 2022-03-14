@@ -1,48 +1,37 @@
-
 header {
-    font-family: $font-family-logo;
+  @include flex(column);
+
+  .header-container {
+    @include flex(row);
+    justify-content: space-between;
+    padding: .5em .75em;
     background: $dark-accent;
-    background-image: url(../img/bw-restaurant.jpeg);
-    background-position: center;
-    background-blend-mode: multiply;
-    background-repeat: none;
-    height: 35vh;
-    @include flex(column);
 
-    .header-container {
-        @include flex(column);
-        align-items: flex-end;
+  }
 
-    }
+  img.logo-img {
+    width: 60%;
+  }
 
-    img {
-      width: 85%;
-      margin: 0;
-    }
+  .CTA-btn {
+    background-color: $accent-color;
+    color: $dark-accent;
+    font-size: 1em;
+    border: none;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: $font-family-logo;
+    @include transition-ease;
 
-    .CTA-btn {
-        background-color: $accent-color;
-        color: $dark-accent;
-        font-size: 1.2em;
-        border: none;
-        padding: .7em 1.5em;
-        margin-top: -2.5em;
-        margin-right: 1.2em;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 2px;
-        font-family: $font-family-logo;
-        @include transition-ease;
-
-        &:hover {
-            background: $background-color;
-            @include transition-ease;
-    
-        }
-
-    }
-  
-    .scrolled {
-      background-image: none;
+    &:hover {
+      background: $background-color;
+      @include transition-ease;
     }
   }
+
+  .scrolled {
+    background-image: none;
+  }
+}

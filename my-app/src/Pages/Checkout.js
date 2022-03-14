@@ -29,9 +29,11 @@ export default function Checkout() {
             <div className="checkout-cart">
               <h4> Confirm your Cart</h4>
               <RenderCart />
+              <div className="button-container"> 
               <button className="checkout-button" onClick={() => setCheckoutPage("chk-payment")}>
                 Next
               </button>
+              </div>
             </div>
           )}
           {checkoutPage === "payment" && (

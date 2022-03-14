@@ -1,6 +1,8 @@
 .footer {
   min-height: 20vh;
 
+  padding-bottom: 2em;
+
   color: $background-color;
 
   background: $dark-accent;
@@ -12,6 +14,7 @@
   &-container {
     display: flex;
     justify-content: space-between;
+
   }
 
   &-info {
@@ -24,6 +27,10 @@
     p {
         font-size: .75rem;
         margin:0;
+    }
+
+    &:nth-child(2) {
+      text-align: right;
     }
 
   }

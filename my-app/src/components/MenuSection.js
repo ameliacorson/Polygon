@@ -20,3 +20,5 @@ export default function MenuSection({ section, title, index, onClick }) {
     </Accordion.Item>
   );
 }
+
+

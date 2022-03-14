@@ -41,7 +41,7 @@ nav {
   }
 
   &.open {
-    
+    z-index: 1000;
     background: $dark-accent;
     transform: translateY(0);
     @include transition-ease
