@@ -85,6 +85,7 @@ function Popup(props) {
   return (
     <div className="popup">
       <div className="popup-container">
+        <div className="popup-container-content">
         <div className="popup-container-header">
           <h2> {props.item.name} </h2>
           <CloseButton onClick={props.closePopup}></CloseButton>
@@ -222,7 +223,7 @@ function Popup(props) {
               <br></br>
             </fieldset>
           )}
-          <div className="modal-footer">
+          <div className="modal-footer-custom">
             <div className="quantity-container">
               <button className="quantity-btn" type="button" onClick={subOne}>
                 -
@@ -233,16 +234,18 @@ function Popup(props) {
               </button>
             </div>
             {buttonDisabled && <p>please fill out above options</p>}
-            <button
+          </div>
+         
+          
+        </form>
+        </div>
+        <button
               className="modal-button"
               onClick={handleSubmit}
               disabled={buttonDisabled}
             >
               Add to Cart
             </button>
-          </div>
-          
-        </form>
       </div>
     </div>
   );

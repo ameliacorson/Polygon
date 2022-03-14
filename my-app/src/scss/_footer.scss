@@ -1,12 +1,28 @@
-
 .footer {
-    min-height: 40vh;
+  min-height: 30vh;
 
-    color: white;
+  color: $background-color;
 
-    background: $background-color;
-    background-image: url(../img/bw-restaurant.jpeg);
-    background-position: center;
-    background-blend-mode: multiply;
-    background-repeat: none;
+  background: $dark-accent;
+  background-image: url(../img/bw-restaurant.jpeg);
+  background-position: center;
+  background-blend-mode: multiply;
+  background-repeat: none;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-info {
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: .75rem;
+        margin:0;
+    }
+
+  }
 }

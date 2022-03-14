@@ -1,7 +1,7 @@
 
 header {
     font-family: $font-family-logo;
-    background: $background-color;
+    background: $dark-accent;
     background-image: url(../img/bw-restaurant.jpeg);
     background-position: center;
     background-blend-mode: multiply;
@@ -22,7 +22,7 @@ header {
 
     .CTA-btn {
         background-color: $accent-color;
-        color: $background-color;
+        color: $dark-accent;
         font-size: 1.2em;
         border: none;
         padding: .7em 1.5em;
@@ -35,7 +35,7 @@ header {
         @include transition-ease;
 
         &:hover {
-            background: white;
+            background: $background-color;
             @include transition-ease;
     
         }

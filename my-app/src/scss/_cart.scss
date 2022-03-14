@@ -9,14 +9,19 @@
 
   &-container {
     @include modal-container;
-    padding: 1.5em 2em;
-    padding-bottom: 2em;
     max-width: 500px;
     max-height: 80vh;
     background: white;
     color: black;
     overflow-y: auto;
+
+    &-content {
+      @include modal-content
     }
+
+    }
+
+   
 
     h3 {
       font-family: $font-family-logo;
@@ -43,7 +48,7 @@
     }
 
     p.subtotal {
-      margin: 1.5em 0;
+      margin: 1em 0 0 0;
       font-size: calc(1.2rem + .3vw);
     }
   }
@@ -81,11 +86,4 @@
 
   @include flex(row);
 }
-
-.checkout-btn {
-  border: none;
-  background: $accent-color;
-  border-radius: 7px;
-}
-
 

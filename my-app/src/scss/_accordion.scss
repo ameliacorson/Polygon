@@ -1,6 +1,5 @@
 .accordion {
   box-shadow: none;
-
   border: none;
 
   &-item {
@@ -10,28 +9,35 @@
 
   &-collapse.collapse.show {
       border: none;
+
+  }
+
+  &-button.collapsed::after {
+    color: white;
   }
 
   &-button:not(.collapsed) {
-    color: black;
     border: none;
-    background: #646363;
+    background: $background-color;
     box-shadow: none;
   }
 
   &-button {
-    background-color: grey;
+    background-color: $background-color;
     border: none;
     box-shadow: none;
 
     &:focus {
-      border-color: green;
       box-shadow: none;
+    }
+
+    h3 {
+      color: $dark-accent;
     }
   }
 
   &-body {
-    background: #646363;
+    background: $background-color;
     border: none;
     box-shadow: none;
   }

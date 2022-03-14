@@ -27,11 +27,22 @@ nav {
 
   & .nav-item {
     margin-top: 1em;
+
+    a {
+      color: $background-color;
+      @include transition-ease;
+
+      &:hover {
+        color: $accent-color;
+        @include transition-ease;
+      }
+    }
+
   }
 
   &.open {
     
-    background: $background-color;
+    background: $dark-accent;
     transform: translateY(0);
     @include transition-ease
   }
@@ -48,7 +59,7 @@ nav {
   z-index: 99;
 
   &.open {
-      background: $background-color;
+      background: $dark-accent;
       @include transition-ease
   }
 
@@ -64,11 +75,22 @@ nav {
     @include flex(column);
     @include transition-ease;
 
+    &.closed {
+      .hamburger,
+      .hamburger::before,
+      .hamburger::after {
+        background: $accent-color;
+      }
+    }
+
+    
+
+
     &:hover {
         .hamburger,
         .hamburger::before,
         .hamburger::after {
-            background: $accent-color;
+            background: $background-color;
             @include transition-ease
         }
     }

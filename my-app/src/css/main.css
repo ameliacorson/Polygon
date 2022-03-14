@@ -28,13 +28,25 @@ nav ul {
 
 nav ul li a {
   font-size: 3em;
-  color: #f0eeee;
+  color: #404040;
   text-decoration: none;
   margin-top: 1em;
 }
 
 nav .nav-item {
   margin-top: 1em;
+}
+
+nav .nav-item a {
+  color: #f9f9f9;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+nav .nav-item a:hover {
+  color: #ccad59;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 nav.open {
@@ -101,16 +113,22 @@ nav.open {
   transition: all 500ms ease;
 }
 
+.menu button.nav-toggle.closed .hamburger,
+.menu button.nav-toggle.closed .hamburger::before,
+.menu button.nav-toggle.closed .hamburger::after {
+  background: #ccad59;
+}
+
 .menu button.nav-toggle:hover .hamburger,
 .menu button.nav-toggle:hover .hamburger::before,
 .menu button.nav-toggle:hover .hamburger::after {
-  background: #ccad59;
+  background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu button.nav-toggle.open {
-  background: rgba(240, 238, 238, 0.8);
+  background: rgba(64, 64, 64, 0.8);
   -webkit-transform: translateY(-50px);
           transform: translateY(-50px);
   -webkit-transition: all 500ms ease;
@@ -127,7 +145,7 @@ nav.open {
 .menu button.nav-toggle.open .hamburger:before {
   -webkit-transform: rotate(45deg) translate(5px, 5px);
           transform: rotate(45deg) translate(5px, 5px);
-  background: #404040;
+  background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -135,14 +153,14 @@ nav.open {
 .menu button.nav-toggle.open .hamburger:after {
   -webkit-transform: rotate(135deg) translate(-4px, 5px);
           transform: rotate(135deg) translate(-4px, 5px);
-  background: #404040;
+  background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu button.nav-toggle .hamburger {
   position: inherit;
-  background: #f0eeee;
+  background: #404040;
   width: 31px;
   height: 3px;
   -webkit-transition: all 500ms ease;
@@ -154,7 +172,7 @@ nav.open {
   position: inherit;
   top: -7px;
   left: 3px;
-  background: #f0eeee;
+  background: #404040;
   width: 25px;
   height: 3px;
   -webkit-transition: all 500ms ease;
@@ -166,7 +184,7 @@ nav.open {
   position: inherit;
   top: 7px;
   left: 3px;
-  background: #f0eeee;
+  background: #404040;
   width: 25px;
   height: 3px;
   -webkit-transition: all 500ms ease;
@@ -249,7 +267,7 @@ header .CTA-btn {
 }
 
 header .CTA-btn:hover {
-  background: white;
+  background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -288,8 +306,9 @@ header .scrolled {
 
 .menu-item {
   border-radius: 7px;
+  border: 0.5px solid #404040;
   padding: 0.7em;
-  background: #404040;
+  background: #f9f9f9;
   max-width: 100%;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -322,7 +341,7 @@ header .scrolled {
 }
 
 .menu-item:hover {
-  background: #5a5a5a;
+  background: white;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   cursor: pointer;
@@ -353,15 +372,18 @@ header .scrolled {
 
 .popup-container {
   position: relative;
-  padding: 1.5em;
   margin-bottom: 2em;
   width: 85%;
   max-width: 500px;
   overflow: auto;
-  border-radius: 7px;
+  border-radius: 8px;
   margin-top: 1em;
   background: white;
   color: black;
+}
+
+.popup-container-content {
+  padding: 1.5em;
 }
 
 .popup-container p {
@@ -427,20 +449,21 @@ header .scrolled {
 
 .cart-container {
   position: relative;
-  padding: 1.5em;
   margin-bottom: 2em;
   width: 85%;
   max-width: 500px;
   overflow: auto;
-  border-radius: 7px;
+  border-radius: 8px;
   margin-top: 1em;
-  padding: 1.5em 2em;
-  padding-bottom: 2em;
   max-width: 500px;
   max-height: 80vh;
   background: white;
   color: black;
   overflow-y: auto;
+}
+
+.cart-container-content {
+  padding: 1.5em;
 }
 
 .cart h3 {
@@ -465,7 +488,7 @@ header .scrolled {
 }
 
 .render-cart p.subtotal {
-  margin: 1.5em 0;
+  margin: 1em 0 0 0;
   font-size: calc(1.2rem + .3vw);
 }
 
@@ -518,20 +541,32 @@ header .scrolled {
           flex-direction: row;
 }
 
-.checkout-btn {
-  border: none;
-  background: #ccad59;
-  border-radius: 7px;
-}
-
 .footer {
-  min-height: 40vh;
-  color: white;
+  min-height: 30vh;
+  color: #f9f9f9;
   background: #404040;
   background-image: url(../img/bw-restaurant.jpeg);
   background-position: center;
   background-blend-mode: multiply;
   background-repeat: none;
+}
+
+.footer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-info h4 {
+  font-size: 1.2rem;
+}
+
+.footer-info p {
+  font-size: .75rem;
+  margin: 0;
 }
 
 .checkout {
@@ -554,29 +589,35 @@ header .scrolled {
   border: none;
 }
 
+.accordion-button.collapsed::after {
+  color: white;
+}
+
 .accordion-button:not(.collapsed) {
-  color: black;
   border: none;
-  background: #646363;
+  background: #f9f9f9;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 .accordion-button {
-  background-color: grey;
+  background-color: #f9f9f9;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 .accordion-button:focus {
-  border-color: green;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
+.accordion-button h3 {
+  color: #404040;
+}
+
 .accordion-body {
-  background: #646363;
+  background: #f9f9f9;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -584,14 +625,15 @@ header .scrolled {
 
 body {
   font-family: "Roboto", sans-serif;
-  background: #404040;
-  color: #f0eeee;
+  background: #f9f9f9;
+  color: #404040;
   line-height: 1.5;
   overflow: auto;
 }
 
 .container {
   max-width: 800px;
+  min-height: 25vh;
   padding: 2em;
   margin: 0 auto;
   overflow: auto;
@@ -600,21 +642,41 @@ body {
 h2 {
   font-family: "Bebas Neue", cursive;
   font-size: 3em;
+  color: #ccad59;
+  text-shadow: 1px 1px 2px #cecece;
 }
 
 h2 span {
   color: #ccad59;
 }
 
-.close-button {
+.modal-button {
+  width: 100%;
+  padding: .5em 0;
   border: none;
-  background: none;
-  font-size: 1.3rem;
-  margin: -10px -5px 0 0;
-  color: grey;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.75em;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  color: white;
+  background: #ccad59;
+  border-radius: 0 0 8px 8px;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
-.modal-button {
-  padding: 10px 30px;
+.modal-button:hover {
+  background: #b99739;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.modal-footer-custom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=main.css.map */

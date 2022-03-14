@@ -11,18 +11,17 @@ export default function Cart(props) {
   return (
     <div className="cart popup">
       <div className="cart-container">
-        <div className="cart-header">
-          <h3>Your Cart</h3>
-          <CloseButton onClick={props.closeMenu}></CloseButton>
+        <div className="cart-container-content">
+          <div className="cart-header">
+            <h3>Your Cart</h3>
+            <CloseButton onClick={props.closeMenu}></CloseButton>
+          </div>
+          <RenderCart />
+        
         </div>
-        <RenderCart /> 
         {cartItems.length > 0 && (
-          <Link onClick={props.closeMenu} to="/checkout">
-            <button className="checkout-btn modal-button">
-              Go to checkout
-            </button>
-          </Link>
-        )}
+            <Link onClick={props.closeMenu} to="/checkout"><button className="checkout-btn modal-button">Go to checkout</button></Link>
+          )}
       </div>
     </div>
   );

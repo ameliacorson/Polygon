@@ -4,10 +4,15 @@
   padding: 0;
 }
 
-$background-color: #404040;
+$background-color: #f9f9f9;
+$dark-accent: #404040;
 $menu-color: #2c2c2c;
 $accent-color: #ccad59;
-$font-color: rgb(240, 238, 238);
+$font-color: #404040;
+
+$br: 8px;
+
+$ts:  1px 1px 2px #cecece;
 
 $font-family-logo: "Bebas Neue", cursive;
 $font-family-body: "Roboto", sans-serif;
@@ -35,13 +40,16 @@ $font-family-body: "Roboto", sans-serif;
 
 @mixin modal-container {
   position: relative;
-  padding: 1.5em;
   margin-bottom: 2em;
   width: 85%;
   max-width: 500px;
   overflow: auto;
-  border-radius: 7px;
+  border-radius: $br;
   margin-top: 1em;
+}
+
+@mixin modal-content {
+  padding: 1.5em;
 }
 
 @mixin unit-header {
