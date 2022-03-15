@@ -10,7 +10,7 @@ import About from "./Pages/About";
 import Order from "./Pages/Order";
 import Checkout from "./Pages/Checkout";
 
-import CheckoutConfirmCart from "./components/CheckoutConfirmCart";
+import CheckoutConfirmCart from "./components/CheckoutCart";
 import CheckoutPayment from "./components/CheckoutPayment";
 import CheckoutConfirm from "./components/CheckoutConfirm";
 

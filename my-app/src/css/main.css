@@ -731,6 +731,64 @@ button.CTA-banner-btn {
   border: none;
 }
 
+.stepIndicator {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stepIndicator hr {
+  width: 160px;
+  background: #fafafa;
+  height: 2px;
+  border-width: 0;
+  margin: 0 16px;
+}
+
+.stepIndicator hr:last-of-type {
+  display: none;
+}
+
+.stepIndicator a {
+  text-decoration: none;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  color: lightblue;
+  -webkit-box-shadow: 0px 3px 12px #a0b5ee;
+          box-shadow: 0px 3px 12px #a0b5ee;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* cursor: pointer; */
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  font-weight: bold;
+  font-size: 22px;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+}
+
+.stepIndicator .active {
+  background: lightblue;
+  color: #fff;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: #f9f9f9;
