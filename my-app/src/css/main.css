@@ -50,7 +50,6 @@ nav .nav-item a:hover {
 }
 
 nav.open {
-  z-index: 1000;
   background: #404040;
   -webkit-transform: translateY(0);
           transform: translateY(0);
@@ -129,7 +128,7 @@ nav.open {
 }
 
 .menu button.nav-toggle.open {
-  background: rgba(64, 64, 64, 0.8);
+  background: #ccad59;
   -webkit-transform: translateY(-50px);
           transform: translateY(-50px);
   -webkit-transition: all 500ms ease;
@@ -396,6 +395,7 @@ header .scrolled {
 
 .popup-container label {
   margin-left: 7px;
+  margin-top: 7px;
 }
 
 .popup-container fieldset.rice-fieldset {
@@ -423,6 +423,7 @@ header .scrolled {
   width: 22px;
   border: none;
   border-radius: 50%;
+  color: white;
 }
 
 .cart {

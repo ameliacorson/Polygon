@@ -16,7 +16,7 @@ export default function Cart(props) {
             <h3 className="accent-header">Your Cart</h3>
             <CloseButton onClick={props.closeMenu}></CloseButton>
           </div>
-          <RenderCart />
+          <RenderCart closeCart={props.closeMenu}/>
         
         </div>
         {cartItems.length > 0 && (

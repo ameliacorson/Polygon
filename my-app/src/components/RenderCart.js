@@ -7,9 +7,14 @@ import { formatUSD } from '../Context/format';
 
 import CartItem from "./CartItem";
 
-export default function RenderCart() {
+export default function RenderCart({ closeCart }) {
   const { removeItemInCart, cartItems, clearCart } = useCart()
   const [price, setPrice] = React.useState(0);
+
+  function clearItemsCloseCart() {
+    closeCart()
+    clearCart()
+  }
 
   const cartElements = cartItems.map((item) => {
    
@@ -25,7 +30,7 @@ export default function RenderCart() {
 
   return (
     <div className="render-cart">
-      {cartItems.length > 0 && <button className="clear-cart-btn" onClick={clearCart}> <BsCartX></BsCartX> clear cart</button>}
+      {cartItems.length > 0 && <button className="clear-cart-btn" onClick={clearItemsCloseCart}> <BsCartX></BsCartX> clear cart</button>}
       {cartItems.length > 0 ? cartElements : <h4>nothing in cart</h4>}
       {cartItems.length > 0 && <p className="subtotal">Subtotal: {price}</p>}
       

@@ -41,7 +41,6 @@ nav {
   }
 
   &.open {
-    z-index: 1000;
     background: $dark-accent;
     transform: translateY(0);
     @include transition-ease
@@ -96,7 +95,7 @@ nav {
     }
 
     &.open {
-        background: rgba($font-color, .8);
+        background: $accent-color;
         transform: translateY(-50px);
         @include transition-ease;
         z-index: 1000;
