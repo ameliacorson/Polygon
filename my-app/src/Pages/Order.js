@@ -26,10 +26,6 @@ export default function Order() {
     const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks];
     setPopupItem(allMenuOptions.find((item) => item.id === id));
   }
-
-  function closeCart() {
-    setCartOpen(false)
-  }
  
   function closePopup() {
     setPopupItem(undefined);
