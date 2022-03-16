@@ -4,6 +4,7 @@ import sushiImg from "../img/sushi platter.jpeg";
 import riceImg from "../img/rice.jpeg"
 import sushiRollImg from "../img/sushi-roll-img.jpeg"
 import friedRiceImg from "../img/fried-rice-img.jpeg"
+import sushiPlate from "../img/sushiPlate.jpeg"
 
 export default function Home() {
   return (
@@ -34,6 +35,13 @@ export default function Home() {
           <img
             className="d-block w-100"
             src={friedRiceImg}
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sushiPlate}
             alt="First slide"
           />
         </Carousel.Item>

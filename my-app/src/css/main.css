@@ -277,9 +277,18 @@ header .scrolled {
   text-align: left;
 }
 
-.order-container.container h3 {
+.order-container h3 {
   margin: 0;
   border-radius: 7px;
+}
+
+.order-container img.order-img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #404040;
+  background-blend-mode: multiply;
 }
 
 .menu-section {
@@ -549,7 +558,6 @@ header .scrolled {
 
 .footer {
   min-height: 20vh;
-  padding-bottom: 2em;
   color: #f9f9f9;
   background: #404040;
   background-image: url(../img/bw-restaurant.jpeg);

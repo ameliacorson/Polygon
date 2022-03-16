@@ -5,6 +5,11 @@ import StepIndicator from "../components/StepIndicator";
 
 export default function Checkout() {
   document.body.style.overflow = "auto";
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+ }, []);
+ 
   return (
     <div className="checkout">
       <div className="container">

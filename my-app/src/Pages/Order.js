@@ -7,6 +7,7 @@ import { Accordion } from "react-bootstrap";
 
 import { useCart } from "../Context/cartProvider";
 import Cart from "../components/Cart";
+import sushiHeader from "../img/sushiHeader.webp"
 
 export default function Order() {
   const {appetizers, mains, sides, drinks } = Menu
@@ -22,6 +23,10 @@ export default function Order() {
     }
   }, [popupItem, cartOpen]);
 
+  React.useEffect(() => {
+     window.scrollTo(0, 0)
+  }, []);
+
   function launchPopup(id) {
     const allMenuOptions = [...appetizers, ...mains, ...sides, ...drinks];
     setPopupItem(allMenuOptions.find((item) => item.id === id));
@@ -31,18 +36,23 @@ export default function Order() {
     setPopupItem(undefined);
   }
 
+ 
+
   return (
-    <div className="order-container container">
+    <div className="order-container">
+      <img className="order-img" src={sushiHeader} alt="interior restaurant"/>
+      <div className="container">
       {cartItems.length > 0 && <CartButton onClick={() => setCartOpen(true)} />}
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
-      <h2 className="order-header"> Menu </h2>
+      <h2 className="order-header"> Order </h2>
       <Accordion flush  alwaysOpen>
           <MenuSection onClick={launchPopup} title={"Appetizers"} section={appetizers} index={0}/>
           <MenuSection onClick={launchPopup} title={"Mains"} section={mains} index={1}/>
           <MenuSection onClick={launchPopup} title={"Sides"} section={sides} index={2}/>
           <MenuSection onClick={launchPopup} title={"Drinks"} section={drinks} index={3}/>
       </Accordion>
+      </div>
     </div>
   );
 }
