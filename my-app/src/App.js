@@ -10,11 +10,10 @@ import About from "./Pages/About";
 import Order from "./Pages/Order";
 import Checkout from "./Pages/Checkout";
 
-import CheckoutConfirmCart from "./components/CheckoutCart";
-import CheckoutPayment from "./components/CheckoutPayment";
-import CheckoutConfirm from "./components/CheckoutConfirm";
+
 
 export default function App() {
+
   return (
     <div>
       <Nav />
@@ -23,11 +22,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/Order" element={<Order />} />
-        <Route exact path="/checkout/" element={<Checkout />}>
-          <Route path="cart" element={<CheckoutConfirmCart />} />
-          <Route path="payment" element={<CheckoutPayment />} />
-          <Route path="confirm" element={<CheckoutConfirm />} />
-        </Route>
+        <Route exact path="/checkout/*" element={<Checkout />}/>
       </Routes>
       <Footer />
     </div>
