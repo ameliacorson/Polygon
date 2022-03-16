@@ -1,42 +1,62 @@
 .stepIndicator {
     width: 100%;
+    margin: 2em 0;
     display: flex;
     align-items: center;
+   
   }
   
   .stepIndicator hr {
-    width: 160px;
-    background: #fafafa;
+    width: 400px;
+    background: #161616;
     height: 2px;
     border-width: 0;
-    margin: 0 16px;
+    margin: 0 0 3em 0;
   }
   
   .stepIndicator hr:last-of-type {
     display: none;
   }
-  
-  .stepIndicator a {
-    text-decoration: none;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    color: lightblue;
-    box-shadow: 0px 3px 12px rgb(160, 181, 238);
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* cursor: pointer; */
-    cursor: default;
-    user-select: none;
-    position: relative;
-    font-weight: bold;
-    font-size: 22px;
-    transition: all 600ms ease-in-out;
+
+  .btn-container {
+      @include flex (row);
+      justify-content: space-between;
+      margin-top: 2em;
+
+      button {
+          background: $accent-color;
+          border: none;
+          padding: 10px 25px;
+      }
+
+  }
+
+  div.dot-label {
+    @include flex(column);
+    min-width: 65px;
+
+    a{
+        width: 20px;
+        height: 20px;
+        background: $light-grey;
+        border-radius: 50px;
+        @include flex (column);
+        cursor: default;
+        user-select: none;
+        position: relative;
+        @include transition-ease
+
+        
+    }
+
+    p{
+        padding-top: 10px;
+        text-transform: uppercase;
+        color: $light-grey;
+    }
   }
   
   .stepIndicator .active {
-    background: lightblue;
-    color: #fff;
+    background: $accent-color;
+
   }

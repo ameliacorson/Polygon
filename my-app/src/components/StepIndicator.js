@@ -5,15 +5,18 @@ function StepIndicator() {
   const steps = [
     {
       path: "/checkout/cart",
-      name: "cart",
+      name: "Cart",
+      key: 1,
     },
     {
       path: "/checkout/payment",
-      name: "payment",
+      name: "Payment",
+      key: 2,
     },
     {
       path: "/checkout/confirm",
-      name: "confirm",
+      name: "Confirm",
+      key: 3,
     },
   ];
 
@@ -23,12 +26,18 @@ function StepIndicator() {
 
   return (
     <div className="stepIndicator">
-      {steps.map((step, index) => {
+      {steps.map((step) => {
         return (
           <>
-            <NavLink key={index} to={step.path} onClick={handleStop}>
-              {step.name}
-            </NavLink>
+            <div className="dot-label">
+              <NavLink
+                key={step.key}
+                to={step.path}
+                onClick={handleStop}
+              ></NavLink>
+              <p>{step.name}</p>
+              
+            </div>
             <hr />
           </>
         );
