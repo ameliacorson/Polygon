@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsCreditCardFill } from "react-icons/bs";
+import { usePaymentInfo } from "../Context/paymentProvider";
 
 export default function CheckoutPayment() {
+
+  const { addDeliveryAddress, addBillingAddress, addCCInformation } = usePaymentInfo()
+
   const [billingInfo, setBillingInfo] = useState({
     name: "",
     email: "",
@@ -23,7 +27,7 @@ export default function CheckoutPayment() {
   });
   const [sameBillingDelivery, setSameBillingDelivery] = useState(false);
 
-  const [ccInformation, setCcInformation] = useState({
+  const [ccInfo, setCcInfo] = useState({
     ccNumber: "",
     ccvNumber: "",
     expDate: "",
@@ -47,46 +51,32 @@ export default function CheckoutPayment() {
 
   const handleCCInfoChange = (e) => {
     const { name, value } = e.target;
-    setCcInformation({
-      ...ccInformation,
+    setCcInfo({
+      ...ccInfo,
       [name]: value,
     });
   };
 
-  const handleCheckboxToggle = (e) => {
-    if (e.target.checked) {
-      setBillingInfo(deliveryInfo);
-      setSameBillingDelivery(true);
-    } else {
-      setBillingInfo({
-        name: "",
-        email: "",
-        address1: "",
-        address2: "",
-        city: "",
-        state: "",
-        zipCode: "",
-      });
-      setSameBillingDelivery(false);
-    }
-  };
-
   function handleSubmit() {
-    console.log("submitted");
+    addBillingAddress(billingInfo)
+    addDeliveryAddress(deliveryInfo)
+    addCCInformation(ccInfo)
   }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h3>Delivery Information</h3>
+        <h3>Delivery Info</h3>
         <div className="form-group">
+        {/* <label className="test" htmlFor="deliveryFullName">Full Name</label> */}
           <input
             label="Full Name"
             id="deliveryFullName"
             name="name"
             type="text"
+            placeholder="Full Name"
             value={deliveryInfo.name}
             onChange={handleDeliveryChange}
-            placeholder="Full Name"
             required
           />
           <br />
@@ -138,7 +128,8 @@ export default function CheckoutPayment() {
             label="Zip Code"
             id="deliveryZipCode"
             name="zipCode"
-            type="text"
+            type="number"
+            maxLength="5"
             placeholder="Zip Code"
             value={deliveryInfo.zipCode}
             onChange={handleDeliveryChange}
@@ -147,18 +138,18 @@ export default function CheckoutPayment() {
         </div>
 
         <br />
-        <label htmlFor="sameDeliveryBilling">
+        {/* <label htmlFor="sameDeliveryBilling">
           <input
             type="checkbox"
             id="sameDeliveryBilling"
             onClick={handleCheckboxToggle}
           />
-          Billing and delivery information are the same
-        </label>
+          Billing and delivery info are the same
+        </label> */}
         <br />
         <br />
 
-        <title>Billing Information</title>
+        <title>Billing Info</title>
         {sameBillingDelivery ? (
           <div className="form-group">
             <h3>Billing Email</h3>
@@ -166,7 +157,8 @@ export default function CheckoutPayment() {
               label="Email"
               id="billingEmail"
               name="email"
-              type="text"
+              input
+              type="email"
               placeholder="Email Address"
               value={billingInfo.email}
               onChange={handleBillingChange}
@@ -175,7 +167,7 @@ export default function CheckoutPayment() {
           </div>
         ) : (
           <div className="form-group">
-            <h3>Billing Information</h3>
+            <h3>Billing Info</h3>
             <input
               label="Full Name"
               id="billingFullName"
@@ -191,7 +183,7 @@ export default function CheckoutPayment() {
               label="Email"
               id="billingEmail"
               name="email"
-              type="text"
+              type="email"
               placeholder="Email Address"
               value={billingInfo.email}
               onChange={handleBillingChange}
@@ -246,7 +238,8 @@ export default function CheckoutPayment() {
               label="Zip Code"
               id="billingZipCode"
               name="zipCode"
-              type="text"
+              type="number"
+              maxLength="5"
               placeholder="Zip Code"
               value={billingInfo.zipCode}
               onChange={handleBillingChange}
@@ -258,16 +251,22 @@ export default function CheckoutPayment() {
         <br />
 
         <div className="cc-container">
+        <h3>Credit Card Info</h3>
           <BsCreditCardFill />
+          
           <input
             label="Card Number"
             id="ccNumber"
             name="ccNumber"
-            type="text"
-            placeholder="Card Number"
-            value={ccInformation.ccNumber}
+            type="number"
+            value={ccInfo.ccNumber}
             onChange={handleCCInfoChange}
             required
+            inputMode="numeric"
+            pattern="[0-9\s]{13,19}"
+            autoComplete="cc-number"
+            maxLength="19"
+            placeholder="xxxx xxxx xxxx xxxx"
           />
           <input
             label="CCV"
@@ -275,7 +274,7 @@ export default function CheckoutPayment() {
             name="ccvNumber"
             type="text"
             placeholder="CCV"
-            value={ccInformation.ccvNumber}
+            value={ccInfo.ccvNumber}
             onChange={handleCCInfoChange}
             required
           />
@@ -285,7 +284,7 @@ export default function CheckoutPayment() {
             name="expDate"
             type="text"
             placeholder="Exp Date"
-            value={ccInformation.expDate}
+            value={ccInfo.expDate}
             onChange={handleCCInfoChange}
             required
           />
@@ -297,7 +296,7 @@ export default function CheckoutPayment() {
           <button className="dot-nav">Back</button>
         </Link>
         <Link to="/checkout/confirm">
-          <button className="dot-nav">Next</button>
+          <button className="dot-nav" onClick={handleSubmit}>Next</button>
         </Link>
       </div>
     </div>

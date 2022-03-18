@@ -45,12 +45,65 @@
     
    }
 
-    
-
     &.chk-cart {
         .dot-cart {
             background-color: $accent-color;
-            border:none;
+            
+
         }
     }
+}
+
+.checkout {
+
+    input[type="text"]:focus ~ label.test, input[type="text"]:valid ~ label.test {
+        transform: translateY(-1.75em) scale(.75);
+      }
+
+    .test{
+        transform: translateY(1.75em);
+        color: #9B9999;
+    }
+
+    .form-group, .cc-container{
+
+        position: relative;
+    
+     input {
+        width: 95%;
+        padding: 5px 0;
+        position: relative;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #9B9999;
+        margin-top: 1.5em;
+        @include transition-ease;
+
+        &:focus-visible {
+            border: none;
+            border-bottom: 1px solid $accent-color;
+            width: 100%;
+            outline: none;
+            @include transition-ease;
+        }
+
+        
+    }
+
+    .cc-container {
+        
+        svg path {
+            margin-right: 5px;
+            
+        }
+        
+
+        
+    }
+
+    }
+}
+
+.confirmation-delivery-container p {
+    margin:0;
 }

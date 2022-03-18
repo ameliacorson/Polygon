@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import PaymentContextProvider from "../Context/paymentProvider";
 
 import StepIndicator from "../components/StepIndicator";
 
@@ -94,22 +95,16 @@ export default function Checkout() {
     <div className="checkout">
       <div className="container">
         <h3 className="accent-header">Checkout</h3>
+
         <StepIndicator />
+        <PaymentContextProvider>
         <Routes>
           <Route path="cart" element={<CheckoutCart />} />
           <Route path="payment" element={<CheckoutPayment 
-          // handleSubmit={handleSubmit}
-          // handleCheckboxToggle={handleCheckboxToggle}
-          // deliveryInfo={deliveryInfo}
-          // billingInfo={billingInfo}
-          // ccInformation={ccInformation}
-          // handleDeliveryChange ={(e) =>handleDeliveryChange}
-          // handleBillingChange={handleBillingChange}
-          // handleCCInfoChange={(e) =>handleCCInfoChange}
-          // sameBillingDelivery={sameBillingDelivery}
           />} />
           <Route path="confirm" element={<CheckoutConfirm />} />
         </Routes>
+        </PaymentContextProvider>
 
         <div className="subtotal-sidebar"></div>
       </div>

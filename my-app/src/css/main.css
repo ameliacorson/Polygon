@@ -214,6 +214,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #404040;
 }
 
 header .header-container {
@@ -247,6 +248,7 @@ header .CTA-btn {
   font-size: 1em;
   border: none;
   padding: 0.5em 1em;
+  margin-right: .5em;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
@@ -263,6 +265,16 @@ header .CTA-btn:hover {
 
 header .scrolled {
   background-image: none;
+}
+
+header h1 {
+  font-family: "Bebas Neue", cursive;
+  color: white;
+  font-size: 8em;
+}
+
+header h1 span {
+  color: #ccad59;
 }
 
 * {
@@ -657,7 +669,46 @@ header .scrolled {
 
 .progress-dots.chk-cart .dot-cart {
   background-color: #ccad59;
+}
+
+.checkout input[type="text"]:focus ~ label.test, .checkout input[type="text"]:valid ~ label.test {
+  -webkit-transform: translateY(-1.75em) scale(0.75);
+          transform: translateY(-1.75em) scale(0.75);
+}
+
+.checkout .test {
+  -webkit-transform: translateY(1.75em);
+          transform: translateY(1.75em);
+  color: #9B9999;
+}
+
+.checkout .form-group, .checkout .cc-container {
+  position: relative;
+}
+
+.checkout .form-group input, .checkout .cc-container input {
+  width: 95%;
+  padding: 5px 0;
+  position: relative;
+  background-color: transparent;
   border: none;
+  border-bottom: 1px solid #9B9999;
+  margin-top: 1.5em;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.checkout .form-group input:focus-visible, .checkout .cc-container input:focus-visible {
+  border: none;
+  border-bottom: 1px solid #ccad59;
+  width: 100%;
+  outline: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.checkout .form-group .cc-container svg path, .checkout .cc-container .cc-container svg path {
+  margin-right: 5px;
 }
 
 .accordion {
