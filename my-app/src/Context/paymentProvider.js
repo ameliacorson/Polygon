@@ -22,7 +22,7 @@ export default function PaymentContextProvider({ children }) {
 
     function addCCInformation(items){
         setCreditCardInformation(items)
-        setBillingLocalState(items)
+        setCcLocalState(items)
     }
 
     function clearPaymentInfo() {

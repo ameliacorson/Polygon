@@ -4,12 +4,21 @@ import { usePaymentInfo } from "../Context/paymentProvider";
 
 import RenderCart from "./RenderCart";
 
-export default function CheckoutConfirm() {
+export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
   const { deliveryAddress, creditCardInformation } = usePaymentInfo();
-
+  
+  
+  console.log(deliveryAddress, creditCardInformation)
   return (
     <div className="confirmation-container">
-      {(deliveryAddress & creditCardInformation) ? 
+      
+      {orderSubmitted ? 
+      <div>
+          <h3>YOU DID IT</h3>
+      </div>
+      :
+      <div>
+      {(deliveryAddress && creditCardInformation) ? 
       <div>
       <h3>Confirm Your Order</h3>
       <div className="confirmation-delivery-container">
@@ -33,11 +42,12 @@ export default function CheckoutConfirm() {
         <Link to="/checkout/payment">
           <button className="dot-nav">Back</button>
         </Link>
-        <button className="dot-nav">Submit</button>
+        <button className="dot-nav" onClick={() => submitOrder()}>Submit</button>
       </div>
       </div>
       :
       <h3> Looks like you may be lost</h3>}
+      </div>}
     </div>
   );
 }
