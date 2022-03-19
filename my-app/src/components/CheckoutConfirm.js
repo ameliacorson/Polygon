@@ -1,12 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { usePaymentInfo } from "../Context/paymentProvider";
-
+import { useCart } from "../Context/cartProvider";
 import RenderCart from "./RenderCart";
+
+
 
 export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
   const { deliveryAddress, creditCardInformation } = usePaymentInfo();
+  const { clearCart } = useCart()
   
+  function submit() {
+      clearCart()
+      submitOrder()
+  }
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   console.log(deliveryAddress, creditCardInformation)
   return (
@@ -42,7 +53,7 @@ export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
         <Link to="/checkout/payment">
           <button className="dot-nav">Back</button>
         </Link>
-        <button className="dot-nav" onClick={() => submitOrder()}>Submit</button>
+        <button className="dot-nav" onClick={submit}>Submit</button>
       </div>
       </div>
       :

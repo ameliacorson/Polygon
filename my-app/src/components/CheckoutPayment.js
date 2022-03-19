@@ -5,7 +5,11 @@ import { usePaymentInfo } from "../Context/paymentProvider";
 
 export default function CheckoutPayment() {
 
-  const { addDeliveryAddress, addBillingAddress, addCCInformation } = usePaymentInfo()
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const {  addDeliveryAddress, addBillingAddress, addCCInformation } = usePaymentInfo()
 
   const [billingInfo, setBillingInfo] = useState({
     name: "",
