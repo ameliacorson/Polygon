@@ -711,6 +711,10 @@ header h1 span {
   margin-right: 5px;
 }
 
+.confirmation-delivery-container p {
+  margin: 0;
+}
+
 .accordion {
   -webkit-box-shadow: none;
           box-shadow: none;
