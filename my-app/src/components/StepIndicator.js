@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function StepIndicator() {
+export default function StepIndicator() {
   const steps = [
     {
       path: "/checkout/cart",
@@ -29,9 +29,8 @@ function StepIndicator() {
       {steps.map((step) => {
         return (
           <>
-            <div className="dot-label">
+            <div className="dot-label" key={step.key} >
               <NavLink
-                key={step.key}
                 to={step.path}
                 onClick={handleStop}
               ></NavLink>
@@ -45,5 +44,3 @@ function StepIndicator() {
     </div>
   );
 }
-
-export default StepIndicator;
