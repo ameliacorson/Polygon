@@ -77,7 +77,7 @@
 
     .card-data {
       @include flex(row);
-      justify-content: space-around;
+      justify-content: left;
       
       select {
         border: none;
@@ -85,7 +85,7 @@
         
         color: $light-grey;
         border-bottom: solid 1px $light-grey;
-        padding-right: 7px;
+        margin: 0 7px;
         padding-top: 9px;
         // width: 50px;
       }
