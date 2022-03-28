@@ -625,65 +625,6 @@ header h1 span {
   border: none;
 }
 
-.progress-dots {
-  padding: 1.5em 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-
-.progress-dots::after {
-  position: absolute;
-  z-index: -1;
-  -webkit-transform: translate(5px, -17px);
-          transform: translate(5px, -17px);
-  content: "";
-  width: 100%;
-  height: 3px;
-  background-color: #9b9999;
-}
-
-.progress-dots .dot-and-description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: relative;
-}
-
-.progress-dots .dot-and-description p {
-  font-size: 0.75em;
-  color: #9b9999;
-  letter-spacing: 1px;
-}
-
-.progress-dots .dot-and-description .progress-dot {
-  width: 20px;
-  height: 20px;
-  background: #9b9999;
-  border-radius: 50%;
-}
-
-.progress-dots.chk-cart .dot-cart {
-  background-color: #ccad59;
-}
-
 .testHeader {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -919,11 +860,14 @@ header h1 span {
   color: #f9f9f9;
   margin: 0;
   width: 33%;
+  font-weight: 700;
   border: none;
   border-right: 2px solid #f9f9f9;
   text-align: center;
   padding: 1em;
   background-color: #404040;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .confirmation-container .add-tip > :first-child {
@@ -933,6 +877,15 @@ header h1 span {
 .confirmation-container .add-tip > :last-child {
   border: none;
   border-radius: 0 8px 8px 0;
+}
+
+.confirmation-container .add-tip.twenty > button:nth-of-type(1),
+.confirmation-container .add-tip.twentyfive > button:nth-of-type(2),
+.confirmation-container .add-tip.thirty > button:nth-of-type(3) {
+  background: #ccad59;
+  color: #404040;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .confirmation-container img {
@@ -1069,6 +1022,65 @@ button.CTA-banner-btn {
   background: #ccad59;
   border: none;
   padding: 10px 25px;
+}
+
+.progress-dots {
+  padding: 1.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.progress-dots::after {
+  position: absolute;
+  z-index: -1;
+  -webkit-transform: translate(5px, -17px);
+          transform: translate(5px, -17px);
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #9b9999;
+}
+
+.progress-dots .dot-and-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.progress-dots .dot-and-description p {
+  font-size: 0.75em;
+  color: #9b9999;
+  letter-spacing: 1px;
+}
+
+.progress-dots .dot-and-description .progress-dot {
+  width: 20px;
+  height: 20px;
+  background: #9b9999;
+  border-radius: 50%;
+}
+
+.progress-dots.chk-cart .dot-cart {
+  background-color: #ccad59;
 }
 
 div.dot-label {

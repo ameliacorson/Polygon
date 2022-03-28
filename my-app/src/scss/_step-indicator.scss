@@ -1,62 +1,99 @@
 .stepIndicator {
-    width: 100%;
-    margin: 2em 0;
-    display: flex;
-    align-items: center;
-   
-  }
-  
-  .stepIndicator hr {
-    width: 400px;
-    background: #161616;
-    height: 2px;
-    border-width: 0;
-    margin: 0 0 3em 0;
-  }
-  
-  .stepIndicator hr:last-of-type {
-    display: none;
-  }
+  width: 100%;
+  margin: 2em 0;
+  display: flex;
+  align-items: center;
+}
 
-  .btn-container {
-      @include flex (row);
-      justify-content: space-between;
-      margin-top: 2em;
+.stepIndicator hr {
+  width: 400px;
+  background: #161616;
+  height: 2px;
+  border-width: 0;
+  margin: 0 0 3em 0;
+}
 
-      button {
-          background: $accent-color;
-          border: none;
-          padding: 10px 25px;
-      }
+.stepIndicator hr:last-of-type {
+  display: none;
+}
 
-  }
+.btn-container {
+  @include flex(row);
+  justify-content: space-between;
+  margin-top: 2em;
 
-  div.dot-label {
-    @include flex(column);
-    min-width: 65px;
-
-    a{
-        width: 20px;
-        height: 20px;
-        background: $light-grey;
-        border-radius: 50px;
-        @include flex (column);
-        cursor: default;
-        user-select: none;
-        position: relative;
-        @include transition-ease
-
-        
-    }
-
-    p{
-        padding-top: 10px;
-        text-transform: uppercase;
-        color: $light-grey;
-    }
-  }
-  
-  .stepIndicator .active {
+  button {
     background: $accent-color;
-
+    border: none;
+    padding: 10px 25px;
   }
+}
+
+.progress-dots {
+  padding: 1.5em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    transform: translate(5px, -17px);
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #9b9999;
+  }
+
+  .dot-and-description {
+    @include flex(column);
+    position: relative;
+
+    p {
+      font-size: 0.75em;
+      color: #9b9999;
+      letter-spacing: 1px;
+    }
+
+    .progress-dot {
+      width: 20px;
+      height: 20px;
+      background: #9b9999;
+      border-radius: 50%;
+    }
+  }
+
+  &.chk-cart {
+    .dot-cart {
+      background-color: $accent-color;
+    }
+  }
+}
+
+div.dot-label {
+  @include flex(column);
+  min-width: 65px;
+
+  a {
+    width: 20px;
+    height: 20px;
+    background: $light-grey;
+    border-radius: 50px;
+    @include flex(column);
+    cursor: default;
+    user-select: none;
+    position: relative;
+    @include transition-ease;
+  }
+
+  p {
+    padding-top: 10px;
+    text-transform: uppercase;
+    color: $light-grey;
+  }
+}
+
+.stepIndicator .active {
+  background: $accent-color;
+}

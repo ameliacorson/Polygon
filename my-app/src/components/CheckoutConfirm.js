@@ -13,6 +13,7 @@ export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
 
   const [totalPrice, setTotalPrice] = React.useState(0)
   const [tip, setTip] = React.useState(0)
+  const [tipClass, setTipClass] = React.useState("")
   
   function submit() {
       clearCart()
@@ -31,6 +32,23 @@ export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
   React.useEffect(() => {
     setTotalPrice(cartTotal + tip + deliveryFee + tax)
   }, [tip, cartTotal, tax]);
+
+  //tip buttons
+
+  function handleTip20() {
+    setTip(.2 * cartTotal)
+    setTipClass("twenty")
+  }
+
+ function handleTip25() {
+  setTip(.25 * cartTotal)
+  setTipClass("twentyfive")
+ }
+
+  function handleTip30() {
+    setTip(.30 * cartTotal)
+    setTipClass("thirty")
+  }
   
   return (
     
@@ -68,7 +86,7 @@ export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
         <div className="confirm-order-cart">
         {cartItems.map(item => {
           return (
-          <div className="checkout-cart-item">
+          <div key={item.id} className="checkout-cart-item">
             <div className="item-details">
             <p>{item.quantity} {item.name}</p>
           {item.choice && (
@@ -107,10 +125,10 @@ export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
         </div>
      </div>
         <h4> Tip your delivery driver </h4>
-      <div className="add-tip">
-        <button onClick={() => setTip(.2 * cartTotal)}>20%</button>
-        <button onClick={() => setTip(.25 * cartTotal)}>25%</button>
-        <button onClick={() => setTip(.30 * cartTotal)}>30%</button>
+      <div className={`add-tip ${tipClass}`}>
+        <button onClick={handleTip20}>20%</button>
+        <button onClick={handleTip25}>25%</button>
+        <button onClick={handleTip30}>30%</button>
       </div>
 
       <div className="btn-container">
