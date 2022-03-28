@@ -246,21 +246,7 @@ export default function CheckoutPayment() {
               ))}
             </select>
           </div>
-          {/* 
-          <input
-            label="Exp Date"
-            id="expDate"
-            name="expDate"
-            type="text"
-            placeholder=" "
-            value={ccInfo.expDate}
-            onChange={handleCCInfoChange}
-            required
-          />
-          <label className="test" htmlFor="expDate">
-            Exp<span className="required-asterisk">*</span>
-          </label> */}
-
+        
           {!allowSubmit && <p className="info">* = required</p>}
         </div>
       </form>

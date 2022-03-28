@@ -1,5 +1,5 @@
 import React from "react"
-import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 
 
@@ -29,7 +29,13 @@ return (
         mapContainerStyle={containerStyle}
         center={center}
         zoom={15}
-      ></GoogleMap>
+        
+      ><Marker 
+      position= {{
+        lat: 41.97684424816879,
+        lng: -87.66850589629361
+      }}
+      /></GoogleMap>
     </div>
     
 )}
