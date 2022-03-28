@@ -5,6 +5,7 @@ import { useCart } from "../Context/cartProvider";
 import { formatUSD } from "../Context/format";
 import { AiOutlineEdit } from "react-icons/ai"
 
+import confirmationFood from "../img/Confirmation-food.jpg"
 
 export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
   const { deliveryAddress, creditCardInformation } = usePaymentInfo();
@@ -32,11 +33,14 @@ export default function CheckoutConfirm({ orderSubmitted, submitOrder }) {
   }, [tip, cartTotal, tax]);
   
   return (
+    
     <div className="confirmation-container">
-      
+      {orderSubmitted && <img className="order-img" src={confirmationFood} alt="assorted thai food offerings"/>}
       {orderSubmitted ? 
-      <div>
-          <h3>YOU DID IT</h3>
+      <div className="order-submitted">
+          <h3>Thanks for your Order</h3>
+          <p>Unfortunately since this site is a portfolio project, no food is coming your way. But thank you for engaging with my site!</p>
+          <p> If you need Thai food, and you're in the Chicago area, Polygon is a real restaurant and you can find them <Link to="https://orderonlinemenu.com/polygoncafe">here</Link> </p>
       </div>
       :
       <div>

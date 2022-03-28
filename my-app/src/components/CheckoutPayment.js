@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { usePaymentInfo } from "../Context/paymentProvider";
 
 export default function CheckoutPayment() {
-
-  // const [ allowSubmit, setAllowSubmit] = useState(false)
+  const [allowSubmit, setAllowSubmit] = useState(false);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,7 +24,8 @@ export default function CheckoutPayment() {
   const [ccInfo, setCcInfo] = useState({
     ccNumber: "",
     ccvNumber: "",
-    expDate: "",
+    expDateMM: "",
+    expDateYY: "",
   });
 
   const handleDeliveryChange = (e) => {
@@ -49,27 +49,36 @@ export default function CheckoutPayment() {
     addCCInformation(ccInfo);
   }
 
-  // React.useEffect(() => {
-  //   if (
-  //       deliveryInfo.name &&
-  //       deliveryInfo.email &&
-  //       deliveryInfo.address1 &&
-  //       deliveryInfo.city &&
-  //       deliveryInfo.state &&
-  //       deliveryInfo.zipCode
-  //     ) {
-  //       setAllowSubmit(true);
-  //     } else if (
-  //       !deliveryInfo.name ||
-  //       !deliveryInfo.email ||
-  //       !deliveryInfo.address1 ||
-  //       !deliveryInfo.city ||
-  //       deliveryInfo.state ||
-  //       deliveryInfo.zipCode
-  //     ) {
-  //       setAllowSubmit(false);
-  //     }
-  //   } , [deliveryInfo]);
+  const Months = [];
+  for (let i = 1; i <= 12; i++) {
+    Months.push(
+      i.toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false,
+      })
+    );
+  }
+
+  const years = [];
+  for (let i = 22; i <= 50; i++) {
+    years.push(i);
+  }
+
+  console.log(ccInfo.expDateMM, ccInfo.expDateYY);
+
+  React.useEffect(() => {
+    if (
+      deliveryInfo.name &&
+      deliveryInfo.address1 &&
+      deliveryInfo.city &&
+      deliveryInfo.state &&
+      deliveryInfo.zipCode
+    ) {
+      setAllowSubmit(true);
+    } else {
+      setAllowSubmit(false);
+    }
+  }, [deliveryInfo, allowSubmit]);
 
   return (
     <div>
@@ -171,9 +180,7 @@ export default function CheckoutPayment() {
         <br />
 
         <div className="cc-container">
-          <h3>
-            Credit Card Info
-          </h3>
+          <h3>Credit Card Info</h3>
 
           <input
             label="Card Number"
@@ -184,7 +191,6 @@ export default function CheckoutPayment() {
             onChange={handleCCInfoChange}
             required
             inputMode="numeric"
-            pattern="[0-9\s]{13,19}"
             autoComplete="cc-number"
             maxLength="16"
             placeholder=" "
@@ -192,21 +198,55 @@ export default function CheckoutPayment() {
           <label className="test" htmlFor="ccNumber">
             Credit Card<span className="required-asterisk">*</span>
           </label>
-          <input
-            label="CCV"
-            id="ccvNumber"
-            name="ccvNumber"
-            type="text"
-            placeholder=" "
-            maxLength="3"
-            value={ccInfo.ccvNumber}
-            onChange={handleCCInfoChange}
-            required
-          />
-          <label className="test" htmlFor="ccvNumber">
-            CCV<span className="required-asterisk">*</span>
-          </label>
+          <p className="info cc-info">
+            Please use a random number eg. 1234 1234 1234 5678
+          </p>
 
+          <div className="card-data">
+            <div className="ccv-container">
+              <input
+                label="CCV"
+                id="ccvNumber"
+                name="ccvNumber"
+                type="text"
+                placeholder=" "
+                maxLength="3"
+                value={ccInfo.ccvNumber}
+                onChange={handleCCInfoChange}
+                required
+              />
+              <label className="test" htmlFor="ccvNumber">
+                CCV<span className="required-asterisk">*</span>
+              </label>
+            </div>
+            <select
+              id="expDateMM"
+              value={ccInfo.expDateMM}
+              onChange={handleCCInfoChange}
+              name="expDateMM"
+            >
+              <option value="">-MM-</option>
+              {Months.map((month) => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
+            <select
+              id="expDateYY"
+              value={ccInfo.expDateYY}
+              onChange={handleCCInfoChange}
+              name="expDateYY"
+            >
+              <option value="">-YY-</option>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* 
           <input
             label="Exp Date"
             id="expDate"
@@ -219,7 +259,9 @@ export default function CheckoutPayment() {
           />
           <label className="test" htmlFor="expDate">
             Exp<span className="required-asterisk">*</span>
-          </label>
+          </label> */}
+
+          {!allowSubmit && <p className="info">* = required</p>}
         </div>
       </form>
 
@@ -228,7 +270,11 @@ export default function CheckoutPayment() {
           <button className="dot-nav">Back</button>
         </Link>
         <Link to="/checkout/confirm">
-          <button className="dot-nav" onClick={handleSubmit}>
+          <button
+            className="dot-nav"
+            disabled={!allowSubmit}
+            onClick={handleSubmit}
+          >
             Next
           </button>
         </Link>
