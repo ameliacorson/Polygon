@@ -29,8 +29,20 @@ nav ul {
 nav ul li a {
   font-size: 3em;
   color: #404040;
+  font-family: "Bebas Neue", cursive;
   text-decoration: none;
   margin-top: 1em;
+  position: relative;
+}
+
+nav ul li a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: #ccad59;
+  bottom: 0;
+  left: 0;
 }
 
 nav .nav-item {
@@ -214,6 +226,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #404040;
 }
 
 header .header-container {
@@ -247,6 +260,7 @@ header .CTA-btn {
   font-size: 1em;
   border: none;
   padding: 0.5em 1em;
+  margin-right: .5em;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
@@ -265,6 +279,16 @@ header .scrolled {
   background-image: none;
 }
 
+header h1 {
+  font-family: "Bebas Neue", cursive;
+  color: white;
+  font-size: 8em;
+}
+
+header h1 span {
+  color: #ccad59;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -277,9 +301,18 @@ header .scrolled {
   text-align: left;
 }
 
-.order-container.container h3 {
+.order-container h3 {
   margin: 0;
   border-radius: 7px;
+}
+
+.order-container img.order-img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #404040;
+  background-blend-mode: multiply;
 }
 
 .menu-section {
@@ -493,9 +526,9 @@ header .scrolled {
   color: black;
 }
 
-.render-cart p.subtotal {
+.render-cart p {
   margin: 1em 0 0 0;
-  font-size: calc(1.2rem + .3vw);
+  font-size: calc(.85rem + .3vw);
 }
 
 .cart-item {
@@ -549,7 +582,6 @@ header .scrolled {
 
 .footer {
   min-height: 20vh;
-  padding-bottom: 2em;
   color: #f9f9f9;
   background: #404040;
   background-image: url(../img/bw-restaurant.jpeg);
@@ -604,6 +636,7 @@ header .scrolled {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
 }
 
 .progress-dots::after {
@@ -612,9 +645,9 @@ header .scrolled {
   -webkit-transform: translate(5px, -17px);
           transform: translate(5px, -17px);
   content: "";
-  width: 76%;
+  width: 100%;
   height: 3px;
-  background-color: #9B9999;
+  background-color: #9b9999;
 }
 
 .progress-dots .dot-and-description {
@@ -635,21 +668,279 @@ header .scrolled {
 }
 
 .progress-dots .dot-and-description p {
-  font-size: .75em;
-  color: #9B9999;
+  font-size: 0.75em;
+  color: #9b9999;
   letter-spacing: 1px;
 }
 
 .progress-dots .dot-and-description .progress-dot {
   width: 20px;
   height: 20px;
-  background: #9B9999;
+  background: #9b9999;
   border-radius: 50%;
 }
 
 .progress-dots.chk-cart .dot-cart {
   background-color: #ccad59;
+}
+
+.testHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: green;
+}
+
+.testHeader svg {
+  margin-left: 5px;
+}
+
+.checkout .container .form-group,
+.checkout .container .cc-container {
+  position: relative;
+}
+
+.checkout .container .form-group p.info,
+.checkout .container .cc-container p.info {
+  color: #aa3f3f;
+  font-size: .75rem;
+}
+
+.checkout .container .form-group p.info.cc-info,
+.checkout .container .cc-container p.info.cc-info {
+  margin-top: -1em;
+}
+
+.checkout .container .form-group .card-data,
+.checkout .container .cc-container .card-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.checkout .container .form-group .card-data select,
+.checkout .container .cc-container .card-data select {
   border: none;
+  background: #f9f9f9;
+  color: #9b9999;
+  border-bottom: solid 1px #9b9999;
+  margin: 0 7px;
+  padding-top: 9px;
+}
+
+.checkout .container .form-group .test,
+.checkout .container .cc-container .test {
+  -webkit-transform: translateY(-1.7em);
+          transform: translateY(-1.7em);
+  color: #9b9999;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  text-align: left;
+}
+
+.checkout .container .form-group input,
+.checkout .container .cc-container input {
+  width: 95%;
+  padding: 5px 0;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9b9999;
+  margin-top: 1.2em;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.checkout .container .form-group input:focus-visible,
+.checkout .container .cc-container input:focus-visible {
+  border: none;
+  border-bottom: 1px solid #ccad59;
+  width: 100%;
+  outline: none;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.checkout .container .form-group input:focus + .test,
+.checkout .container .form-group input:not(:placeholder-shown) + .test,
+.checkout .container .cc-container input:focus + .test,
+.checkout .container .cc-container input:not(:placeholder-shown) + .test {
+  -webkit-transform: translateY(-3.5em) scale(0.75);
+          transform: translateY(-3.5em) scale(0.75);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  letter-spacing: 2px;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.checkout .container .form-group input:focus + .test span.required-asterisk,
+.checkout .container .form-group input:not(:placeholder-shown) + .test span.required-asterisk,
+.checkout .container .cc-container input:focus + .test span.required-asterisk,
+.checkout .container .cc-container input:not(:placeholder-shown) + .test span.required-asterisk {
+  opacity: 0%;
+}
+
+.checkout .container .form-group span.required-asterisk,
+.checkout .container .cc-container span.required-asterisk {
+  color: #aa3f3f;
+  opacity: 100%;
+}
+
+.confirmation-delivery-container p {
+  margin: 0;
+}
+
+.confirmation-container h3 {
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 2px;
+  font-size: 1.75rem;
+}
+
+.confirmation-container h4 {
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 1px;
+  margin-top: 1.5em;
+  font-size: 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.confirmation-container .confirm-address {
+  margin: 1em 0 0 1em;
+}
+
+.confirmation-container .confirmation-cart-container {
+  margin: 1em;
+}
+
+.confirmation-container .confirmation-cart-container .checkout-cart-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.confirmation-container .confirmation-cart-container .checkout-cart-item p {
+  margin-bottom: 0;
+  margin-top: .5em;
+}
+
+.confirmation-container .confirmation-cart-container .checkout-cart-item ul {
+  padding-left: .8em;
+}
+
+.confirmation-container .confirmation-cart-container .checkout-cart-item ul li {
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.confirmation-container .confirm-pricing-container {
+  margin: 1em;
+}
+
+.confirmation-container .confirm-pricing-container .pricing-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.confirmation-container .confirm-pricing-container .pricing-item p {
+  margin-bottom: .25em;
+  font-size: 0.85rem;
+}
+
+.confirmation-container .add-tip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-radius: 8px;
+  margin: 1em 0;
+}
+
+.confirmation-container .add-tip button {
+  color: #f9f9f9;
+  margin: 0;
+  width: 33%;
+  border: none;
+  border-right: 2px solid #f9f9f9;
+  text-align: center;
+  padding: 1em;
+  background-color: #404040;
+}
+
+.confirmation-container .add-tip > :first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.confirmation-container .add-tip > :last-child {
+  border: none;
+  border-radius: 0 8px 8px 0;
+}
+
+.confirmation-container img {
+  width: 100%;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 2em;
 }
 
 .accordion {
@@ -729,6 +1020,110 @@ button.CTA-banner-btn {
   font-size: 1.1rem;
   letter-spacing: 2.5px;
   border: none;
+}
+
+.stepIndicator {
+  width: 100%;
+  margin: 2em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stepIndicator hr {
+  width: 400px;
+  background: #161616;
+  height: 2px;
+  border-width: 0;
+  margin: 0 0 3em 0;
+}
+
+.stepIndicator hr:last-of-type {
+  display: none;
+}
+
+.btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2em;
+}
+
+.btn-container button {
+  background: #ccad59;
+  border: none;
+  padding: 10px 25px;
+}
+
+div.dot-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 65px;
+}
+
+div.dot-label a {
+  width: 20px;
+  height: 20px;
+  background: #9b9999;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+div.dot-label p {
+  padding-top: 10px;
+  text-transform: uppercase;
+  color: #9b9999;
+}
+
+.stepIndicator .active {
+  background: #ccad59;
 }
 
 body {

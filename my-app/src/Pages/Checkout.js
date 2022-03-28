@@ -1,49 +1,40 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import PaymentContextProvider from "../Context/paymentProvider";
 
-import RenderCart from "../components/RenderCart";
+import StepIndicator from "../components/StepIndicator";
+
+import CheckoutCart from "../components/CheckoutCart";
+import CheckoutPayment from "../components/CheckoutPayment";
+import CheckoutConfirm from "../components/CheckoutConfirm";
 
 export default function Checkout() {
+  const [ orderSubmitted, setOrderSubmitted ] = React.useState(false)
   document.body.style.overflow = "auto";
-  const [checkoutPage, setCheckoutPage] = React.useState("chk-cart");
-  console.log(checkoutPage);
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  function submitOrder () {
+    setOrderSubmitted(true)
+  }
+
   return (
     <div className="checkout">
       <div className="container">
         <h3 className="accent-header">Checkout</h3>
-        <div className={`progress-dots ${checkoutPage}`}>
-          <div className="dot-and-description">
-            <div className="progress-dot dot-cart"></div>
-            <p>cart</p>
-          </div>
-          <div className="dot-and-description">
-            <div className="progress-dot dot-payment"></div>
-            <p>payment</p>
-          </div>
-          <div className="dot-and-description">
-            <div className="progress-dot dot-confirm"></div>
-            <p>confirm</p>
-          </div>
-        </div>
-        <div className="checkout-content">
-          {checkoutPage === "chk-cart" && (
-            <div className="checkout-cart">
-              <h4> Confirm your Cart</h4>
-              <RenderCart />
-              <div className="button-container"> 
-              <button className="checkout-button" onClick={() => setCheckoutPage("chk-payment")}>
-                Next
-              </button>
-              </div>
-            </div>
-          )}
-          {checkoutPage === "payment" && (
-            <div>
-              <form></form>
-            </div>
-          )}
-        </div>
-        <div className="checkout-payment"></div>
-        <div></div>
+
+        {!orderSubmitted && <StepIndicator />}
+        <PaymentContextProvider>
+        <Routes>
+          <Route path="cart" element={<CheckoutCart />} />
+          <Route path="payment" element={<CheckoutPayment 
+          />} />
+          <Route path="confirm" element={<CheckoutConfirm submitOrder={submitOrder} orderSubmitted={orderSubmitted}/>} />
+        </Routes>
+        </PaymentContextProvider>
+
         <div className="subtotal-sidebar"></div>
       </div>
     </div>

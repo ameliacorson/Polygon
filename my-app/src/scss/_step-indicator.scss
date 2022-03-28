@@ -1,0 +1,62 @@
+.stepIndicator {
+    width: 100%;
+    margin: 2em 0;
+    display: flex;
+    align-items: center;
+   
+  }
+  
+  .stepIndicator hr {
+    width: 400px;
+    background: #161616;
+    height: 2px;
+    border-width: 0;
+    margin: 0 0 3em 0;
+  }
+  
+  .stepIndicator hr:last-of-type {
+    display: none;
+  }
+
+  .btn-container {
+      @include flex (row);
+      justify-content: space-between;
+      margin-top: 2em;
+
+      button {
+          background: $accent-color;
+          border: none;
+          padding: 10px 25px;
+      }
+
+  }
+
+  div.dot-label {
+    @include flex(column);
+    min-width: 65px;
+
+    a{
+        width: 20px;
+        height: 20px;
+        background: $light-grey;
+        border-radius: 50px;
+        @include flex (column);
+        cursor: default;
+        user-select: none;
+        position: relative;
+        @include transition-ease
+
+        
+    }
+
+    p{
+        padding-top: 10px;
+        text-transform: uppercase;
+        color: $light-grey;
+    }
+  }
+  
+  .stepIndicator .active {
+    background: $accent-color;
+
+  }

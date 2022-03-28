@@ -20,7 +20,7 @@ export default function Cart(props) {
         
         </div>
         {cartItems.length > 0 && (
-            <Link onClick={props.closeMenu} to="/checkout"><button className="checkout-btn modal-button">Go to checkout</button></Link>
+            <Link onClick={props.closeMenu} to="/checkout/cart"><button className="checkout-btn modal-button">Go to checkout</button></Link>
           )}
       </div>
     </div>
