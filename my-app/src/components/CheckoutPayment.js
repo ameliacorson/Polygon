@@ -225,7 +225,7 @@ export default function CheckoutPayment() {
               onChange={handleCCInfoChange}
               name="expDateMM"
             >
-              <option value="">-MM-</option>
+              <option value="">MM</option>
               {Months.map((month) => (
                 <option key={month} value={month}>
                   {month}
@@ -238,7 +238,7 @@ export default function CheckoutPayment() {
               onChange={handleCCInfoChange}
               name="expDateYY"
             >
-              <option value="">-YY-</option>
+              <option value="">YY</option>
               {years.map((year) => (
                 <option key={year} value={year}>
                   {year}
