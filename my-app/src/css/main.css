@@ -227,6 +227,7 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #404040;
+  max-height: 100px;
 }
 
 header .header-container {
@@ -248,10 +249,12 @@ header .header-container {
           justify-content: space-between;
   padding: .5em .75em;
   background: #404040;
+  width: 100%;
 }
 
 header img.logo-img {
-  width: 60%;
+  max-width: 60%;
+  max-height: 80px;
 }
 
 header .CTA-btn {
@@ -259,7 +262,7 @@ header .CTA-btn {
   color: #404040;
   font-size: calc(1rem + .3vw);
   border: none;
-  padding: calc(0.5em + .4vw) calc(1em + .3vw);
+  padding: .5em 1em;
   margin-right: .5em;
   text-transform: uppercase;
   font-weight: 700;
@@ -273,20 +276,6 @@ header .CTA-btn:hover {
   background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
-}
-
-header .scrolled {
-  background-image: none;
-}
-
-header h1 {
-  font-family: "Bebas Neue", cursive;
-  color: white;
-  font-size: 8em;
-}
-
-header h1 span {
-  color: #ccad59;
 }
 
 * {

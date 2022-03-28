@@ -1,16 +1,20 @@
 header {
   @include flex(column);
   background-color: $dark-accent;
+  max-height: 100px;
+
   .header-container {
     @include flex(row);
     justify-content: space-between;
     padding: .5em .75em;
     background: $dark-accent;
+    width: 100%
 
   }
 
   img.logo-img {
-    width: 60%;
+    max-width: 60%;
+    max-height: 80px;
   }
 
   .CTA-btn {
@@ -18,7 +22,7 @@ header {
     color: $dark-accent;
     font-size: calc(1rem + .3vw);
     border: none;
-    padding: calc(0.5em + .4vw) calc(1em + .3vw);
+    padding: .5em 1em;
     margin-right: .5em;
     text-transform: uppercase;
     font-weight: 700;
@@ -30,20 +34,6 @@ header {
       background: $background-color;
       @include transition-ease;
     }
-  }
-
-  .scrolled {
-    background-image: none;
-  }
-
-  h1 {
-    font-family: $font-family-logo;
-    color: white;
-    
-    font-size: 8em;
-    span {
-      color: $accent-color;
-    } 
   }
 
 }
