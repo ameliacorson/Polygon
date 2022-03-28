@@ -35,5 +35,10 @@ header {
       @include transition-ease;
     }
   }
+}
 
+@media (min-width: 650px) {
+  .CTA-btn {
+    display:none;
+  }
 }

@@ -22,7 +22,7 @@ nav {
 }
 
 nav ul {
-  margin: 1.5em 0 0 1.5em;
+  margin: 5em 0 0 1.5em;
   list-style-type: none;
 }
 
@@ -203,6 +203,77 @@ nav.open {
   transition: all 500ms ease;
 }
 
+@media (min-width: 650px) {
+  nav {
+    width: 30%;
+    right: 0;
+    left: 100%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  nav ul.nav-list {
+    margin-top: 10em;
+    margin-right: 2em;
+    text-align: right;
+  }
+  nav.open {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  .menu {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+  }
+  .menu button.nav-toggle {
+    top: 12px;
+    right: 25px;
+    background: transparent;
+  }
+  .menu button.nav-toggle.open {
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+    position: fixed;
+  }
+  .menu button.nav-toggle.open .hamburger {
+    -webkit-transform: translate(3px, 3px);
+            transform: translate(3px, 3px);
+  }
+  .menu button.nav-toggle.open .hamburger:before {
+    -webkit-transform: rotate(45deg) translate(3px, 7px);
+            transform: rotate(45deg) translate(3px, 7px);
+    background: #f9f9f9;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+  }
+  .menu button.nav-toggle.open .hamburger:after {
+    -webkit-transform: rotate(135deg) translate(-4px, 9px);
+            transform: rotate(135deg) translate(-4px, 9px);
+    background: #f9f9f9;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+  }
+  .menu button.nav-toggle .hamburger {
+    width: 37px;
+    height: 4px;
+  }
+  .menu button.nav-toggle .hamburger::before {
+    width: 33px;
+    height: 4px;
+    left: 2px;
+    top: -9px;
+  }
+  .menu button.nav-toggle .hamburger::after {
+    width: 33px;
+    height: 4px;
+    left: 2px;
+    top: 9px;
+  }
+}
+
 .home img.d-block.w-100 {
   width: 100%;
   max-width: 800px;
@@ -276,6 +347,12 @@ header .CTA-btn:hover {
   background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+}
+
+@media (min-width: 650px) {
+  .CTA-btn {
+    display: none;
+  }
 }
 
 * {
