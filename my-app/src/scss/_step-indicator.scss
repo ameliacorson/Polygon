@@ -17,17 +17,7 @@
   display: none;
 }
 
-.btn-container {
-  @include flex(row);
-  justify-content: space-between;
-  margin-top: 2em;
 
-  button {
-    background: $accent-color;
-    border: none;
-    padding: 10px 25px;
-  }
-}
 
 .progress-dots {
   padding: 1.5em 0;
@@ -96,4 +86,19 @@ div.dot-label {
 
 .stepIndicator .active {
   background: $accent-color;
+}
+
+.btn-container {
+  @include flex(row);
+  justify-content: space-between;
+  margin-top: 2em;
+
+  button {
+    background: $accent-color;
+    border: none;
+    padding: 10px 25px;
+    font-family: $font-family-logo;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
 }
