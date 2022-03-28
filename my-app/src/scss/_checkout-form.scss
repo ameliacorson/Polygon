@@ -1,0 +1,76 @@
+.checkout .container {
+    .form-group,
+    .cc-container {
+      position: relative;
+  
+      p.info {
+        color: rgb(170, 63, 63);
+        font-size: .75rem;
+  
+        &.cc-info {
+          margin-top: -1em;
+        }
+      }
+  
+      .card-data {
+        @include flex(row);
+        justify-content: left;
+        
+        select {
+          border: none;
+          background: $background-color;
+          
+          color: $light-grey;
+          border-bottom: solid 1px $light-grey;
+          margin: 0 7px;
+          padding-top: 9px;
+          // width: 50px;
+        }
+      }
+  
+      .label-float {
+        transform: translateY(-1.7em);
+        color: #9b9999;
+        @include transition-ease;
+        text-align: left;
+      }
+  
+      input {
+        width: 95%;
+        padding: 5px 0;
+        position: relative;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #9b9999;
+        margin-top: 1.2em;
+        @include transition-ease;
+  
+        &:focus-visible {
+          border: none;
+          border-bottom: 1px solid $accent-color;
+          width: 100%;
+          outline: none;
+          @include transition-ease;
+        }
+  
+        &:focus + .label-float,
+        &:not(:placeholder-shown) + .label-float {
+          transform: translateY(-3.5em) scale(0.75);
+          transform-origin: left;
+          letter-spacing: 2px;
+          @include transition-ease;
+  
+          span.required-asterisk {
+            opacity: 0%;
+          }
+        }
+      }
+  
+      span.required-asterisk {
+        color: rgb(170, 63, 63);
+        opacity: 100%;
+      }
+  
+  
+    }
+  }

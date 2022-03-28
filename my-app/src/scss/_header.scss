@@ -16,9 +16,9 @@ header {
   .CTA-btn {
     background-color: $accent-color;
     color: $dark-accent;
-    font-size: 1em;
+    font-size: calc(1rem + .3vw);
     border: none;
-    padding: 0.5em 1em;
+    padding: calc(0.5em + .4vw) calc(1em + .3vw);
     margin-right: .5em;
     text-transform: uppercase;
     font-weight: 700;

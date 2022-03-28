@@ -2,23 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function StepIndicator() {
-  // const steps = [
-  //   {
-  //     path: "/checkout/cart",
-  //     name: "Cart",
-  //     key: 1,
-  //   },
-  //   {
-  //     path: "/checkout/payment",
-  //     name: "Payment",
-  //     key: 2,
-  //   },
-  //   {
-  //     path: "/checkout/confirm",
-  //     name: "Confirm",
-  //     key: 3,
-  //   },
-  // ];
 
   function handleStop(e) {
     e.preventDefault();
