@@ -57,7 +57,7 @@
   }
 
   &:hover {
-    background: lighten($background-color, 10%);
+    background: lighten($accent-color, 30%);
     @include transition-ease;
     cursor: pointer;
   }
