@@ -159,6 +159,7 @@ nav {
 @media (min-width: 650px) {
   nav {
     width: 30%;
+    min-width: 300px;
     right: 0;
     left: 100%;
     transform: translateX(0);

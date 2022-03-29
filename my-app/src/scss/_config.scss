@@ -42,7 +42,7 @@ $font-family-body: 'Poppins', sans-serif;
 @mixin modal-container {
   position: relative;
   width: 85%;
-  height: 70vh;
+  max-height: 70vh;
   max-width: 500px;
   overflow-y: auto;
   border-radius: $br;
