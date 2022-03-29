@@ -38,6 +38,13 @@ header {
 }
 
 @media (min-width: 650px) {
+
+  header {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+
+  }
   .CTA-btn {
     display:none;
   }

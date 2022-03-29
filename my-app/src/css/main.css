@@ -220,6 +220,7 @@ nav.open {
   nav.open {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
+    z-index: 50;
   }
   .menu {
     width: 50px;
@@ -231,8 +232,9 @@ nav.open {
   }
   .menu button.nav-toggle {
     top: 12px;
-    right: 25px;
+    right: 7%;
     background: transparent;
+    position: fixed;
   }
   .menu button.nav-toggle.open {
     -webkit-transform: translateY(25px);
@@ -260,18 +262,21 @@ nav.open {
   .menu button.nav-toggle .hamburger {
     width: 37px;
     height: 4px;
+    position: absolute;
   }
   .menu button.nav-toggle .hamburger::before {
     width: 33px;
     height: 4px;
     left: 2px;
     top: -9px;
+    position: absolute;
   }
   .menu button.nav-toggle .hamburger::after {
     width: 33px;
     height: 4px;
     left: 2px;
     top: 9px;
+    position: absolute;
   }
 }
 
@@ -351,6 +356,12 @@ header .CTA-btn:hover {
 }
 
 @media (min-width: 650px) {
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 5;
+    top: 0;
+  }
   .CTA-btn {
     display: none;
   }
@@ -604,7 +615,7 @@ header .CTA-btn:hover {
 
 .render-cart p {
   margin: 1em 0 0 0;
-  font-size: calc(.85rem + .3vw);
+  font-size: calc(0.85rem + 0.3vw);
 }
 
 .cart-item {
@@ -625,7 +636,7 @@ header .CTA-btn:hover {
 }
 
 .cart-item h4 {
-  font-size: calc(1.2rem + .3vw);
+  font-size: calc(1.2rem + 0.3vw);
 }
 
 .cart-item p.price {
@@ -634,13 +645,15 @@ header .CTA-btn:hover {
 
 .cart-button {
   position: fixed;
-  right: 15px;
-  bottom: 75px;
-  width: 70px;
-  height: 70px;
+  bottom: 7rem;
+  right: 10%;
+  width: 80px;
+  height: 80px;
   background: #ccad59;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 40;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -654,6 +667,31 @@ header .CTA-btn:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+.cart-button:hover {
+  background-color: #d8c080;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+span.badge {
+  margin-left: -5px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 650px) {
+  .cart-button {
+    top: 20px;
+    right: calc(18% - 1.75vw);
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .footer {
@@ -1001,6 +1039,7 @@ header .CTA-btn:hover {
   color: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  z-index: 0;
 }
 
 .accordion-button:not(.collapsed) {
@@ -1009,6 +1048,7 @@ header .CTA-btn:hover {
           box-shadow: none;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  z-index: 3;
 }
 
 .accordion-button {

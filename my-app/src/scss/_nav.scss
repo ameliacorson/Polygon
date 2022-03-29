@@ -172,6 +172,7 @@ nav {
 
     &.open {
       transform: translateX(-100%);
+      z-index: 50;
     }
   }
 
@@ -185,8 +186,9 @@ nav {
 
       button.nav-toggle {
         top: 12px;
-        right: 25px;
+        right: 7%;
         background: transparent;
+        position: fixed;
 
         &.open {
           transform: translateY(25px);
@@ -212,12 +214,16 @@ nav {
         .hamburger {
           width: 37px;
           height: 4px;
+          position: absolute;
+         
 
           &::before {
             width: 33px;
             height: 4px;
             left: 2px;
             top: -9px;
+            position: absolute;
+            
           }
 
           &::after {
@@ -225,6 +231,8 @@ nav {
             height: 4px;
             left: 2px;
             top: 9px;
+            position: absolute;
+            
           }
         }
       }
