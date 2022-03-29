@@ -7,10 +7,14 @@ export default function CheckoutCart() {
 
   const {cartItems} = useCart()
 
+  function closeCart(){
+    console.log("")
+  }
+
   return (
     <div>
       {cartItems.length ? <>
-      <RenderCart />
+      <RenderCart closeCart={closeCart}/>
       <div className="btn-container">
         <Link to="/checkout/payment"><button className="dot-nav">Next</button></Link>
       </div>

@@ -21,7 +21,6 @@ body {
   line-height: 1.5;
   overflow:auto;
 
-
 }
 
 .container {
@@ -52,6 +51,10 @@ h3.accent-header {
   letter-spacing: 1px;
 }
 
+a {
+  color: $accent-color;
+  
+}
 
 .modal-button{
   width: 100%;

@@ -691,6 +691,10 @@ header .CTA-btn:hover {
   border: none;
 }
 
+.checkout .container {
+  min-height: 70vh;
+}
+
 .testHeader {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1235,6 +1239,10 @@ h3.accent-header {
   margin: none;
   font-size: 2.5em;
   letter-spacing: 1px;
+}
+
+a {
+  color: #ccad59;
 }
 
 .modal-button {
