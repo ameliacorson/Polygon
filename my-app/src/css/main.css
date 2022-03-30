@@ -595,19 +595,27 @@ header .CTA-btn:hover {
   max-height: 80vh;
   background: white;
   color: black;
-  overflow-y: auto;
 }
 
 .cart-container-content {
   padding: 1.5em;
 }
 
-.cart .cart-item {
+.render-cart .clear-cart-btn {
+  background-color: transparent;
+  border: none;
+  color: #9b9999;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+
+.render-cart .cart-item {
   padding: 2em 1em;
   border-bottom: 1px solid grey;
 }
 
-.cart .cart-item-header {
+.render-cart .cart-item-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -619,21 +627,12 @@ header .CTA-btn:hover {
           align-items: center;
 }
 
-.cart .cart-item h4 {
+.render-cart .cart-item h4 {
   font-size: calc(1.2rem + 0.3vw);
 }
 
-.cart .cart-item p.price {
+.render-cart .cart-item p.price {
   margin: 0;
-}
-
-.render-cart .clear-cart-btn {
-  background-color: transparent;
-  border: none;
-  color: #9b9999;
-  cursor: pointer;
-  letter-spacing: 1px;
-  text-decoration: underline;
 }
 
 .render-cart .clear-cart-btn:hover {
@@ -953,8 +952,29 @@ header .CTA-btn:hover {
   }
 }
 
+.confirmation-delivery-container h5 {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 1px;
+}
+
 .confirmation-delivery-container p {
   margin: 0;
+  margin-left: .5em;
+}
+
+.item-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.confirm-flex-row {
+  border-bottom: 1px solid #9b9999;
 }
 
 .confirmation-container h3 {
@@ -967,7 +987,7 @@ header .CTA-btn:hover {
   font-family: "Bebas Neue", cursive;
   letter-spacing: 1px;
   margin-top: 1.5em;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -977,40 +997,24 @@ header .CTA-btn:hover {
 }
 
 .confirmation-container .confirmation-cart-container,
-.confirmation-container .confirm-address,
-.confirmation-container .confirm-pricing-container {
+.confirmation-container .confirm-container,
+.confirmation-container .confirm-pricing-container,
+.confirmation-container .confirm-order-cart,
+.confirmation-container .confirmation-delivery-container {
   margin: 1em;
 }
 
-.confirmation-container .confirmation-cart-container .checkout-cart-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.confirmation-container .confirm-order-cart h4 {
+  margin-bottom: 1em;
 }
 
-.confirmation-container .confirmation-cart-container .checkout-cart-item p {
+.confirmation-container .confirm-order-cart .checkout-cart-item p {
   margin-bottom: 0;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
-.confirmation-container .confirmation-cart-container .checkout-cart-item ul {
-  padding-left: .8em;
-}
-
-.confirmation-container .confirmation-cart-container .checkout-cart-item ul li {
+.confirmation-container .confirm-order-cart .checkout-cart-item ul {
+  padding-left: 0.8em;
   list-style: none;
   font-size: 0.85rem;
 }
@@ -1035,7 +1039,7 @@ header .CTA-btn:hover {
 }
 
 .confirmation-container .confirm-pricing-container .pricing-item p {
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
   font-size: 0.85rem;
 }
 
@@ -1098,6 +1102,30 @@ header .CTA-btn:hover {
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 2em;
+}
+
+@media (min-width: 650px) {
+  .confirmation-flex {
+    margin-top: 2em;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(270px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: .75em;
+  }
+  .confirmation-flex .confirm-flex-row {
+    border: 1px solid #9b9999;
+    padding: 1em;
+    border-radius: 8px;
+    width: 100%;
+    margin: 0;
+  }
+  .confirmation-flex .confirm-flex-row h4 {
+    margin: 0;
+  }
+  .confirmation-flex p {
+    font-size: 0.9rem;
+  }
 }
 
 .accordion {
@@ -1370,6 +1398,7 @@ body::-webkit-scrollbar-thumb {
   min-height: 25vh;
   padding: 2em;
   margin: 0 auto;
+  overflow-y: auto;
 }
 
 h2 {
