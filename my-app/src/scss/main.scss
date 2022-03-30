@@ -94,3 +94,9 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
+@media (min-width: 500) {
+  body {
+      margin-top: 150px;
+  }
+}

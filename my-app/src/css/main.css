@@ -211,6 +211,7 @@ nav.open {
     left: 100%;
     -webkit-transform: translateX(0);
             transform: translateX(0);
+    z-index: 50;
   }
   nav ul.nav-list {
     margin-top: 10em;
@@ -220,7 +221,6 @@ nav.open {
   nav.open {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
-    z-index: 50;
   }
   .menu {
     width: 50px;
@@ -287,12 +287,6 @@ nav.open {
   height: 40vh;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-@media (min-width: 500) {
-  .home img.d-block.w-100 {
-    margin-top: 150px;
-  }
 }
 
 header {
@@ -1358,5 +1352,11 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (min-width: 500) {
+  body {
+    margin-top: 150px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

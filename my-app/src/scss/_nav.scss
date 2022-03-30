@@ -163,6 +163,7 @@ nav {
     right: 0;
     left: 100%;
     transform: translateX(0);
+    z-index: 50;
 
     ul.nav-list {
       margin-top: 10em;
@@ -172,7 +173,7 @@ nav {
 
     &.open {
       transform: translateX(-100%);
-      z-index: 50;
+      
     }
   }
 
