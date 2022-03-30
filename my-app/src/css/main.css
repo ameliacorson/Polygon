@@ -289,6 +289,12 @@ nav.open {
      object-fit: cover;
 }
 
+@media (min-width: 500) {
+  .home img.d-block.w-100 {
+    margin-top: 150px;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -406,6 +412,8 @@ header .CTA-btn:hover {
 
 .menu-item {
   border: 0.5px solid #404040;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   padding: 0.7em;
   background: #f9f9f9;
   max-width: 100%;
@@ -643,17 +651,17 @@ header .CTA-btn:hover {
   margin: 0;
 }
 
-.cart-button {
+.cart-button-container {
   position: fixed;
   bottom: 7rem;
   right: 10%;
-  width: 80px;
-  height: 80px;
-  background: #ccad59;
-  border-radius: 50%;
   z-index: 40;
-  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+.cart-button-container .cart-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -667,30 +675,42 @@ header .CTA-btn:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  background: #ccad59;
+  border-radius: 50%;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
-.cart-button:hover {
+.cart-button-container .cart-button:hover {
   background-color: #d8c080;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-span.badge {
-  margin-left: -5px;
-  margin-top: 20px;
+.cart-button-container span.badge {
   -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
           box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 @media (min-width: 650px) {
-  .cart-button {
+  .cart-button-container {
+    height: 70px;
+    width: 70px;
     top: 20px;
-    right: calc(18% - 1.75vw);
+    right: calc(50px + (15% - 4.3vw));
+  }
+  .cart-button-container .cart-button {
     width: 60px;
     height: 60px;
+  }
+  .cart-button-container span.badge {
+    bottom: 14px;
+    right: 7px;
   }
 }
 
