@@ -6,10 +6,8 @@ export default function About() {
     <div>
       <Map />
       <section className="about container">
-        <h2>
-          About <span>Us</span>
-        </h2>
         <div className="about-details">
+          <h2>About Us</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
             impedit cumque, architecto nihil rem omnis veniam, quidem officia at
@@ -17,16 +15,11 @@ export default function About() {
             maxime non dicta sunt placeat.
           </p>
         </div>
-        <h3>Hours</h3>
-        <ul>
-          <li>Monday: 11:30am - 9:30pm</li>
-          <li>Tuesday: 11:30am - 9:30pm</li>
-          <li>Wednesday: 11:30am - 9:30pm</li>
-          <li>Thursday: 11:30am - 9:30pm</li>
-          <li>Friday: 11:30am - 9:30pm</li>
-          <li>Saturday: 11:30am - 9:30pm</li>
-          <li>Sunday: 11:30am - 9:30pm</li>
-        </ul>
+        <div className="about-details">
+          <h2>Hours</h2>
+            <h4>Open Daily</h4>
+            <p className="hours">11:30am - 9:30pm</p>
+        </div>
       </section>
     </div>
   );

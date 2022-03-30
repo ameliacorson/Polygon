@@ -374,9 +374,38 @@ header .CTA-btn:hover {
   padding: 0;
 }
 
-.about {
-  padding: 1em;
+section.about {
+  padding: 2em;
   text-align: left;
+}
+
+section.about h2 {
+  margin-bottom: .5em;
+}
+
+section.about .about-details {
+  margin-top: 2em;
+}
+
+section.about .about-details h4 {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 0;
+}
+
+@media (min-width: 650px) {
+  .about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .about-details {
+    width: 40%;
+    margin-top: 2em;
+  }
 }
 
 .order-container h3 {
