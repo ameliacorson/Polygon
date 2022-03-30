@@ -18,6 +18,24 @@
       @include modal-content;
     }
   }
+
+  .cart-item {
+    padding: 2em 1em;
+    border-bottom: 1px solid grey;
+  
+    &-header {
+      @include unit-header;
+    }
+  
+    h4 {
+      font-size: calc(1.2rem + 0.3vw);
+    }
+  
+    p.price {
+      margin: 0;
+    }
+  }
+  
 }
 
 .render-cart {
@@ -40,22 +58,7 @@
   }
 }
 
-.cart-item {
-  padding: 2em 1em;
-  border-bottom: 1px solid grey;
 
-  &-header {
-    @include unit-header;
-  }
-
-  h4 {
-    font-size: calc(1.2rem + 0.3vw);
-  }
-
-  p.price {
-    margin: 0;
-  }
-}
 
 .cart-button-container {
   position: fixed;

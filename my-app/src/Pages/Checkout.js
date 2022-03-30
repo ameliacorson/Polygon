@@ -10,7 +10,7 @@ import CheckoutConfirm from "../components/CheckoutConfirm";
 
 export default function Checkout() {
   const [ orderSubmitted, setOrderSubmitted ] = React.useState(false)
-  document.body.style.overflow = "auto";
+  // document.body.style.overflow = "auto";
 
   React.useEffect(() => {
     window.scrollTo(0, 0);

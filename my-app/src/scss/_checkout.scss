@@ -1,5 +1,4 @@
 .checkout {
-  overflow: auto;
 
   &-button {
     background: $accent-color;
@@ -11,18 +10,6 @@
 
 .checkout .container {
   min-height: 70vh;
-}
-
-
-
-.testHeader {
-  display: flex;
-  align-items: center;
-  color: green;
-
-  svg {
-    margin-left: 5px;
-  }
 }
 
 

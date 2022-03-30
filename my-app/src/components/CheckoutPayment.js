@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { usePaymentInfo } from "../Context/paymentProvider";
 
+import CartItem from './CartItem';
+import { useCart } from "../Context/cartProvider";
+import { formatUSD } from "../Context/format";
+
 export default function CheckoutPayment() {
   const [allowSubmit, setAllowSubmit] = useState(false);
+  const { cartItems } = useCart()
+
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const cartTotal = cartItems.reduce((acc, curr) => acc + curr.price, 0)
 
   const { addDeliveryAddress, addCCInformation } = usePaymentInfo();
 
@@ -82,6 +90,7 @@ export default function CheckoutPayment() {
 
   return (
     <div>
+      <div className="fullscreen-container">
       <form onSubmit={handleSubmit}>
         <h3>Delivery Info</h3>
         <div className="form-group">
@@ -95,7 +104,7 @@ export default function CheckoutPayment() {
             onChange={handleDeliveryChange}
             required
           />
-          <label className="test" htmlFor="deliveryFullName">
+          <label className="label-float" htmlFor="deliveryFullName">
             Full Name <span className="required-asterisk">*</span>
           </label>
 
@@ -111,7 +120,7 @@ export default function CheckoutPayment() {
             onChange={handleDeliveryChange}
             required
           />
-          <label className="test" htmlFor="deliveryAddress1">
+          <label className="label-float" htmlFor="deliveryAddress1">
             Address 1<span className="required-asterisk">*</span>
           </label>
           <br />
@@ -125,7 +134,7 @@ export default function CheckoutPayment() {
             value={deliveryInfo.address2}
             onChange={handleDeliveryChange}
           />
-          <label className="test" htmlFor="deliveryAddress2">
+          <label className="label-float" htmlFor="deliveryAddress2">
             Address 2
           </label>
           <br />
@@ -140,7 +149,7 @@ export default function CheckoutPayment() {
             onChange={handleDeliveryChange}
             required
           />
-          <label className="test" htmlFor="deliveryCity">
+          <label className="label-float" htmlFor="deliveryCity">
             City<span className="required-asterisk">*</span>
           </label>
           <br />
@@ -156,7 +165,7 @@ export default function CheckoutPayment() {
             onChange={handleDeliveryChange}
             required
           />
-          <label className="test" htmlFor="deliveryState">
+          <label className="label-float" htmlFor="deliveryState">
             State<span className="required-asterisk">*</span>
           </label>
           <br />
@@ -172,7 +181,7 @@ export default function CheckoutPayment() {
             onChange={handleDeliveryChange}
             required
           />
-          <label className="test" htmlFor="deliveryZipCode">
+          <label className="label-float" htmlFor="deliveryZipCode">
             Zip Code<span className="required-asterisk">*</span>
           </label>
         </div>
@@ -195,7 +204,7 @@ export default function CheckoutPayment() {
             maxLength="16"
             placeholder=" "
           />
-          <label className="test" htmlFor="ccNumber">
+          <label className="label-float" htmlFor="ccNumber">
             Credit Card<span className="required-asterisk">*</span>
           </label>
           <p className="info cc-info">
@@ -215,7 +224,7 @@ export default function CheckoutPayment() {
                 onChange={handleCCInfoChange}
                 required
               />
-              <label className="test" htmlFor="ccvNumber">
+              <label className="label-float" htmlFor="ccvNumber">
                 CCV<span className="required-asterisk">*</span>
               </label>
             </div>
@@ -250,6 +259,24 @@ export default function CheckoutPayment() {
           {!allowSubmit && <p className="info">* = required</p>}
         </div>
       </form>
+
+      <aside className="sidebar">
+        <h3> Your Order</h3>
+              {
+                cartItems.map(item => {
+                  return (
+                    <CartItem key={item.id} item={item}/>
+                  )
+                })
+              }
+              <div className="subtotal-container">
+              <p className="subtotal">Subtotal:</p>
+              <p className="subtotal">{formatUSD(cartTotal)}</p>
+              </div>
+                
+      </aside>
+
+      </div>
 
       <div className="btn-container">
         <Link to="/checkout/cart">

@@ -19,7 +19,6 @@ body {
   background: $background-color;
   color: $font-color;
   line-height: 1.5;
-  overflow:auto;
 
   &::-webkit-scrollbar {
     background: $background-color;
@@ -38,7 +37,6 @@ body {
   min-height: 25vh;
   padding: 2em;
   margin: 0 auto;
-  overflow: auto;
 }
 
 h2 {
