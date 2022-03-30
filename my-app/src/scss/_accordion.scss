@@ -3,6 +3,8 @@
   border: none;
   @include transition-ease;
 
+  
+
   &-item {
       border: none;
       box-shadow: none;
@@ -22,12 +24,14 @@
   &-button.collapsed::after {
     color: $background-color;
     @include transition-ease;
+    z-index: 0;
   }
 
   &-button:not(.collapsed) {
     background: $background-color;
     box-shadow: none;
     @include transition-ease;
+    z-index: 3;
   }
 
   &-button {

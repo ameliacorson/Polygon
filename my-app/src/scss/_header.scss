@@ -1,24 +1,28 @@
 header {
   @include flex(column);
   background-color: $dark-accent;
+  max-height: 100px;
+
   .header-container {
     @include flex(row);
     justify-content: space-between;
     padding: .5em .75em;
     background: $dark-accent;
+    width: 100%;
 
   }
 
   img.logo-img {
-    width: 60%;
+    max-width: 60%;
+    max-height: 80px;
   }
 
   .CTA-btn {
     background-color: $accent-color;
     color: $dark-accent;
-    font-size: 1em;
+    font-size: calc(1rem + .3vw);
     border: none;
-    padding: 0.5em 1em;
+    padding: .5em 1em;
     margin-right: .5em;
     text-transform: uppercase;
     font-weight: 700;
@@ -31,19 +35,17 @@ header {
       @include transition-ease;
     }
   }
+}
 
-  .scrolled {
-    background-image: none;
+@media (min-width: 650px) {
+
+  header {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+
   }
-
-  h1 {
-    font-family: $font-family-logo;
-    color: white;
-    
-    font-size: 8em;
-    span {
-      color: $accent-color;
-    } 
+  .CTA-btn {
+    display:none;
   }
-
 }

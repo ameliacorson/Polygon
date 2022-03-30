@@ -8,6 +8,8 @@
 @import "cart";
 @import "footer";
 @import "checkout";
+@import "checkout-form";
+@import "checkout-confirmation";
 @import "accordion";
 @import "home";
 @import "step-indicator";
@@ -17,8 +19,16 @@ body {
   background: $background-color;
   color: $font-color;
   line-height: 1.5;
-  overflow:auto;
 
+  &::-webkit-scrollbar {
+    background: $background-color;
+    border-radius: 0 $br $br 0;
+    width: .4em;
+}
+&::-webkit-scrollbar-thumb {
+    background-color: $accent-color;
+    border-radius: $br;
+}
 
 }
 
@@ -27,7 +37,7 @@ body {
   min-height: 25vh;
   padding: 2em;
   margin: 0 auto;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 h2 {
@@ -50,6 +60,10 @@ h3.accent-header {
   letter-spacing: 1px;
 }
 
+a {
+  color: $accent-color;
+
+}
 
 .modal-button{
   width: 100%;
@@ -78,4 +92,10 @@ h3.accent-header {
 .modal-footer-custom {
   display: flex;
   justify-content: space-between;
+}
+
+@media (min-width: 500) {
+  body {
+      margin-top: 150px;
+  }
 }

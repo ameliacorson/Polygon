@@ -9,6 +9,16 @@
         
         background: white;
         color: black;
+
+        &::-webkit-scrollbar {
+            background: $background-color;
+            border-radius: 0 $br $br 0;
+            width: .4em;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $accent-color;
+            border-radius: $br;
+        }
        
         &-content {
             @include modal-content;

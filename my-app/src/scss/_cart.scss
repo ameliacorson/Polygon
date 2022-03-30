@@ -1,11 +1,11 @@
 .cart {
   @include modal-background;
   @include flex(column);
+  
 
   &-header {
     @include unit-header;
   }
-  
 
   &-container {
     @include modal-container;
@@ -13,67 +13,107 @@
     max-height: 80vh;
     background: white;
     color: black;
-    overflow-y: auto;
 
     &-content {
-      @include modal-content
-    }
-
+      @include modal-content;
     }
   }
+  
+  
+  
+}
 
-  .render-cart {
-
-    .clear-cart-btn {
-      background-color: transparent;
-      border: none;
-      color: #9b9999;
-      cursor: pointer;
-      letter-spacing: 1px;
-      text-decoration: underline;
-    }
-
-    .clear-cart-btn:hover {
-      color: black;
-    }
-
-    p {
-      margin: 1em 0 0 0;
-      font-size: calc(.85rem + .3vw);
-    }
+.render-cart {
+  .clear-cart-btn {
+    background-color: transparent;
+    border: none;
+    color: #9b9999;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-decoration: underline;
   }
 
-
-
-
-.cart-item {
-  padding: 2em 1em;
-  border-bottom: 1px solid grey;
-
+  .cart-item {
+    padding: 2em 1em;
+    border-bottom: 1px solid grey;
+  
     &-header {
-        @include unit-header
+      @include unit-header;
     }
-
+  
     h4 {
-      font-size: calc(1.2rem + .3vw);
+      font-size: calc(1.2rem + 0.3vw);
     }
-
+  
     p.price {
       margin: 0;
     }
+  }
 
+  .clear-cart-btn:hover {
+    color: black;
+  }
+
+  p {
+    margin: 1em 0 0 0;
+    font-size: calc(0.85rem + 0.3vw);
+  }
 }
 
-.cart-button {
+
+
+.cart-button-container {
   position: fixed;
-  right: 15px;
-  bottom: 75px;
-  width: 70px;
-  height: 70px;
-  background: $accent-color;
-  border-radius: 50%;
-  z-index: 1;
+  bottom: 7rem;
+  right: 10%;
 
-  @include flex(row);
+  z-index: 40;
+  
+  
+  @include transition-ease;
+  cursor: pointer;
+
+  .cart-button{
+    @include flex(row);
+    width: 70px;
+    height: 70px;
+    background: $accent-color;
+    border-radius: 50%;
+    box-shadow: $bs;
+    &:hover {
+    background-color: lighten($accent-color, 10%);
+    @include transition-ease;
+  }
+  }
+
+  span.badge {
+    box-shadow: $bs;
+    position: absolute;
+    bottom:0;
+    right: 0;
+
+  }
+
+  
 }
 
+
+
+@media (min-width: 650px) {
+  .cart-button-container {
+    height: 70px;
+    width: 70px;
+    top: 20px;
+    right: calc(50px + (15% - 4.3vw));
+
+    .cart-button {
+      width: 60px;
+      height: 60px;
+    }
+
+    span.badge{
+      bottom: 14px;
+      right: 7px;
+    }
+  }
+}

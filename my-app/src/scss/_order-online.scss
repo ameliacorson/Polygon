@@ -30,6 +30,7 @@
 .menu-item {
   // border-radius: 7px;
   border: .5px solid $dark-accent;
+  box-shadow: $bs;
   padding: 0.7em;
   background: $background-color;
   max-width: 100%;
@@ -57,7 +58,7 @@
   }
 
   &:hover {
-    background: lighten($background-color, 10%);
+    background: lighten($accent-color, 30%);
     @include transition-ease;
     cursor: pointer;
   }
