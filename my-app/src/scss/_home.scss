@@ -1,17 +1,43 @@
+button.CTA-banner-btn {
+  text-decoration: none;
+  background-color: $accent-color;
+  text-align: center;
+  padding: 0.6em 0;
+  width: 100%;
+  color: $dark-accent;
+  font-family: $font-family-body;
+  font-weight: 700;
+  font-size: 1.1rem;
+  // text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border: none;
+}
 
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+  position: relative;
+  transform-style: preserve-3d;
 
-  button.CTA-banner-btn {
-    text-decoration: none;
-    background-color: $accent-color;
-    text-align: center;
-    padding: .6em 0;
-    width: 100%;
-    color: $dark-accent;
-    font-family: $font-family-body;
-    font-weight: 700;
-    font-size: 1.1rem;
-    // text-transform: uppercase;
-    letter-spacing: 2.5px;
-    border: none;
+  .parallax-img {
+    height: 90vh;
+    background-color: $light-grey;
+    background-image: url("../img/hero-thai.png");
+    background-blend-mode: multiply;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateZ(-600px) scale(3);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 5rem;
+      color: $background-color;
+    }
   }
-
+}

@@ -1,18 +1,30 @@
 import React from "react";
 import ImgCarousel from "../components/ImgCarousel";
 
+import bwrestaurant from "../img/bw-restaurant.jpeg";
+
 export default function Home() {
   return (
     <div className="home">
-    <ImgCarousel />
-      <div className="container">
+      <div className="wrapper">
+        <div className="parallax-img">
         <h2> Chicago's Best Thai</h2>
+        </div>
+      </div>
 
+      <div className="container">
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </p>
+        <ImgCarousel />
         <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
         </p>
       </div>
     </div>

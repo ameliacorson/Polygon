@@ -282,9 +282,7 @@ nav.open {
 
 .home img.d-block.w-100 {
   width: 100%;
-  max-width: 800px;
   margin: 0 auto;
-  height: 40vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -327,6 +325,8 @@ header .header-container {
   padding: .5em .75em;
   background: #404040;
   width: 100%;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
 header img.logo-img {
@@ -928,7 +928,7 @@ section.about .about-details h4 {
     margin-bottom: 1em;
     font-size: calc(1.7rem + .6vw);
     color: #ccad59;
-    text-shadow: 1px 1px 2px #cecece;
+    text-shadow: 1px 1px 2px #2d2b2b;
   }
   .checkout .container .fullscreen-container aside.sidebar .subtotal-container {
     margin-top: 1em;
@@ -1228,7 +1228,7 @@ button.CTA-banner-btn {
   text-decoration: none;
   background-color: #ccad59;
   text-align: center;
-  padding: .6em 0;
+  padding: 0.6em 0;
   width: 100%;
   color: #404040;
   font-family: "Poppins", sans-serif;
@@ -1236,6 +1236,44 @@ button.CTA-banner-btn {
   font-size: 1.1rem;
   letter-spacing: 2.5px;
   border: none;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 2px;
+          perspective: 2px;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.wrapper .parallax-img {
+  height: 90vh;
+  background-color: #9b9999;
+  background-image: url("../img/hero-thai.png");
+  background-blend-mode: multiply;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transform: translateZ(-600px) scale(3);
+          transform: translateZ(-600px) scale(3);
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .parallax-img h2 {
+  font-size: 5rem;
+  color: #f9f9f9;
 }
 
 .stepIndicator {
@@ -1434,7 +1472,7 @@ h2 {
   font-family: "Bebas Neue", cursive;
   font-size: 3em;
   color: #ccad59;
-  text-shadow: 1px 1px 2px #cecece;
+  text-shadow: 1px 1px 2px #2d2b2b;
 }
 
 h2 span {
