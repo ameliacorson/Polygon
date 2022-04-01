@@ -17,7 +17,6 @@ button.CTA-banner-btn {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  perspective: 2px;
   position: relative;
   transform-style: preserve-3d;
 
@@ -29,7 +28,6 @@ button.CTA-banner-btn {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transform: translateZ(-600px) scale(3);
     z-index: 1;
     display: flex;
     justify-content: center;
