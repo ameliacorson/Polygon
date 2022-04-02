@@ -1,17 +1,15 @@
 import React from "react";
 import ImgCarousel from "../components/ImgCarousel";
-import { Parallax, Background } from "react-parallax";
+import { Parallax } from "react-parallax";
+import { Link } from "react-router-dom"
 
-import bwrestaurant from "../img/bw-restaurant.jpeg";
 import heroThai from "../img/hero-thai.jpeg";
 
 export default function Home() {
 
-  const styles = {backgroundBlendMode: 'darken'}
-
   return (
     <div className="home">
-      <Parallax blur={{ min: -15, max: 0 }} strength={300} bgImage={heroThai}>
+      <Parallax strength={300} bgImage={heroThai}>
         <div className="hero">
           <h2> Chicago's Best Thai</h2>
           </div>
@@ -24,6 +22,7 @@ export default function Home() {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
+        <Link to="/order"><button className="CTA-btn">order now</button></Link>
         <ImgCarousel />
         <p>
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
