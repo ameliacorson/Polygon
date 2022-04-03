@@ -300,10 +300,18 @@ header img.logo-img {
 
 section.about h2 {
   margin-bottom: .5em;
+  margin-top: 1em;
 }
 
 section.about .about-details {
-  margin-top: 2em;
+  margin-top: 1em;
+  text-align: center;
+}
+
+section.about .about-details h2 {
+  margin-bottom: .25em;
+  font-size: 2em;
+  letter-spacing: 2px;
 }
 
 section.about .about-details h4 {
@@ -312,21 +320,22 @@ section.about .about-details h4 {
   margin: 0;
 }
 
+section.about .about-details p {
+  margin: 0;
+}
+
 section.about .map-container {
   width: 100%;
 }
 
 @media (min-width: 650px) {
-  .about {
+  .about .about-details {
+    margin: 1em;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .about-details {
-    margin: 1em;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
 }
 

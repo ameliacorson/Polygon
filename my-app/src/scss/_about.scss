@@ -4,14 +4,26 @@ section.about{
 
     h2 {
         margin-bottom: .5em;
+        margin-top: 1em;
     }
     
     .about-details {
-        margin-top: 2em;
+        margin-top: 1em;
+        text-align: center;
+
+        h2 {
+            margin-bottom: .25em;
+            font-size: 2em;
+            letter-spacing: 2px;
+        }
 
         h4 {
             font-size: 1.1em;
             font-weight: 700;
+            margin: 0;
+        }
+
+        p{
             margin: 0;
         }
     }
@@ -25,12 +37,14 @@ section.about{
 
 @media (min-width: 650px) {
     .about {
-        display: flex;
-        justify-content: space-between;
-
+      .about-details {
         
-    }
-    .about-details {
         margin: 1em;
+        display: flex;
+        justify-content: space-around;
+
+
     }
+    }
+    
 }
