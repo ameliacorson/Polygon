@@ -2,7 +2,7 @@
 
 section.about {
   width: 100%;
-  padding-bottom:1.5em;
+  
 
   background-color: $dark-accent;
     transform: rotate(-4deg);
@@ -12,6 +12,7 @@ section.about {
 
   .container {
     transform: skewY(4deg);
+    padding-bottom:1.5em;
   }
 
   h2 {
@@ -37,13 +38,15 @@ section.about {
 
     p {
       margin: 0;
+      text-shadow: $ts;
     }
   }
-
-  .map-container {
-    width: 100%;
   }
-}
+
+  .map {
+    width: 100%;
+    margin: 2em 0;
+  }
 
 @media (min-width: 650px) {
   .about {

@@ -5,6 +5,7 @@ import { Parallax } from "react-parallax";
 import { Link } from "react-router-dom";
 import heroThai from "../img/hero-thai.jpeg";
 import Map from "../components/Map";
+import footerBackground from '../img/bw-restaurant.jpeg'
 
 export default function Home() {
   return (
@@ -33,7 +34,9 @@ export default function Home() {
       </div>
       </section>
      
+      
       <section className="about ">
+      <Parallax strength={300} bgImage={footerBackground}>
         <div className="container">
           <h2>About Us</h2>
 
@@ -68,7 +71,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </Parallax>
       </section>
+      
       <section>
       <div className="map-container container">
       <h2>Map</h2>

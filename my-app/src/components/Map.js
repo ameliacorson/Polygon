@@ -24,7 +24,7 @@ export default function Map() {
 
 
 return (
-    <div className="Map">
+    <div className="map">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

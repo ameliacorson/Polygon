@@ -252,7 +252,6 @@ header img.logo-img {
 
 section.about {
   width: 100%;
-  padding-bottom: 1.5em;
   background-color: #1f1f1f;
   -webkit-transform: rotate(-4deg);
           transform: rotate(-4deg);
@@ -264,6 +263,7 @@ section.about {
 section.about .container {
   -webkit-transform: skewY(4deg);
           transform: skewY(4deg);
+  padding-bottom: 1.5em;
 }
 
 section.about h2 {
@@ -290,10 +290,12 @@ section.about .about-details h4 {
 
 section.about .about-details p {
   margin: 0;
+  text-shadow: 1px 1px 2px #2d2b2b;
 }
 
-section.about .map-container {
+.map {
   width: 100%;
+  margin: 2em 0;
 }
 
 @media (min-width: 650px) {
@@ -649,7 +651,7 @@ section.about .map-container {
 }
 
 .footer {
-  color: #f9f9f9;
+  background-color: #1f1f1f;
 }
 
 .footer-container {
