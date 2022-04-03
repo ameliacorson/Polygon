@@ -1,34 +1,24 @@
 .footer {
-  min-height: 20vh;
+  min-height: 15vh;
 
   color: $background-color;
 
-  background: $dark-accent;
-  background-image: url(../img/bw-restaurant.jpeg);
-  background-position: center;
-  background-blend-mode: multiply;
-  background-repeat: none;
+
 
   &-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 
-  }
-
-  &-info {
-    h4 {
-        font-size: 1.7rem;
-        font-family: $font-family-logo;
-        color: $accent-color;
-    }
-
-    p {
-        font-size: .75rem;
-        margin:0;
-    }
-
-    &:nth-child(2) {
-      text-align: right;
+    .footer-info {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      
+      a {
+        margin: 0 1em;
+      }
     }
 
   }
