@@ -5,6 +5,12 @@
   padding: 0;
 }
 
+.nav-container {
+  width: 50px;
+  height: 50px;
+  margin-right: 1em;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -19,7 +25,7 @@ nav {
   overflow: hidden;
   -webkit-transform: translateX(0);
           transform: translateX(0);
-  z-index: 50;
+  z-index: 5;
 }
 
 nav ul {
@@ -70,152 +76,94 @@ nav.open {
   transition: all 500ms ease;
 }
 
-.menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-  z-index: 99;
-}
-
-.menu.open {
-  background: #1f1f1f;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
-
-.menu button.nav-toggle {
-  position: fixed;
-  width: 75px;
-  height: 75px;
-  background: transparent;
+button.nav-toggle {
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
   border-radius: 50%;
-  top: 12px;
-  right: 7%;
   border: none;
-  z-index: 200;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 2000;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-.menu button.nav-toggle.closed .hamburger,
-.menu button.nav-toggle.closed .hamburger::before,
-.menu button.nav-toggle.closed .hamburger::after {
-  background: #ccad59;
-}
-
-.menu button.nav-toggle:hover .hamburger,
-.menu button.nav-toggle:hover .hamburger::before,
-.menu button.nav-toggle:hover .hamburger::after {
-  background: #f9f9f9;
+button.nav-toggle.open {
+  background-color: #ccad59;
+  -webkit-transform: translateY(20px) scale(1.2);
+          transform: translateY(20px) scale(1.2);
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-.menu button.nav-toggle.open {
-  background: #ccad59;
-  -webkit-transform: translateY(25px);
-          transform: translateY(25px);
-  position: fixed;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-  z-index: 1000;
-}
-
-.menu button.nav-toggle.open .hamburger {
+button.nav-toggle.open .hamburger {
   background: transparent;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
-  -webkit-transform: translate(3px, 3px);
-          transform: translate(3px, 3px);
 }
 
-.menu button.nav-toggle.open .hamburger:before {
-  -webkit-transform: rotate(45deg) translate(3px, 7px);
-          transform: rotate(45deg) translate(3px, 7px);
+button.nav-toggle.open .hamburger:before {
+  -webkit-transform: rotate(45deg) translate(8px, 8px);
+          transform: rotate(45deg) translate(8px, 8px);
   background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-.menu button.nav-toggle.open .hamburger:after {
-  -webkit-transform: rotate(135deg) translate(-4px, 9px);
-          transform: rotate(135deg) translate(-4px, 9px);
+button.nav-toggle.open .hamburger:after {
+  -webkit-transform: rotate(135deg) translate(-4px, 5px);
+          transform: rotate(135deg) translate(-4px, 5px);
   background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-.menu button.nav-toggle .hamburger {
-  position: absolute;
-  background: #404040;
+button.nav-toggle .hamburger {
   width: 37px;
   height: 4px;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
+  position: absolute;
+  background: #ccad59;
 }
 
-.menu button.nav-toggle .hamburger::before {
+button.nav-toggle .hamburger::before {
   content: "";
   width: 33px;
   height: 4px;
   left: 2px;
   top: -9px;
   position: absolute;
-  background: #404040;
+  background: #ccad59;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-.menu button.nav-toggle .hamburger::after {
+button.nav-toggle .hamburger::after {
   content: "";
   width: 33px;
   height: 4px;
   left: 2px;
   top: 9px;
   position: absolute;
-  background: #404040;
+  background: #ccad59;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 600px) {
   nav {
-    width: 30%;
-    min-width: 300px;
-  }
-  nav ul {
-    margin: 10em 1.5em 0 0;
+    width: 33%;
+    min-width: 350px;
   }
   nav ul li a {
     font-size: 3em;
@@ -251,6 +199,10 @@ header {
           flex-direction: column;
   background-color: #1f1f1f;
   max-height: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 5;
+  top: 0;
 }
 
 header .header-container {
@@ -270,7 +222,7 @@ header .header-container {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: .5em .75em;
+  padding: .5em 1.75em;
   background: #1f1f1f;
   width: 100%;
   -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
@@ -298,18 +250,34 @@ header img.logo-img {
   padding: 0;
 }
 
+section.about {
+  width: 100%;
+  padding-bottom: 1.5em;
+  background-color: #1f1f1f;
+  -webkit-transform: rotate(-4deg);
+          transform: rotate(-4deg);
+  -webkit-transform: skewY(-4deg);
+          transform: skewY(-4deg);
+  color: #f9f9f9;
+}
+
+section.about .container {
+  -webkit-transform: skewY(4deg);
+          transform: skewY(4deg);
+}
+
 section.about h2 {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   margin-top: 1em;
 }
 
 section.about .about-details {
-  margin-top: 1em;
+  margin: 1em 0;
   text-align: center;
 }
 
 section.about .about-details h2 {
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
   font-size: 2em;
   letter-spacing: 2px;
 }
@@ -1199,7 +1167,7 @@ section.about .map-container {
 }
 
 .home .CTA-container .CTA-btn {
-  width: 75%;
+  width: 60%;
   background-color: #ccad59;
   padding: .75em 0;
   border: none;
@@ -1431,6 +1399,11 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #ccad59;
   border-radius: 8px;
+}
+
+section h2 {
+  font-size: 4rem;
+  letter-spacing: 1px;
 }
 
 .container {

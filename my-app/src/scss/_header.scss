@@ -2,11 +2,14 @@ header {
   @include flex(column);
   background-color: $dark-accent;
   max-height: 100px;
+  position: sticky;
+  z-index: 5;
+  top: 0;
 
   .header-container {
     @include flex(row);
     justify-content: space-between;
-    padding: .5em .75em;
+    padding: .5em 1.75em;
     background: $dark-accent;
     width: 100%;
     box-shadow: $bs;

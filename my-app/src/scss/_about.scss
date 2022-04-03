@@ -1,50 +1,56 @@
 @import "config";
 
-section.about{
+section.about {
+  width: 100%;
+  padding-bottom:1.5em;
+
+  background-color: $dark-accent;
+    transform: rotate(-4deg);
+    transform: skewY(-4deg);
+
+  color: $background-color;
+
+  .container {
+    transform: skewY(4deg);
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+  }
+
+  .about-details {
+    margin: 1em 0;
+    text-align: center;
 
     h2 {
-        margin-bottom: .5em;
-        margin-top: 1em;
-    }
-    
-    .about-details {
-        margin-top: 1em;
-        text-align: center;
-
-        h2 {
-            margin-bottom: .25em;
-            font-size: 2em;
-            letter-spacing: 2px;
-        }
-
-        h4 {
-            font-size: 1.1em;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        p{
-            margin: 0;
-        }
+      margin-bottom: 0.25em;
+      font-size: 2em;
+      letter-spacing: 2px;
     }
 
-    .map-container {
-        width: 100%;
+    h4 {
+      font-size: 1.1em;
+      font-weight: 700;
+      margin: 0;
     }
-   
 
+    p {
+      margin: 0;
+    }
+  }
+
+  .map-container {
+    width: 100%;
+  }
 }
 
 @media (min-width: 650px) {
-    .about {
-      .about-details {
-        
-        margin: 1em;
-        display: flex;
-        justify-content: space-around;
-
-
+  .about {
+    .about-details {
+      margin: 1em;
+      display: flex;
+      justify-content: space-around;
     }
-    }
-    
+  }
 }

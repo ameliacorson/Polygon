@@ -8,7 +8,8 @@ import Map from "../components/Map";
 
 export default function Home() {
   return (
-    <div className="home">
+    <div>
+      <section className="home">
       <Parallax strength={300} bgImage={heroThai}>
         <div className="hero">
           <h2> Chicago's Best Thai</h2>
@@ -22,15 +23,18 @@ export default function Home() {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <div className="CTA-container">
-          <ImgCarousel />
 
+        <div className="CTA-container">
           <Link className="btn-link" to="/order">
             <button className="CTA-btn">order now </button>
           </Link>
+          <ImgCarousel />
         </div>
-
-        <section className="about ">
+      </div>
+      </section>
+     
+      <section className="about ">
+        <div className="container">
           <h2>About Us</h2>
 
           <p>
@@ -39,11 +43,6 @@ export default function Home() {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </p>
-
-          <div className="map-container container">
-            <Map />
-          </div>
-
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
             impedit cumque, architecto nihil rem omnis veniam, quidem officia at
@@ -54,7 +53,7 @@ export default function Home() {
           <div className="about-details">
             <div className="about-details-child">
               <h2>Hours</h2>
-              <h4>Open Daily</h4>
+              <p>Open Daily</p>
               <p className="hours">11:30am - 9:30pm</p>
             </div>
             <div className="about-details-child">
@@ -68,8 +67,14 @@ export default function Home() {
               <p>info@polygon.com</p>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section>
+      <div className="map-container container">
+      <h2>Map</h2>
+            <Map />
+          </div>
+      </section>
     </div>
   );
 }
