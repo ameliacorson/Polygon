@@ -63,7 +63,7 @@ nav .nav-item a:hover {
 }
 
 nav.open {
-  background: #404040;
+  background: #1f1f1f;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: all 500ms ease;
@@ -96,7 +96,7 @@ nav.open {
 }
 
 .menu.open {
-  background: #404040;
+  background: #1f1f1f;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -249,7 +249,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #404040;
+  background-color: #1f1f1f;
   max-height: 100px;
 }
 
@@ -271,7 +271,7 @@ header .header-container {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: .5em .75em;
-  background: #404040;
+  background: #1f1f1f;
   width: 100%;
   -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
           box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
@@ -342,6 +342,7 @@ section.about .map-container {
 .order-container h3 {
   margin: 0;
   border-radius: 7px;
+  font-size: 2.5rem;
 }
 
 .order-container .order-img {
@@ -376,7 +377,7 @@ section.about .map-container {
 }
 
 .menu-item {
-  border: 0.5px solid #404040;
+  border: 0.5px solid #1f1f1f;
   -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
           box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   padding: 0.7em;
@@ -667,6 +668,7 @@ section.about .map-container {
     width: 70px;
     top: 20px;
     right: calc(50px + (15% - 4.3vw));
+    z-index: 5;
   }
   .cart-button-container .cart-button {
     width: 60px;
@@ -679,11 +681,11 @@ section.about .map-container {
 }
 
 .footer {
-  min-height: 15vh;
   color: #f9f9f9;
 }
 
 .footer-container {
+  height: 15vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1046,7 +1048,7 @@ section.about .map-container {
   border-right: 2px solid #f9f9f9;
   text-align: center;
   padding: 1em;
-  background-color: #404040;
+  background-color: #1f1f1f;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -1064,7 +1066,7 @@ section.about .map-container {
 .confirmation-container .add-tip.twentyfive > button:nth-of-type(2),
 .confirmation-container .add-tip.thirty > button:nth-of-type(3) {
   background: #ccad59;
-  color: #404040;
+  color: #1f1f1f;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -1158,7 +1160,7 @@ section.about .map-container {
 }
 
 .accordion-button h3 {
-  color: #404040;
+  color: #1f1f1f;
 }
 
 .accordion-body {
@@ -1433,7 +1435,7 @@ body::-webkit-scrollbar-thumb {
 
 .container {
   max-width: 800px;
-  min-height: 25vh;
+  min-height: 45vh;
   padding: 2.5em;
   margin: 0 auto;
   overflow-y: auto;

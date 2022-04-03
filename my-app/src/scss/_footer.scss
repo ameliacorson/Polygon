@@ -1,11 +1,12 @@
 .footer {
-  min-height: 15vh;
+ 
 
   color: $background-color;
 
 
 
   &-container {
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
