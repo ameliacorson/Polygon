@@ -2,13 +2,17 @@ header {
   @include flex(column);
   background-color: $dark-accent;
   max-height: 100px;
+  position: sticky;
+  z-index: 5;
+  top: 0;
 
   .header-container {
     @include flex(row);
     justify-content: space-between;
-    padding: .5em .75em;
+    padding: .5em 1.75em;
     background: $dark-accent;
     width: 100%;
+    box-shadow: $bs;
 
   }
 
@@ -17,24 +21,7 @@ header {
     max-height: 80px;
   }
 
-  .CTA-btn {
-    background-color: $accent-color;
-    color: $dark-accent;
-    font-size: calc(1rem + .3vw);
-    border: none;
-    padding: .5em 1em;
-    margin-right: .5em;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 2px;
-    font-family: $font-family-logo;
-    @include transition-ease;
-
-    &:hover {
-      background: $background-color;
-      @include transition-ease;
-    }
-  }
+ 
 }
 
 @media (min-width: 650px) {
@@ -44,8 +31,5 @@ header {
     z-index: 5;
     top: 0;
 
-  }
-  .CTA-btn {
-    display:none;
   }
 }

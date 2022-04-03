@@ -4,10 +4,11 @@ import MenuSection from "../components/MenuSection";
 import Popup from "../components/Popup";
 import CartButton from "../components/CartButton";
 import { Accordion } from "react-bootstrap";
+import { Parallax } from "react-parallax"
 
 import { useCart } from "../Context/cartProvider";
 import Cart from "../components/Cart";
-import sushiHeader from "../img/sushiHeader.webp"
+import sushiHeader from "../img/sushiHeader-1.jpeg"
 
 export default function Order() {
   const { appetizers, mains, sides, drinks } = Menu
@@ -40,13 +41,17 @@ export default function Order() {
 
   return (
     <div className="order-container">
-      <img className="order-img" src={sushiHeader} alt="interior restaurant"/>
+      <Parallax strength={300} bgImage={sushiHeader}>
+        <div className="page-img order-img" >
+        <h2 className="order-header"> Order </h2>
+        </div>
+      </Parallax>
       <div className="container">
       {cartItems.length > 0 && <CartButton onClick={() => setCartOpen(true)} />}
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
-      <h2 className="order-header"> Order </h2>
-      <Accordion defaultActiveKey="1" flush alwaysOpen>
+      
+      <Accordion defaultActiveKey="0" flush alwaysOpen>
           <MenuSection onClick={launchPopup} title={"Appetizers"} section={appetizers} index={0}/>
           <MenuSection onClick={launchPopup} title={"Mains"} section={mains} index={1}/>
           <MenuSection onClick={launchPopup} title={"Sides"} section={sides} index={2}/>
