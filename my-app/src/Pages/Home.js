@@ -4,6 +4,7 @@ import { Parallax } from "react-parallax";
 
 import { Link } from "react-router-dom";
 import heroThai from "../img/hero-thai.jpeg";
+import Map from "../components/Map";
 
 export default function Home() {
   return (
@@ -36,6 +37,25 @@ export default function Home() {
           laborum.
         </p>
       </div>
+      <div className="map-container container">
+        <Map />
+      </div>
+      <section className="about container">
+        <div className="about-details">
+          <h2>About Us</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+            impedit cumque, architecto nihil rem omnis veniam, quidem officia at
+            accusamus mollitia voluptate fugiat distinctio, exercitationem
+            maxime non dicta sunt placeat.
+          </p>
+        </div>
+        <div className="about-details">
+          <h2>Hours</h2>
+          <h4>Open Daily</h4>
+          <p className="hours">11:30am - 9:30pm</p>
+        </div>
+      </section>
     </div>
   );
 }

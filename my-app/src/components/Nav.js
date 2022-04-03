@@ -28,12 +28,6 @@ export default function Nav() {
             <Link onClick={toggle} to="/"> Home </Link>
           </li>
           <li className="nav-item">
-            <Link onClick={toggle} to="/about">About</Link>
-          </li>
-          <li className="nav-item">
-            {/* <Link to="/menu">Menu</Link> */}
-          </li>
-          <li className="nav-item">
             <Link onClick={toggle} to="/order">Order Online</Link>
           </li>
         </ul>

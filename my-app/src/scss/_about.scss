@@ -30,9 +30,10 @@ section.about{
     .about {
         display: flex;
         justify-content: space-between;
+
+        
     }
     .about-details {
-        width: 40%;
-        margin-top: 2em;
+        margin: 1em;
     }
 }
