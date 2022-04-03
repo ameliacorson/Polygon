@@ -19,7 +19,7 @@ export default function Map() {
 
       const containerStyle = {
         width: '100%',
-        height: '200px',
+        height: '300px',
       };
 
 

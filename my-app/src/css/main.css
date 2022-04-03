@@ -7,18 +7,19 @@
 
 nav {
   position: fixed;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  top: 0;
-  left: 0;
+  right: 0;
+  left: 100%;
   height: 100%;
-  width: 100%;
+  width: 30%;
+  min-width: 300px;
   background: #555555;
   opacity: 98%;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   overflow: hidden;
-  z-index: 3;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  z-index: 50;
 }
 
 nav ul {
@@ -31,7 +32,9 @@ nav ul li a {
   color: #404040;
   font-family: "Bebas Neue", cursive;
   text-decoration: none;
-  margin-top: 1em;
+  text-align: right;
+  margin-top: 10em;
+  margin-right: 2em;
   position: relative;
 }
 
@@ -63,18 +66,19 @@ nav .nav-item a:hover {
 
 nav.open {
   background: #404040;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background: #555555;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,12 +104,13 @@ nav.open {
 }
 
 .menu button.nav-toggle {
-  position: absolute;
+  position: fixed;
   width: 75px;
   height: 75px;
-  background: #555555;
+  background: transparent;
   border-radius: 50%;
-  bottom: 20px;
+  top: 12px;
+  right: 7%;
   border: none;
   z-index: 200;
   display: -webkit-box;
@@ -141,8 +146,9 @@ nav.open {
 
 .menu button.nav-toggle.open {
   background: #ccad59;
-  -webkit-transform: translateY(-50px);
-          transform: translateY(-50px);
+  -webkit-transform: translateY(25px);
+          transform: translateY(25px);
+  position: fixed;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   z-index: 1000;
@@ -152,132 +158,57 @@ nav.open {
   background: transparent;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  -webkit-transform: translate(3px, 3px);
+          transform: translate(3px, 3px);
 }
 
 .menu button.nav-toggle.open .hamburger:before {
-  -webkit-transform: rotate(45deg) translate(5px, 5px);
-          transform: rotate(45deg) translate(5px, 5px);
+  -webkit-transform: rotate(45deg) translate(3px, 7px);
+          transform: rotate(45deg) translate(3px, 7px);
   background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu button.nav-toggle.open .hamburger:after {
-  -webkit-transform: rotate(135deg) translate(-4px, 5px);
-          transform: rotate(135deg) translate(-4px, 5px);
+  -webkit-transform: rotate(135deg) translate(-4px, 9px);
+          transform: rotate(135deg) translate(-4px, 9px);
   background: #f9f9f9;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu button.nav-toggle .hamburger {
-  position: inherit;
+  position: absolute;
   background: #404040;
-  width: 31px;
-  height: 3px;
+  width: 37px;
+  height: 4px;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu button.nav-toggle .hamburger::before {
   content: "";
-  position: inherit;
-  top: -7px;
-  left: 3px;
+  width: 33px;
+  height: 4px;
+  left: 2px;
+  top: -9px;
+  position: absolute;
   background: #404040;
-  width: 25px;
-  height: 3px;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
 .menu button.nav-toggle .hamburger::after {
   content: "";
-  position: inherit;
-  top: 7px;
-  left: 3px;
+  width: 33px;
+  height: 4px;
+  left: 2px;
+  top: 9px;
+  position: absolute;
   background: #404040;
-  width: 25px;
-  height: 3px;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
-}
-
-@media (min-width: 650px) {
-  nav {
-    width: 30%;
-    min-width: 300px;
-    right: 0;
-    left: 100%;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    z-index: 50;
-  }
-  nav ul.nav-list {
-    margin-top: 10em;
-    margin-right: 2em;
-    text-align: right;
-  }
-  nav.open {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-  }
-  .menu {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-  }
-  .menu button.nav-toggle {
-    top: 12px;
-    right: 7%;
-    background: transparent;
-    position: fixed;
-  }
-  .menu button.nav-toggle.open {
-    -webkit-transform: translateY(25px);
-            transform: translateY(25px);
-    position: fixed;
-  }
-  .menu button.nav-toggle.open .hamburger {
-    -webkit-transform: translate(3px, 3px);
-            transform: translate(3px, 3px);
-  }
-  .menu button.nav-toggle.open .hamburger:before {
-    -webkit-transform: rotate(45deg) translate(3px, 7px);
-            transform: rotate(45deg) translate(3px, 7px);
-    background: #f9f9f9;
-    -webkit-transition: all 500ms ease;
-    transition: all 500ms ease;
-  }
-  .menu button.nav-toggle.open .hamburger:after {
-    -webkit-transform: rotate(135deg) translate(-4px, 9px);
-            transform: rotate(135deg) translate(-4px, 9px);
-    background: #f9f9f9;
-    -webkit-transition: all 500ms ease;
-    transition: all 500ms ease;
-  }
-  .menu button.nav-toggle .hamburger {
-    width: 37px;
-    height: 4px;
-    position: absolute;
-  }
-  .menu button.nav-toggle .hamburger::before {
-    width: 33px;
-    height: 4px;
-    left: 2px;
-    top: -9px;
-    position: absolute;
-  }
-  .menu button.nav-toggle .hamburger::after {
-    width: 33px;
-    height: 4px;
-    left: 2px;
-    top: 9px;
-    position: absolute;
-  }
 }
 
 .home img.d-block.w-100 {
@@ -376,7 +307,7 @@ header .CTA-btn:hover {
 }
 
 section.about {
-  padding: 2em;
+  padding: 0 2em 2em 2em;
   text-align: left;
 }
 
@@ -392,6 +323,10 @@ section.about .about-details h4 {
   font-size: 1.1em;
   font-weight: 700;
   margin: 0;
+}
+
+section.about .map-container {
+  width: 100%;
 }
 
 @media (min-width: 650px) {
@@ -1449,7 +1384,7 @@ body {
 body::-webkit-scrollbar {
   background: #f9f9f9;
   border-radius: 0 8px 8px 0;
-  width: .4em;
+  width: 0.4em;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -1490,7 +1425,7 @@ a {
 
 .modal-button {
   width: 100%;
-  padding: .5em 0;
+  padding: 0.5em 0;
   border: none;
   font-family: "Bebas Neue", cursive;
   font-size: 1.75em;
@@ -1510,7 +1445,7 @@ a {
 }
 
 .modal-button:disabled {
-  background-color: #9B9999;
+  background-color: #9b9999;
 }
 
 .modal-footer-custom {
@@ -1526,5 +1461,10 @@ a {
   body {
     margin-top: 150px;
   }
+}
+
+.page-img {
+  width: 100%;
+  height: 300px;
 }
 /*# sourceMappingURL=main.css.map */

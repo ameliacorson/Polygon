@@ -2,7 +2,7 @@
 
 section.about{
 
-    padding: 2em;
+    padding: 0 2em 2em 2em ;
     text-align: left;
 
     h2 {
@@ -17,6 +17,10 @@ section.about{
             font-weight: 700;
             margin: 0;
         }
+    }
+
+    .map-container {
+        width: 100%;
     }
    
 

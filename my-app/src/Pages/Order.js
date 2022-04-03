@@ -8,7 +8,7 @@ import { Parallax } from "react-parallax"
 
 import { useCart } from "../Context/cartProvider";
 import Cart from "../components/Cart";
-import sushiHeader from "../img/sushiHeader.webp"
+import sushiHeader from "../img/sushiHeader-1.jpeg"
 
 export default function Order() {
   const { appetizers, mains, sides, drinks } = Menu
@@ -42,7 +42,7 @@ export default function Order() {
   return (
     <div className="order-container">
       <Parallax strength={300} bgImage={sushiHeader}>
-        <div className="order-img" >
+        <div className="page-img order-img" >
         <h2 className="order-header"> Order </h2>
         </div>
       </Parallax>

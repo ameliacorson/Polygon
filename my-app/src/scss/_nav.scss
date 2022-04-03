@@ -1,15 +1,16 @@
 nav {
   position: fixed;
-  transform: translateY(100%);
-  top: 0;
-  left: 0;
+  right: 0;
+  left: 100%;
   height: 100%;
-  width: 100%;
+  width: 30%;
+  min-width: 300px;
   background: $menu-color;
   opacity: 98%;
   @include transition-ease;
   overflow: hidden;
-  z-index: 3;
+  transform: translateX(0);
+  z-index: 50;
 
   & ul {
     margin: 5em 0 0 1.5em;
@@ -20,7 +21,9 @@ nav {
       color: $font-color;
       font-family: $font-family-logo;
       text-decoration: none;
-      margin-top: 1em;
+      text-align: right;
+      margin-top: 10em;
+      margin-right: 2em;
       position: relative;
 
       &:after {
@@ -51,17 +54,18 @@ nav {
 
   &.open {
     background: $dark-accent;
-    transform: translateY(0);
+    transform: translateX(-100%);
     @include transition-ease;
   }
 }
 
 .menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background: $menu-color;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
   @include flex(column);
   @include transition-ease;
   z-index: 99;
@@ -72,12 +76,13 @@ nav {
   }
 
   button.nav-toggle {
-    position: absolute;
+    position: fixed;
     width: 75px;
     height: 75px;
-    background: $menu-color;
+    background: transparent;
     border-radius: 50%;
-    bottom: 20px;
+    top: 12px;
+    right: 7%;
     border: none;
     z-index: 200;
     @include flex(column);
@@ -102,140 +107,62 @@ nav {
 
     &.open {
       background: $accent-color;
-      transform: translateY(-50px);
+      transform: translateY(25px);
+      position: fixed;
       @include transition-ease;
       z-index: 1000;
 
       .hamburger {
         background: transparent;
         @include transition-ease;
+        transform: translate(3px, 3px);
+
 
         &:before {
-          transform: rotate(45deg) translate(5px, 5px);
+          transform: rotate(45deg) translate(3px, 7px);
           background: $background-color;
           @include transition-ease;
         }
 
         &:after {
-          transform: rotate(135deg) translate(-4px, 5px);
-          background: $background-color;
-          @include transition-ease;
+          transform: rotate(135deg) translate(-4px, 9px);
+            background: $background-color;
+            @include transition-ease;
         }
       }
     }
 
     .hamburger {
-      position: inherit;
+      position: absolute;
       background: $font-color;
-      width: 31px;
-      height: 3px;
+      width: 37px;
+      height: 4px;
       @include transition-ease;
 
       &::before {
         content: "";
-        position: inherit;
-        top: -7px;
-        left: 3px;
+        width: 33px;
+        height: 4px;
+        left: 2px;
+        top: -9px;
+        position: absolute;
+       
         background: $font-color;
-        width: 25px;
-        height: 3px;
         @include transition-ease;
       }
 
       &::after {
         content: "";
-        position: inherit;
-        top: 7px;
-        left: 3px;
+        width: 33px;
+        height: 4px;
+        left: 2px;
+        top: 9px;
+        position: absolute;
         background: $font-color;
-        width: 25px;
-        height: 3px;
         @include transition-ease;
       }
     }
   }
 }
 
-@media (min-width: 650px) {
-  nav {
-    width: 30%;
-    min-width: 300px;
-    right: 0;
-    left: 100%;
-    transform: translateX(0);
-    z-index: 50;
-
-    ul.nav-list {
-      margin-top: 10em;
-      margin-right: 2em;
-      text-align: right;
-    }
-
-    &.open {
-      transform: translateX(-100%);
-      
-    }
-  }
-
-    .menu {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: transparent;
-
-      button.nav-toggle {
-        top: 12px;
-        right: 7%;
-        background: transparent;
-        position: fixed;
-
-        &.open {
-          transform: translateY(25px);
-          position: fixed;
-
-          .hamburger {
-            transform: translate(3px, 3px);
-
-            &:before {
-              transform: rotate(45deg) translate(3px, 7px);
-              background: $background-color;
-              @include transition-ease;
-            }
-    
-            &:after {
-              transform: rotate(135deg) translate(-4px, 9px);
-              background: $background-color;
-              @include transition-ease;
-            }
-          }
-        }
-
-        .hamburger {
-          width: 37px;
-          height: 4px;
-          position: absolute;
-         
-
-          &::before {
-            width: 33px;
-            height: 4px;
-            left: 2px;
-            top: -9px;
-            position: absolute;
-            
-          }
-
-          &::after {
-            width: 33px;
-            height: 4px;
-            left: 2px;
-            top: 9px;
-            position: absolute;
-            
-          }
-        }
-      }
-    }
-}
+// @media (min-width: 650px) 

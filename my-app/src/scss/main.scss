@@ -23,13 +23,12 @@ body {
   &::-webkit-scrollbar {
     background: $background-color;
     border-radius: 0 $br $br 0;
-    width: .4em;
-}
-&::-webkit-scrollbar-thumb {
+    width: 0.4em;
+  }
+  &::-webkit-scrollbar-thumb {
     background-color: $accent-color;
     border-radius: $br;
-}
-
+  }
 }
 
 .container {
@@ -47,9 +46,8 @@ h2 {
   text-shadow: $ts;
 
   span {
-      color: $accent-color
+    color: $accent-color;
   }
-
 }
 
 h3.accent-header {
@@ -62,12 +60,11 @@ h3.accent-header {
 
 a {
   color: $accent-color;
-
 }
 
-.modal-button{
+.modal-button {
   width: 100%;
-  padding: .5em 0;
+  padding: 0.5em 0;
   border: none;
   font-family: $font-family-logo;
   font-size: 1.75em;
@@ -84,9 +81,8 @@ a {
   }
 
   &:disabled {
-    background-color: #9B9999;
+    background-color: #9b9999;
   }
-
 }
 
 .modal-footer-custom {
@@ -96,6 +92,11 @@ a {
 
 @media (min-width: 500) {
   body {
-      margin-top: 150px;
+    margin-top: 150px;
   }
+}
+
+.page-img {
+  width: 100%;
+  height: 300px;
 }
