@@ -51,7 +51,7 @@ export default function Order() {
       {popupItem && <Popup item={popupItem} closePopup={() => closePopup()} />}
       {cartOpen && <Cart closeMenu={() => setCartOpen(false)} />}
       
-      <Accordion defaultActiveKey="1" flush alwaysOpen>
+      <Accordion defaultActiveKey="0" flush alwaysOpen>
           <MenuSection onClick={launchPopup} title={"Appetizers"} section={appetizers} index={0}/>
           <MenuSection onClick={launchPopup} title={"Mains"} section={mains} index={1}/>
           <MenuSection onClick={launchPopup} title={"Sides"} section={sides} index={2}/>
