@@ -1,23 +1,43 @@
 .home {
 
-  .CTA-btn {
-    background-color: $accent-color;
-    color: $dark-accent;
-    font-size: calc(1.5rem + .3vw);
-    border: none;
-    margin: 1em auto;
-    width: 40%;
-    height: 3em;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 2px;
-    font-family: $font-family-logo;
-    @include transition-ease;
-  
-    &:hover {
-      background: lighten($accent-color, 10%);
+  .CTA-container {
+    // position: relative;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   .btn-link {
+     margin: 1.5em;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     text-decoration: none;
+   }
+    
+    .CTA-btn {
+      width: 75%;
+      background-color: $accent-color;
+      padding: .75em 0;
+      border: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      font-family: $font-family-logo;
       @include transition-ease;
-    }
+      box-shadow: $bs;
+      
+    
+      &:hover {
+        background: lighten($accent-color, 10%);
+        @include transition-ease;
+      }
+
+  }
+
+  
   }
   
   .hero {
@@ -36,6 +56,14 @@
     }
   }
 
+}
+
+@media (min-width: 500px) {
+  .home {
+    .CTA-btn {
+      width: 40%;
+    }
+  }
 }
 
 

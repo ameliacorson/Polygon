@@ -167,5 +167,12 @@ nav {
   nav {
     width: 30%;
     min-width: 300px;
+
+    & ul {
+      margin: 10em 1.5em 0 0;
+  
+      & li a {
+        font-size: 3em;
   }
 }
+}}

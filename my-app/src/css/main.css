@@ -214,6 +214,17 @@ nav.open {
     width: 30%;
     min-width: 300px;
   }
+  nav ul {
+    margin: 10em 1.5em 0 0;
+  }
+  nav ul li a {
+    font-size: 3em;
+  }
+}
+
+.carousel {
+  width: 100%;
+  margin: 2em 0;
 }
 
 .home img.d-block.w-100 {
@@ -1152,23 +1163,52 @@ section.about .map-container {
           box-shadow: none;
 }
 
-.home .CTA-btn {
+.home .CTA-container {
+  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .CTA-container .btn-link {
+  margin: 1.5em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+}
+
+.home .CTA-container .CTA-btn {
+  width: 75%;
   background-color: #ccad59;
-  color: #404040;
-  font-size: calc(1.5rem + .3vw);
+  padding: .75em 0;
   border: none;
-  margin: 1em auto;
-  width: 40%;
-  height: 3em;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
   font-family: "Bebas Neue", cursive;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
-.home .CTA-btn:hover {
+.home .CTA-container .CTA-btn:hover {
   background: #d8c080;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -1195,6 +1235,12 @@ section.about .map-container {
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
   font-weight: 400;
   padding: .5em;
+}
+
+@media (min-width: 500px) {
+  .home .CTA-btn {
+    width: 40%;
+  }
 }
 
 .stepIndicator {
