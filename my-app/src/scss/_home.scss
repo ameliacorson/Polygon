@@ -1,29 +1,42 @@
-button.CTA-btn {
-  text-decoration: none;
-  background-color: $accent-color;
-  text-align: center;
-  padding: 0.6em 0;
-  width: 100%;
-  color: $dark-accent;
-  font-family: $font-family-body;
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 2.5px;
-  border: none;
+.home {
+
+  .CTA-btn {
+    background-color: $accent-color;
+    color: $dark-accent;
+    font-size: calc(1.5rem + .3vw);
+    border: none;
+    margin: 1em auto;
+    width: 40%;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: $font-family-logo;
+    @include transition-ease;
+  
+    &:hover {
+      background: lighten($accent-color, 10%);
+      @include transition-ease;
+    }
+  }
+  
+  .hero {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      margin: 0;
+      font-size: calc(4rem + 3vw);
+      color: $background-color;
+      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      font-weight: 400;
+      padding: .5em;
+    }
+  }
+
 }
 
-.hero {
-  height: 90vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h2 {
-    margin: 0;
-    font-size: calc(4rem + 3vw);
-    color: $background-color;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    font-weight: 400;
-    padding: .5em;
-  }
-}
+
+
