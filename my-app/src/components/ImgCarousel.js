@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
 
 import { Carousel } from "react-bootstrap";
 import sushiImg from "../img/sushi platter.jpeg";
-import riceImg from "../img/rice.jpeg"
-import sushiRollImg from "../img/sushi-roll-img.jpeg"
-import friedRiceImg from "../img/fried-rice-img.jpeg"
-import sushiPlate from "../img/sushiPlate.jpeg"
+import riceImg from "../img/rice.jpeg";
+import sushiRollImg from "../img/sushi-roll-img.jpeg";
+import friedRiceImg from "../img/fried-rice-img.jpeg";
+import sushiPlate from "../img/sushiPlate.jpeg";
+
+
 
 export default function ImgCarousel() {
-
   const images = [
     {
       img: sushiImg,
@@ -34,27 +35,21 @@ export default function ImgCarousel() {
       img: sushiPlate,
       name: "Sushi with octopus",
       key: 5,
-    }
-  ]
+    },
+  ];
 
   return (
-<Carousel fade>
-        
-      {images.map(image => {
+    <Carousel fade>
+      {images.map((image) => {
         return (
-        <Carousel.Item key={image.key}>
-          <img
-            className="d-block w-100"
-            src={image.img}
-            alt={image.name}
-          />
-        </Carousel.Item>)
+          <Carousel.Item key={image.key}>
+            <img className="d-block w-100" src={image.img} alt={image.name} />
+          </Carousel.Item>
+        );
       })}
-        
-  </Carousel>
-        
-        
-        /* <Carousel.Item>
+    </Carousel>
+
+    /* <Carousel.Item>
           <img
             className="d-block w-100"
             src={riceImg}
@@ -82,7 +77,5 @@ export default function ImgCarousel() {
             alt="First slide"
           />
     </Carousel.Item>*/
-
-  )
+  );
 }
-

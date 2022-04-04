@@ -1,34 +1,59 @@
 @import "config";
 
-section.about{
+section.about {
+  width: 100%;
+  
 
-    padding: 2em;
-    text-align: left;
+  background-color: $dark-accent;
+    transform: rotate(-4deg);
+    transform: skewY(-4deg);
+
+  color: $background-color;
+
+  .container {
+    transform: skewY(4deg);
+    padding-bottom:1.5em;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+  }
+
+  .about-details {
+    margin: 1em 0;
+    text-align: center;
 
     h2 {
-        margin-bottom: .5em;
+      margin-bottom: 0.25em;
+      font-size: 2em;
+      letter-spacing: 2px;
     }
-    
-    .about-details {
-        margin-top: 2em;
 
-        h4 {
-            font-size: 1.1em;
-            font-weight: 700;
-            margin: 0;
-        }
+    h4 {
+      font-size: 1.1em;
+      font-weight: 700;
+      margin: 0;
     }
-   
 
-}
+    p {
+      margin: 0;
+      text-shadow: $ts;
+    }
+  }
+  }
+
+  .map {
+    width: 100%;
+    margin: 2em 0;
+  }
 
 @media (min-width: 650px) {
-    .about {
-        display: flex;
-        justify-content: space-between;
-    }
+  .about {
     .about-details {
-        width: 40%;
-        margin-top: 2em;
+      margin: 1em;
+      display: flex;
+      justify-content: space-around;
     }
+  }
 }

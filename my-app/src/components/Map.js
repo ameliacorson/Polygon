@@ -19,12 +19,12 @@ export default function Map() {
 
       const containerStyle = {
         width: '100%',
-        height: '200px',
+        height: '300px',
       };
 
 
 return (
-    <div className="Map">
+    <div className="map">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
