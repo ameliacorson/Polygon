@@ -13,11 +13,12 @@ export default function Home() {
       <section className="home">
       <Parallax strength={300} bgImage={heroThai}>
         <div className="hero">
-          <h2> Chicago's Best Thai</h2>
+          <h1> Chicago's Best Thai</h1>
         </div>
       </Parallax>
       <div className="container">
-        <h2>Welcome to Polygon Cafe</h2>
+        <h2 >Welcome to Polygon Cafe</h2>
+      
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -26,10 +27,12 @@ export default function Home() {
         </p>
 
         <div className="CTA-container">
+          
+          <ImgCarousel />
+          
           <Link className="btn-link" to="/order">
             <button className="CTA-btn">order now </button>
           </Link>
-          <ImgCarousel />
         </div>
       </div>
       </section>

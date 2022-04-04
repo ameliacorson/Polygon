@@ -1,5 +1,25 @@
 .home {
 
+
+  
+  .hero {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: $font-family-logo;
+      margin: 0;
+      font-size: calc(5rem + 5vw);
+      color: $background-color;
+      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      font-weight: 400;
+      padding: .5em;
+      text-align: center;
+    }
+  }
+
   .CTA-container {
     // position: relative;
 
@@ -36,30 +56,17 @@
       }
 
   }
-
-  
-  }
-  
-  .hero {
-    height: 90vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-      margin: 0;
-      font-size: calc(4rem + 3vw);
-      color: $background-color;
-      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-      font-weight: 400;
-      padding: .5em;
-    }
   }
 
 }
 
-@media (min-width: 500px) {
+@media (min-width: 650px) {
   .home {
+    .hero {
+      h2 {
+        font-size: calc(6rem + 3vw)
+      }
+    }
     .CTA-btn {
       width: 40%;
     }

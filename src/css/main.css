@@ -1140,6 +1140,31 @@ section.about .about-details p {
           box-shadow: none;
 }
 
+.home .hero {
+  height: 90vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .hero h1 {
+  font-family: "Bebas Neue", cursive;
+  margin: 0;
+  font-size: calc(5rem + 5vw);
+  color: #f9f9f9;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  padding: .5em;
+  text-align: center;
+}
+
 .home .CTA-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1190,30 +1215,10 @@ section.about .about-details p {
   transition: all 500ms ease;
 }
 
-.home .hero {
-  height: 90vh;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.home .hero h2 {
-  margin: 0;
-  font-size: calc(4rem + 3vw);
-  color: #f9f9f9;
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-  font-weight: 400;
-  padding: .5em;
-}
-
-@media (min-width: 500px) {
+@media (min-width: 650px) {
+  .home .hero h2 {
+    font-size: calc(6rem + 3vw);
+  }
   .home .CTA-btn {
     width: 40%;
   }
@@ -1422,7 +1427,7 @@ button {
 
 h2 {
   font-family: "Bebas Neue", cursive;
-  font-size: 3em;
+  font-size: 4em;
   color: #ccad59;
   text-shadow: 1px 1px 2px #2d2b2b;
 }
@@ -1487,4 +1492,3 @@ a {
   width: 100%;
   height: 300px;
 }
-/*# sourceMappingURL=main.css.map */
