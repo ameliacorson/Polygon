@@ -866,7 +866,7 @@ section.about .about-details p {
     -ms-grid-rows: (auto)[2];
     -ms-grid-columns: (auto)[2];
         grid-template: repeat(2, auto)/repeat(2, auto);
-        grid-template-areas: "h4 p" "desc desc";
+        grid-template-areas: "h4 p" "desc desc";
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
@@ -1406,6 +1406,10 @@ body::-webkit-scrollbar-thumb {
 section h2 {
   font-size: 4rem;
   letter-spacing: 1px;
+}
+
+button {
+  color: #1f1f1f;
 }
 
 .container {
