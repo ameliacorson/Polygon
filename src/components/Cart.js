@@ -9,8 +9,8 @@ export default function Cart(props) {
   const { cartItems } = useCart();
 
   return (
-    <div className="cart popup">
-      <div className="cart-container">
+    <div className="cart popup" onClick={props.closeCart}>
+      <div className="cart-container" onClick={(e)=> e.stopPropagation()}>
         <div className="cart-container-content">
           <div className="cart-header">
             <h3 className="accent-header">Your Cart</h3>
