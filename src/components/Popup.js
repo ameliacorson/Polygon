@@ -82,8 +82,8 @@ function Popup(props) {
   }
 
   return (
-    <div className="popup">
-      <div className="popup-container">
+    <div className="popup" onClick={props.closePopup}>
+      <div className="popup-container " onClick={(e)=> e.stopPropagation()} >
         <div className="popup-container-content">
           <div className="popup-container-header">
             <h2> {props.item.name} </h2>
