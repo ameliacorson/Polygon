@@ -866,7 +866,6 @@ section.about .about-details p {
     -ms-grid-rows: (auto)[2];
     -ms-grid-columns: (auto)[2];
         grid-template: repeat(2, auto)/repeat(2, auto);
-        grid-template-areas: "h4 p" "desc desc";
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;

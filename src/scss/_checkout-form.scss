@@ -137,9 +137,6 @@
           padding: none;
           display: grid;
           grid-template: repeat(2, auto) / repeat(2, auto);
-          grid-template-areas: 
-            "h4 p"
-            "desc desc";
          align-items: baseline;
          border-bottom: .75px solid $light-grey;
 
