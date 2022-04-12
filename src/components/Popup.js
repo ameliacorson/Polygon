@@ -73,16 +73,17 @@ function Popup(props) {
     addItemToCart({
       ...formData,
       price:
-        formData.price +
+        (formData.price +
         (formData.choice === "Beef (+$2.00)" ? 2 : 0) +
         (formData.rice === "Steamed Rice (+$1.50)" ? 1.5 : 0) +
-        (formData.rice === "Brown Rice (+$2.00)" ? 2 : 0),
+        (formData.rice === "Brown Rice (+$2.00)" ? 2 : 0))
+        *formData.quantity
     });
   }
 
   return (
-    <div className="popup">
-      <div className="popup-container">
+    <div className="popup" onClick={props.closePopup}>
+      <div className="popup-container " onClick={(e)=> e.stopPropagation()} >
         <div className="popup-container-content">
           <div className="popup-container-header">
             <h2> {props.item.name} </h2>

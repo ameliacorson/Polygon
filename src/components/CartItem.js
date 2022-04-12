@@ -8,7 +8,7 @@ export default function CartItem({ item, handleRemove }) {
         return (
           <div className="cart-item">
             <div className="cart-item-header">
-              <h4>{item.name}</h4>
+              <h4><span>{item.quantity}</span> {item.name}</h4>
               <FaTrashAlt onClick={() => handleRemove(item.id)} />
             </div>
             
