@@ -7,6 +7,8 @@ import { useCart } from "../Context/cartProvider";
 function CartButton(props) {
   const { cartItems } = useCart()
 
+  const cartQuantity = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
+
   return (
     <div className="cart-button-container" >
     <div className="cart-button" onClick={props.onClick}>
@@ -14,7 +16,7 @@ function CartButton(props) {
     </div>
     {cartItems.length > 0 && (
         <Badge pill bg="light" text="dark">
-          {cartItems.length}
+          {cartQuantity}
         </Badge>
       )}
     </div>
