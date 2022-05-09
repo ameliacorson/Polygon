@@ -9,6 +9,12 @@ I started this project because I wanted learn more advanced skills in React whil
 
 <img src="src/img/Screenshots/Hero1.PNG" width="400px">
 
+<img src="src/img/Screenshots/Menu.PNG" width="400px">
+
+<img src="src/img/Screenshots/Cart.PNG" width="400px">
+
+<img src="src/img/Screenshots/Checkout.PNG" width="400px">
+
 ## Tech Stack
 
 - React for creating reusable components, React Router for dynamic routing, and React Context for state management.
