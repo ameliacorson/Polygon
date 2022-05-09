@@ -1,5 +1,5 @@
 
-# Polygon Cafe: A Shopping Cart App and Restaurant Site
+# Polygon Cafe: A Shopping Cart App and Restaurant Site - [Live Site][liveSite]
 
 This is a website I made on spec for Polygon Cafe, a Chicago Northside Thai and Sushi restaurant. It features the Google Maps API as well as a shopping cart app and mock checkout functionality with React Forms.
 
@@ -29,3 +29,5 @@ I started this project because I wanted learn more advanced skills in React whil
 - Responsive for various screen sizes
 - Google Maps API
 
+
+[liveSite]: https://youthful-meninsky-8736bf.netlify.app/
